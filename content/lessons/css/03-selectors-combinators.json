@@ -1,0 +1,53 @@
+{
+  "id": "css/selectors-combinators",
+  "track": "css",
+  "unit": "Selectors",
+  "order": 3,
+  "title": "Combinators: >, +, ~, space",
+  "description": "How to reach descendants, direct children, and siblings.",
+  "xp": 12,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "What does 'nav a' select?",
+      "options": [
+        "Only <a> that is a direct child of <nav>",
+        "Any <a> descendant of <nav>",
+        "<nav> followed by <a>",
+        "The <nav> element only"
+      ],
+      "answer": 1,
+      "explanation": "A space is the descendant combinator: any <a> inside <nav> at any depth."
+    },
+    {
+      "type": "mcq",
+      "prompt": "What does 'ul > li' select?",
+      "options": [
+        "Every <li> descendant of <ul>",
+        "Only <li> that is a direct child of <ul>",
+        "The <ul> and its <li>",
+        "The first <li> only"
+      ],
+      "answer": 1,
+      "explanation": "> is the child combinator — direct children only."
+    },
+    {
+      "type": "predict",
+      "prompt": "Which <p> becomes red?",
+      "language": "css",
+      "code": "h2 + p { color: red; }\n\n<h2>A</h2>\n<p>First</p>\n<p>Second</p>",
+      "options": ["First", "Second", "Both", "Neither"],
+      "answer": 0,
+      "explanation": "+ is the next-sibling combinator: only the <p> immediately after <h2>."
+    },
+    {
+      "type": "predict",
+      "prompt": "Which paragraphs become red?",
+      "language": "css",
+      "code": "h2 ~ p { color: red; }\n\n<h2>A</h2>\n<p>First</p>\n<p>Second</p>",
+      "options": ["First", "Second", "Both", "Neither"],
+      "answer": 2,
+      "explanation": "~ is the general-sibling combinator: every <p> that follows the <h2>."
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "id": "css/selectors-attributes",
+  "track": "css",
+  "unit": "Selectors",
+  "order": 4,
+  "title": "Attribute selectors",
+  "description": "Match elements by attribute value.",
+  "xp": 12,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "Which selector matches all disabled inputs?",
+      "options": ["input.disabled", "input[disabled]", "input#disabled", "input=disabled"],
+      "answer": 1,
+      "explanation": "Attribute selectors use square brackets."
+    },
+    {
+      "type": "mcq",
+      "prompt": "What does a[href^=\"https\"] match?",
+      "options": [
+        "Any link containing 'https'",
+        "Only the link href=\"https\"",
+        "Any link whose href starts with 'https'",
+        "Any link whose href ends with 'https'"
+      ],
+      "answer": 2,
+      "explanation": "^= means 'starts with'."
+    },
+    {
+      "type": "predict",
+      "prompt": "Which input turns yellow?",
+      "language": "css",
+      "code": "input[type=\"email\"] { background: yellow; }\n\n<input type=\"text\">\n<input type=\"email\">\n<input type=\"password\">",
+      "options": ["Text", "Email", "Password", "All of them"],
+      "answer": 1,
+      "explanation": "The attribute selector matches only inputs whose type equals \"email\"."
+    },
+    {
+      "type": "fix-bug",
+      "prompt": "Make any link ending in '.pdf' show in green.",
+      "language": "css",
+      "broken": "/* fix this selector so it targets links whose href ends with .pdf */\na[href=\".pdf\"] { color: green; }",
+      "mustInclude": ["a[href$=\".pdf\"]", "green"],
+      "hint": "The operator '$=' means 'ends with'.",
+      "explanation": "a[href$=\".pdf\"] matches any href ending in .pdf."
+    }
+  ]
+}

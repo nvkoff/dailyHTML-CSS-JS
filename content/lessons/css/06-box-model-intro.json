@@ -1,0 +1,39 @@
+{
+  "id": "css/box-model-intro",
+  "track": "css",
+  "unit": "Box model",
+  "order": 6,
+  "title": "The box model",
+  "description": "Every element is a box: content, padding, border, margin.",
+  "xp": 10,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "Which layer sits OUTSIDE the border?",
+      "options": ["padding", "content", "margin", "outline"],
+      "answer": 2,
+      "explanation": "Order from inside out: content, padding, border, margin."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Padding does what?",
+      "options": [
+        "Space between elements",
+        "Space between content and border",
+        "The line drawn around an element",
+        "Space between margin and viewport"
+      ],
+      "answer": 1,
+      "explanation": "Padding is the inner spacing, inside the border."
+    },
+    {
+      "type": "predict",
+      "prompt": "With the default box-sizing, how WIDE (in pixels) does this <div> render?",
+      "language": "css",
+      "code": ".box {\n  width: 200px;\n  padding: 20px;\n  border: 5px solid black;\n}\n\n<div class=\"box\">hi</div>",
+      "options": ["200", "220", "230", "250"],
+      "answer": 3,
+      "explanation": "content-box: width = 200 + padding (2×20) + border (2×5) = 250px."
+    }
+  ]
+}

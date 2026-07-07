@@ -1,0 +1,39 @@
+{
+  "id": "css/flex-container",
+  "track": "css",
+  "unit": "Flexbox",
+  "order": 11,
+  "title": "The flex container",
+  "description": "display: flex flips the layout mode.",
+  "xp": 10,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "You add `display: flex` to a parent. What happens to its children?",
+      "options": [
+        "They become flex items and lay out in a row by default",
+        "They disappear",
+        "They become block elements",
+        "They inherit width: 100%"
+      ],
+      "answer": 0,
+      "explanation": "Children of a flex container become flex items, arranged in a row by default."
+    },
+    {
+      "type": "mcq",
+      "prompt": "The default direction for a flex container is:",
+      "options": ["column", "row", "row-reverse", "column-reverse"],
+      "answer": 1,
+      "explanation": "flex-direction defaults to row."
+    },
+    {
+      "type": "fix-bug",
+      "prompt": "Make .row a flex container.",
+      "language": "css",
+      "broken": ".row {\n  /* need to turn this into a flex container */\n  gap: 8px;\n}",
+      "mustInclude": ["display", "flex"],
+      "hint": "display: flex;",
+      "explanation": "display: flex turns .row into a flex container so gap works."
+    }
+  ]
+}

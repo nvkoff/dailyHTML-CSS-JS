@@ -1,0 +1,43 @@
+{
+  "id": "css/selectors-pseudo",
+  "track": "css",
+  "unit": "Selectors",
+  "order": 5,
+  "title": "Pseudo-classes and pseudo-elements",
+  "description": "State-based selectors and generated content.",
+  "xp": 14,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "Which pseudo-class matches an element that the user hovers over?",
+      "options": [":focus", ":active", ":hover", ":visited"],
+      "answer": 2,
+      "explanation": ":hover activates while the pointer is over the element."
+    },
+    {
+      "type": "predict",
+      "prompt": "What color is the FIRST <li>?",
+      "language": "css",
+      "code": "li { color: black; }\nli:first-child { color: red; }\nli:last-child { color: blue; }\n\n<ul><li>one</li><li>two</li><li>three</li></ul>",
+      "options": ["black", "red", "blue", "green"],
+      "answer": 1,
+      "explanation": ":first-child overrides li because it's more specific and also last-in-source for that element."
+    },
+    {
+      "type": "mcq",
+      "prompt": "How many colons for a pseudo-ELEMENT like ::before?",
+      "options": ["One (:)", "Two (::)", "Either works", "None"],
+      "answer": 1,
+      "explanation": "Modern syntax: pseudo-classes use one colon, pseudo-elements use two."
+    },
+    {
+      "type": "fix-bug",
+      "prompt": "Add a little '★' before every <li>. Use ::before.",
+      "language": "css",
+      "broken": "/* add content before each li */\nli { padding-left: 4px; }",
+      "mustInclude": ["li::before", "content:", "★"],
+      "hint": "li::before { content: \"★ \"; } — the content property is required.",
+      "explanation": "::before generates a pseudo-element; content is required for it to render."
+    }
+  ]
+}

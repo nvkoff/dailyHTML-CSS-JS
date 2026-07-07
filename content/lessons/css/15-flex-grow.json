@@ -1,0 +1,53 @@
+{
+  "id": "css/flex-grow",
+  "track": "css",
+  "unit": "Flexbox",
+  "order": 15,
+  "title": "flex-grow, shrink, and basis",
+  "description": "How items share leftover space.",
+  "xp": 14,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "flex-grow: 1 on an item means:",
+      "options": [
+        "The item is exactly 1px wide",
+        "The item takes 1× of the leftover space compared to peers",
+        "The item can shrink but not grow",
+        "The item wraps to a new line"
+      ],
+      "answer": 1,
+      "explanation": "flex-grow is a ratio: 1 vs 2 gives one item 1/3, the other 2/3 of leftover."
+    },
+    {
+      "type": "predict",
+      "prompt": "Two flex items with `flex-grow: 1` and `flex-grow: 2` respectively. If leftover space is 300px, how much does the second item gain?",
+      "language": "css",
+      "code": ".row > .a { flex-grow: 1; }\n.row > .b { flex-grow: 2; }",
+      "options": ["100px", "150px", "200px", "300px"],
+      "answer": 2,
+      "explanation": "Ratio is 1:2. The 300px is split 100 : 200. So .b gets 200px."
+    },
+    {
+      "type": "mcq",
+      "prompt": "`flex: 1;` shorthand expands to:",
+      "options": [
+        "grow=1, shrink=1, basis=0%",
+        "grow=1, shrink=0, basis=auto",
+        "grow=0, shrink=1, basis=auto",
+        "grow=1, shrink=1, basis=auto"
+      ],
+      "answer": 0,
+      "explanation": "`flex: 1` = `1 1 0%`. Common pattern for equal-width flexible columns."
+    },
+    {
+      "type": "fix-bug",
+      "prompt": "Make the sidebar fixed at 200px and the main column fill the rest.",
+      "language": "css",
+      "broken": ".layout { display: flex; }\n.sidebar { /* 200px, no grow */ }\n.main { /* take the rest */ }",
+      "mustInclude": ["flex", "200px", "1"],
+      "hint": "sidebar { flex: 0 0 200px; } main { flex: 1; }",
+      "explanation": "`0 0 200px` locks basis; `flex: 1` fills leftover."
+    }
+  ]
+}

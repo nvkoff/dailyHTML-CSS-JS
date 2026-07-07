@@ -1,0 +1,36 @@
+{
+  "id": "css/border-radius",
+  "track": "css",
+  "unit": "Box model",
+  "order": 9,
+  "title": "Borders & radius",
+  "description": "Give edges shape.",
+  "xp": 10,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "Which value gives a perfect circle to a square element?",
+      "options": ["border-radius: 10px", "border-radius: 50%", "border-radius: 100px", "border-radius: 0"],
+      "answer": 1,
+      "explanation": "50% clips to a circle regardless of the box's pixel size — as long as width == height."
+    },
+    {
+      "type": "predict",
+      "prompt": "Which corner gets rounded?",
+      "language": "css",
+      "code": ".box {\n  border-top-left-radius: 20px;\n}",
+      "options": ["top-left", "top-right", "all four", "none"],
+      "answer": 0,
+      "explanation": "The individual corner property rounds only that corner."
+    },
+    {
+      "type": "fix-bug",
+      "prompt": "Give ONLY the top-left AND bottom-right corners a 12px radius. Use the shorthand.",
+      "language": "css",
+      "broken": ".card {\n  border-radius: 12px;\n}",
+      "mustInclude": ["border-radius", "12px", "0"],
+      "hint": "border-radius: TL TR BR BL — like margin, going clockwise from top-left.",
+      "explanation": "border-radius: 12px 0 12px 0 rounds only two opposite corners."
+    }
+  ]
+}

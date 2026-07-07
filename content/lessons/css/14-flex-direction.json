@@ -1,0 +1,41 @@
+{
+  "id": "css/flex-direction",
+  "track": "css",
+  "unit": "Flexbox",
+  "order": 14,
+  "title": "flex-direction",
+  "description": "Rotate the main axis.",
+  "xp": 12,
+  "questions": [
+    {
+      "type": "predict",
+      "prompt": "In flex-direction: column, which property centers items HORIZONTALLY?",
+      "language": "css",
+      "code": ".col {\n  display: flex;\n  flex-direction: column;\n  /* which property? */\n}",
+      "options": ["justify-content", "align-items", "text-align", "align-content"],
+      "answer": 1,
+      "explanation": "In column, the cross-axis is horizontal — so align-items handles horizontal alignment."
+    },
+    {
+      "type": "mcq",
+      "prompt": "flex-direction: row-reverse does what?",
+      "options": [
+        "Wraps items to the next row",
+        "Reverses items on the main axis: right → left in LTR",
+        "Rotates each item 180°",
+        "Reverses the source order in the DOM"
+      ],
+      "answer": 1,
+      "explanation": "row-reverse flips the direction items lay out, but doesn't touch the DOM."
+    },
+    {
+      "type": "fix-bug",
+      "prompt": "Stack these items vertically instead of horizontally.",
+      "language": "css",
+      "broken": ".stack {\n  display: flex;\n  /* change direction */\n}",
+      "mustInclude": ["flex-direction", "column"],
+      "hint": "flex-direction: column;",
+      "explanation": "column makes items stack top-to-bottom."
+    }
+  ]
+}

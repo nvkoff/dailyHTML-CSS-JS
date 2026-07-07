@@ -1,0 +1,44 @@
+{
+  "id": "css/margin-collapse",
+  "track": "css",
+  "unit": "Box model",
+  "order": 8,
+  "title": "Margin collapse",
+  "description": "Adjacent vertical margins merge — a surprise for beginners.",
+  "xp": 12,
+  "questions": [
+    {
+      "type": "predict",
+      "prompt": "The total vertical space between the two <p>s is:",
+      "language": "css",
+      "code": "p { margin: 30px 0; }\n\n<p>A</p>\n<p>B</p>",
+      "options": ["60px", "30px", "0px", "15px"],
+      "answer": 1,
+      "explanation": "Adjacent vertical margins collapse to the LARGER one — 30px, not 60px."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Which of these DOES NOT collapse margins?",
+      "options": [
+        "Two adjacent block siblings",
+        "A parent and its first child",
+        "Flex items",
+        "An empty block"
+      ],
+      "answer": 2,
+      "explanation": "Flex (and grid) items don't collapse their margins with each other or the container."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Fastest fix for a parent-child margin bleed?",
+      "options": [
+        "Give the parent padding (any nonzero amount)",
+        "Use !important",
+        "Remove all margins",
+        "Wrap in <span>"
+      ],
+      "answer": 0,
+      "explanation": "Any padding, border, or overflow != visible on the parent stops parent-child collapse."
+    }
+  ]
+}

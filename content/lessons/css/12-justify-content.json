@@ -1,0 +1,53 @@
+{
+  "id": "css/justify-content",
+  "track": "css",
+  "unit": "Flexbox",
+  "order": 12,
+  "title": "justify-content",
+  "description": "Distribute items along the main axis.",
+  "xp": 12,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "Which value pushes all items to the RIGHT (in a default row)?",
+      "options": ["flex-start", "flex-end", "space-between", "center"],
+      "answer": 1,
+      "explanation": "flex-end aligns items to the end of the main axis — right, in a default row."
+    },
+    {
+      "type": "predict",
+      "prompt": "How is the space distributed?",
+      "language": "css",
+      "code": ".row {\n  display: flex;\n  justify-content: space-between;\n}\n\n<div class=\"row\"><div>A</div><div>B</div><div>C</div></div>",
+      "options": [
+        "Equal space AROUND every item",
+        "Equal space BETWEEN items; none on the outside",
+        "All items stacked on the left",
+        "Items centered in the container"
+      ],
+      "answer": 1,
+      "explanation": "space-between puts equal space between items but nothing on the edges."
+    },
+    {
+      "type": "mcq",
+      "prompt": "The difference between space-around and space-evenly is:",
+      "options": [
+        "There isn't any",
+        "space-evenly gives equal gaps everywhere including edges; space-around gives half-size gaps at the edges",
+        "space-around is deprecated",
+        "space-evenly only works in column direction"
+      ],
+      "answer": 1,
+      "explanation": "space-evenly = same gap between AND on edges. space-around = half-gap on edges."
+    },
+    {
+      "type": "fix-bug",
+      "prompt": "Center these items horizontally on the main axis.",
+      "language": "css",
+      "broken": ".nav {\n  display: flex;\n  /* center them */\n}",
+      "mustInclude": ["justify-content", "center"],
+      "hint": "justify-content: center;",
+      "explanation": "In a row, justify-content controls horizontal alignment."
+    }
+  ]
+}

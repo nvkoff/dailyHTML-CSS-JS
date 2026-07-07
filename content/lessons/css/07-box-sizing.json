@@ -1,0 +1,41 @@
+{
+  "id": "css/box-sizing",
+  "track": "css",
+  "unit": "Box model",
+  "order": 7,
+  "title": "box-sizing: border-box",
+  "description": "The one CSS trick to learn early.",
+  "xp": 12,
+  "questions": [
+    {
+      "type": "predict",
+      "prompt": "With box-sizing: border-box, how wide is this element?",
+      "language": "css",
+      "code": ".box {\n  box-sizing: border-box;\n  width: 200px;\n  padding: 20px;\n  border: 5px solid black;\n}",
+      "options": ["200", "220", "230", "250"],
+      "answer": 0,
+      "explanation": "border-box: padding and border are INCLUDED in the 200px."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Why do developers often set `* { box-sizing: border-box; }`?",
+      "options": [
+        "It makes rendering faster",
+        "So width includes padding and border — sizes stay predictable",
+        "It removes all default margins",
+        "It's required to use flexbox"
+      ],
+      "answer": 1,
+      "explanation": "Predictable widths — the model most people mentally expect."
+    },
+    {
+      "type": "fix-bug",
+      "prompt": "Apply border-box globally, the modern-recommended way.",
+      "language": "css",
+      "broken": "/* fix so every element uses border-box */\n\n.box { padding: 20px; }",
+      "mustInclude": ["*", "box-sizing", "border-box"],
+      "hint": "Use the universal selector *.",
+      "explanation": "`*, *::before, *::after { box-sizing: border-box; }` is the common pattern; `* { box-sizing: border-box; }` also works."
+    }
+  ]
+}

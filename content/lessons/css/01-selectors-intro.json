@@ -1,0 +1,41 @@
+{
+  "id": "css/selectors-intro",
+  "track": "css",
+  "unit": "Selectors",
+  "order": 1,
+  "title": "What selectors do",
+  "description": "The basics of picking elements to style.",
+  "xp": 10,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "Which selector targets every <p> element on the page?",
+      "options": ["p", ".p", "#p", "*p"],
+      "answer": 0,
+      "explanation": "A tag name by itself targets all elements of that type."
+    },
+    {
+      "type": "mcq",
+      "prompt": "How do you target an element with class=\"card\"?",
+      "options": ["card", "#card", ".card", "*card"],
+      "answer": 2,
+      "explanation": "A leading dot selects by class."
+    },
+    {
+      "type": "predict",
+      "prompt": "Which element gets a red border?",
+      "language": "css",
+      "code": "#main { border: 1px solid red; }\n.card { border: 1px solid blue; }\n\n<div id=\"main\">A</div>\n<div class=\"card\">B</div>",
+      "options": ["A", "B", "Both", "Neither"],
+      "answer": 0,
+      "explanation": "The id selector targets the element with id=\"main\", which is A."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Which of these is a universal selector?",
+      "options": ["all", "*", ".*", "any"],
+      "answer": 1,
+      "explanation": "* matches every element."
+    }
+  ]
+}

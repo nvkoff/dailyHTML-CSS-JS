@@ -1,0 +1,39 @@
+{
+  "id": "css/margin-shorthand",
+  "track": "css",
+  "unit": "Box model",
+  "order": 10,
+  "title": "Margin & padding shorthand",
+  "description": "One line, four values, easy to fumble.",
+  "xp": 10,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "`margin: 10px 20px;` sets:",
+      "options": [
+        "top=10, right=20, bottom=10, left=20",
+        "top=10, right=10, bottom=20, left=20",
+        "top=20, right=10, bottom=20, left=10",
+        "top=10, right=20, bottom=20, left=10"
+      ],
+      "answer": 0,
+      "explanation": "Two values: vertical and horizontal."
+    },
+    {
+      "type": "mcq",
+      "prompt": "`padding: 5px 10px 15px 20px;` — what's the LEFT padding?",
+      "options": ["5", "10", "15", "20"],
+      "answer": 3,
+      "explanation": "Four values run clockwise: top, right, bottom, left."
+    },
+    {
+      "type": "predict",
+      "prompt": "What is the RIGHT margin?",
+      "language": "css",
+      "code": ".el { margin: 4px 8px 12px; }",
+      "options": ["4px", "8px", "12px", "0"],
+      "answer": 1,
+      "explanation": "Three values = top, horizontal (both), bottom. So right = 8px."
+    }
+  ]
+}

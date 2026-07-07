@@ -1,0 +1,48 @@
+{
+  "id": "css/align-items",
+  "track": "css",
+  "unit": "Flexbox",
+  "order": 13,
+  "title": "align-items",
+  "description": "Cross-axis alignment for flex children.",
+  "xp": 12,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "In a row-direction flex container, align-items controls:",
+      "options": ["Horizontal position", "Vertical position", "Z-index", "Flex order"],
+      "answer": 1,
+      "explanation": "The cross axis is vertical when direction is row."
+    },
+    {
+      "type": "mcq",
+      "prompt": "The default value of align-items is:",
+      "options": ["center", "flex-start", "stretch", "baseline"],
+      "answer": 2,
+      "explanation": "Default is stretch — items grow to fill the cross axis."
+    },
+    {
+      "type": "predict",
+      "prompt": "The two boxes will be:",
+      "language": "css",
+      "code": ".row {\n  display: flex;\n  align-items: center;\n  height: 100px;\n}\n.row > div { height: 20px; }\n\n<div class=\"row\"><div>A</div><div>B</div></div>",
+      "options": [
+        "Aligned to the top",
+        "Vertically centered in the container",
+        "Aligned to the bottom",
+        "Stretched to 100px each"
+      ],
+      "answer": 1,
+      "explanation": "align-items: center centers items on the cross axis."
+    },
+    {
+      "type": "fix-bug",
+      "prompt": "Vertically AND horizontally center the child in this container.",
+      "language": "css",
+      "broken": ".center {\n  display: flex;\n  width: 200px;\n  height: 200px;\n  /* two more lines needed */\n}",
+      "mustInclude": ["justify-content", "center", "align-items"],
+      "hint": "justify-content: center; align-items: center;",
+      "explanation": "The two-line perfect centering trick."
+    }
+  ]
+}

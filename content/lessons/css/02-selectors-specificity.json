@@ -1,0 +1,46 @@
+{
+  "id": "css/selectors-specificity",
+  "track": "css",
+  "unit": "Selectors",
+  "order": 2,
+  "title": "Specificity: who wins?",
+  "description": "When two rules match, specificity decides.",
+  "xp": 12,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "Which selector has the HIGHEST specificity?",
+      "options": [".title", "#title", "h1", "h1.title"],
+      "answer": 1,
+      "explanation": "IDs beat classes and elements. #title wins."
+    },
+    {
+      "type": "predict",
+      "prompt": "What color is the text?",
+      "language": "css",
+      "code": ".alert { color: red; }\ndiv.alert { color: blue; }\n\n<div class=\"alert\">Hello</div>",
+      "options": ["red", "blue", "the default", "invalid"],
+      "answer": 1,
+      "explanation": "div.alert (0,1,1) beats .alert (0,1,0)."
+    },
+    {
+      "type": "predict",
+      "prompt": "Which rule wins on <p id=\"a\" class=\"b\">?",
+      "language": "css",
+      "code": "p.b { color: red; }\n#a { color: green; }",
+      "options": ["red", "green", "black", "neither"],
+      "answer": 1,
+      "explanation": "#a is (1,0,0). p.b is (0,1,1). ID wins."
+    },
+    {
+      "type": "fix-bug",
+      "prompt": "Make the button red WITHOUT changing the HTML or using !important. Add ONE selector.",
+      "language": "css",
+      "broken": ".btn { color: blue; }\n/* target the button below more specifically */\n\n/* HTML: <button class=\"btn\" id=\"go\">Go</button> */",
+      "mustInclude": ["#go", "red"],
+      "mustNotInclude": ["!important"],
+      "hint": "Use the id selector.",
+      "explanation": "#go { color: red; } beats .btn on specificity."
+    }
+  ]
+}
