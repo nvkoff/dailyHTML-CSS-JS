@@ -1,0 +1,34 @@
+{
+  "id": "html/input-types",
+  "track": "html",
+  "unit": "Forms",
+  "order": 12,
+  "title": "Input types",
+  "description": "Use the right type — free UX and validation.",
+  "xp": 12,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "For an email address, the best input type is:",
+      "options": ["text", "email", "string", "mail"],
+      "answer": 1,
+      "explanation": "type=\"email\" shows an email keyboard on mobile and validates the format."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Which input type is best for a birthday?",
+      "options": ["text", "number", "date", "birthday"],
+      "answer": 2,
+      "explanation": "type=\"date\" gives a native date picker."
+    },
+    {
+      "type": "predict",
+      "prompt": "Which shows the numeric keypad on mobile AND allows decimals?",
+      "language": "html",
+      "code": "A) <input type=\"number\">\nB) <input type=\"tel\">\nC) <input inputmode=\"numeric\">\nD) <input inputmode=\"decimal\">",
+      "options": ["A", "B", "C", "D"],
+      "answer": 3,
+      "explanation": "inputmode=\"decimal\" — mobile shows numeric keyboard including '.' key."
+    }
+  ]
+}

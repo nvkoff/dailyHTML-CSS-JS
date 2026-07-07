@@ -1,0 +1,37 @@
+{
+  "id": "html/select-textarea",
+  "track": "html",
+  "unit": "Forms",
+  "order": 14,
+  "title": "Select and textarea",
+  "description": "The other two form controls.",
+  "xp": 12,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "Which attribute on <option> marks it as the default choice?",
+      "options": ["default", "selected", "checked", "active"],
+      "answer": 1,
+      "explanation": "<option selected> — same idea as <input checked>."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Which attribute makes a <select> allow multiple selections?",
+      "options": ["multi", "many", "multiple", "multiselect"],
+      "answer": 2,
+      "explanation": "<select multiple> — a boolean attribute."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Where does the initial text of a <textarea> go?",
+      "options": [
+        "Inside the value attribute",
+        "As text content between the tags",
+        "Inside a nested <p>",
+        "textarea can't have initial text"
+      ],
+      "answer": 1,
+      "explanation": "Unlike <input>, textarea takes its default value as text content between opening and closing tags."
+    }
+  ]
+}

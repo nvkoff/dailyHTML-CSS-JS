@@ -2,17 +2,25 @@
 
 import { useEffect, useState, useTransition } from "react";
 import Link from "next/link";
-import { CheckCircle2, XCircle, ArrowLeft, Flame, Zap } from "lucide-react";
-import { Lesson, Question, gradeQuestion } from "@/lib/content-types";
+import { CheckCircle2, XCircle, ArrowLeft, Sparkles, Zap, Flame } from "lucide-react";
+import { gradeQuestion, Question } from "@/lib/content-types";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import { QuestionRenderer, Answer } from "./question-renderer";
-import { submitLessonResult } from "@/lib/actions";
+import { submitPracticeResult } from "@/lib/actions";
 import { cn } from "@/lib/utils";
 
 type Phase = "answering" | "checked" | "done";
 
-export function LessonRunner({ lesson }: { lesson: Lesson }) {
+const XP_PER_CORRECT = 5;
+
+export function PracticeRunner({
+  track,
+  questions,
+}: {
+  track: string;
+  questions: Question[];
+}) {
   const [index, setIndex] = useState(0);
   const [answer, setAnswer] = useState<Answer>(null);
   const [phase, setPhase] = useState<Phase>("answering");
@@ -21,15 +29,24 @@ export function LessonRunner({ lesson }: { lesson: Lesson }) {
   const [summary, setSummary] = useState<{ newStreak: number; totalXp: number } | null>(null);
   const [saving, startTransition] = useTransition();
 
-  const question = lesson.questions[index];
-  const total = lesson.questions.length;
+  const question = questions[index];
+  const total = questions.length;
   const progressPct = phase === "done" ? 100 : (index / total) * 100;
 
   useEffect(() => {
+    if (!question) return;
     if (question.type === "fix-bug") setAnswer(question.broken);
     else if (question.type === "write-to-match") setAnswer(question.startingCss);
     else setAnswer(null);
   }, [index, question]);
+
+  if (!question && phase !== "done") {
+    return (
+      <div className="mx-auto max-w-md py-20 text-center text-muted-foreground">
+        No practice questions available yet. Complete a lesson first.
+      </div>
+    );
+  }
 
   function handleCheck() {
     const correct = gradeQuestion(question, answer);
@@ -41,19 +58,13 @@ export function LessonRunner({ lesson }: { lesson: Lesson }) {
   function handleNext() {
     if (index + 1 < total) {
       setIndex(index + 1);
-      setAnswer(null);
       setWasCorrect(null);
       setPhase("answering");
     } else {
-      const xp = Math.round((correctCount / total) * lesson.xp);
+      const xp = correctCount * XP_PER_CORRECT;
       startTransition(async () => {
         try {
-          const result = await submitLessonResult({
-            lessonId: lesson.id,
-            correctCount,
-            totalCount: total,
-            xpEarned: xp,
-          });
+          const result = await submitPracticeResult({ xpEarned: xp });
           setSummary(result);
         } catch {
           setSummary({ newStreak: 0, totalXp: 0 });
@@ -70,12 +81,12 @@ export function LessonRunner({ lesson }: { lesson: Lesson }) {
 
   if (phase === "done") {
     return (
-      <div className="mx-auto flex w-full max-w-xl flex-col items-center justify-center gap-6 py-20 text-center">
-        <div className="rounded-full bg-success/10 p-4">
-          <CheckCircle2 className="h-10 w-10 text-success" />
+      <div className="mx-auto flex w-full max-w-xl flex-col items-center justify-center gap-6 px-4 py-16 text-center sm:py-20">
+        <div className="rounded-full bg-primary/10 p-4">
+          <Sparkles className="h-10 w-10 text-primary" />
         </div>
         <div className="space-y-1">
-          <h1 className="text-2xl font-semibold">Lesson complete</h1>
+          <h1 className="text-xl font-semibold sm:text-2xl">Practice complete</h1>
           <p className="text-muted-foreground">
             {correctCount}/{total} correct
           </p>
@@ -86,7 +97,7 @@ export function LessonRunner({ lesson }: { lesson: Lesson }) {
               <Zap className="h-3.5 w-3.5" /> XP earned
             </div>
             <div className="text-center text-2xl font-semibold">
-              +{Math.round((correctCount / total) * lesson.xp)}
+              +{correctCount * XP_PER_CORRECT}
             </div>
           </div>
           <div className="rounded-lg border p-4">
@@ -98,9 +109,14 @@ export function LessonRunner({ lesson }: { lesson: Lesson }) {
             </div>
           </div>
         </div>
-        <Button asChild size="lg">
-          <Link href="/learn">Back to lessons</Link>
-        </Button>
+        <div className="flex w-full flex-col gap-2 sm:flex-row">
+          <Button asChild variant="outline" className="flex-1">
+            <Link href={`/learn?track=${track}`}>Back</Link>
+          </Button>
+          <Button asChild className="flex-1">
+            <Link href={`/learn/practice/${track}`}>Another round</Link>
+          </Button>
+        </div>
       </div>
     );
   }
@@ -109,7 +125,7 @@ export function LessonRunner({ lesson }: { lesson: Lesson }) {
     <div className="mx-auto flex w-full max-w-2xl flex-col gap-5 px-3 py-5 sm:gap-6 sm:px-4 sm:py-8">
       <div className="flex items-center gap-2 sm:gap-3">
         <Button variant="ghost" size="icon" asChild className="shrink-0">
-          <Link href="/learn">
+          <Link href={`/learn?track=${track}`}>
             <ArrowLeft className="h-4 w-4" />
           </Link>
         </Button>

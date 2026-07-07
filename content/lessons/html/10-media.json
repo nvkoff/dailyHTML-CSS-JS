@@ -1,0 +1,38 @@
+{
+  "id": "html/media",
+  "track": "html",
+  "unit": "Links & media",
+  "order": 10,
+  "title": "Video and audio",
+  "description": "Embedding media without a plugin.",
+  "xp": 10,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "Which attribute shows the default browser playback controls?",
+      "options": ["autoplay", "muted", "controls", "playbar"],
+      "answer": 2,
+      "explanation": "controls is a boolean attribute — its presence adds the play/pause UI."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Why include multiple <source> elements inside <video>?",
+      "options": [
+        "For subtitles",
+        "To offer different resolutions",
+        "So the browser can pick a supported codec/format",
+        "It's required by spec"
+      ],
+      "answer": 2,
+      "explanation": "Browsers try sources in order and pick the first they can play (e.g. WebM then MP4)."
+    },
+    {
+      "type": "fix-bug",
+      "prompt": "Add controls to this video and provide fallback text.",
+      "language": "html",
+      "broken": "<video src=\"clip.mp4\">\n</video>",
+      "mustInclude": ["controls", "Your browser"],
+      "explanation": "Text between <video>...</video> shows only in browsers that can't play video."
+    }
+  ]
+}

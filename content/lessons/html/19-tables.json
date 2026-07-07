@@ -1,0 +1,39 @@
+{
+  "id": "html/tables",
+  "track": "html",
+  "unit": "Semantics & a11y",
+  "order": 19,
+  "title": "Tables",
+  "description": "For tabular data — never for layout.",
+  "xp": 10,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "Which element wraps a HEADER row's cells?",
+      "options": ["<th> inside <thead>", "<td> inside <tr>", "<header>", "<thr>"],
+      "answer": 0,
+      "explanation": "Header cells are <th>. Group them inside <thead> for semantics."
+    },
+    {
+      "type": "mcq",
+      "prompt": "What does <caption> do?",
+      "options": [
+        "Adds an image below the table",
+        "Provides an accessible title/description for the table",
+        "Merges cells",
+        "Sets column widths"
+      ],
+      "answer": 1,
+      "explanation": "<caption> is the accessible title of the table. Screen readers announce it."
+    },
+    {
+      "type": "predict",
+      "prompt": "Which attribute makes a cell span 2 columns?",
+      "language": "html",
+      "code": "<td ???=\"2\">Two-wide cell</td>",
+      "options": ["span", "cols", "colspan", "columnspan"],
+      "answer": 2,
+      "explanation": "colspan=\"2\" horizontally; rowspan=\"2\" vertically."
+    }
+  ]
+}

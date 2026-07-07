@@ -1,0 +1,33 @@
+{
+  "id": "html/semantic-sections",
+  "track": "html",
+  "unit": "Semantics & a11y",
+  "order": 15,
+  "title": "Semantic sections",
+  "description": "header, nav, main, footer — meaning, not divs.",
+  "xp": 12,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "How many <main> elements should a page have?",
+      "options": ["Zero", "Exactly one", "One per section", "Any number"],
+      "answer": 1,
+      "explanation": "Exactly one visible <main> — it's the main content landmark."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Which is a semantic container for site navigation?",
+      "options": ["<div class=\"nav\">", "<nav>", "<menu>", "<links>"],
+      "answer": 1,
+      "explanation": "<nav> — announces to screen readers as a navigation landmark."
+    },
+    {
+      "type": "fix-bug",
+      "prompt": "Replace these generic divs with the right semantic landmarks.",
+      "language": "html",
+      "broken": "<div class=\"top\">\n  <div class=\"menu\">Home</div>\n</div>\n<div class=\"content\">Article</div>\n<div class=\"bottom\">© 2026</div>",
+      "mustInclude": ["<header>", "<nav>", "<main>", "<footer>"],
+      "explanation": "header/nav/main/footer are recognized landmarks for assistive tech."
+    }
+  ]
+}

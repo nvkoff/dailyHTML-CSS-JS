@@ -1,0 +1,38 @@
+{
+  "id": "js/arrays-access",
+  "track": "js",
+  "unit": "Arrays",
+  "order": 17,
+  "title": "Arrays: access & length",
+  "description": "Indexes start at 0. Length is the count.",
+  "xp": 10,
+  "questions": [
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "const list = ['a', 'b', 'c'];\nconsole.log(list[list.length - 1]);",
+      "options": ["'a'", "'b'", "'c'", "undefined"],
+      "answer": 2,
+      "explanation": "length is 3; last index is length - 1 = 2 → 'c'."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "const list = ['a', 'b'];\nconsole.log(list[5]);",
+      "options": ["'a'", "'b'", "undefined", "RangeError"],
+      "answer": 2,
+      "explanation": "Out-of-bounds access returns undefined. No error is thrown."
+    },
+    {
+      "type": "predict",
+      "prompt": "What is the last element?",
+      "language": "js",
+      "code": "const list = [10, 20, 30];\nconsole.log(list.at(-1));",
+      "options": ["10", "20", "30", "undefined"],
+      "answer": 2,
+      "explanation": ".at(-1) returns the last element — cleaner than list[list.length - 1]."
+    }
+  ]
+}

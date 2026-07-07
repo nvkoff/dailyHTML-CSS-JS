@@ -1,0 +1,37 @@
+{
+  "id": "html/emphasis",
+  "track": "html",
+  "unit": "Text & inline",
+  "order": 6,
+  "title": "Emphasis: <strong>, <em>, <mark>",
+  "description": "Meaning first, styling second.",
+  "xp": 10,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "Which element means 'this text is important'?",
+      "options": ["<b>", "<strong>", "<i>", "<big>"],
+      "answer": 1,
+      "explanation": "<strong> conveys importance semantically. <b> is purely visual."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Which element means 'stress emphasis when read aloud'?",
+      "options": ["<em>", "<i>", "<mark>", "<u>"],
+      "answer": 0,
+      "explanation": "<em> = stress emphasis. <i> is just italic style (like a book title)."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Where would <mark> be most appropriate?",
+      "options": [
+        "Marking your favorite article",
+        "Highlighting a search match in results",
+        "Bolding a heading",
+        "Grouping form fields"
+      ],
+      "answer": 1,
+      "explanation": "<mark> means relevance in current context — like highlighted search hits."
+    }
+  ]
+}

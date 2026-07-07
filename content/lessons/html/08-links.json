@@ -1,0 +1,47 @@
+{
+  "id": "html/links",
+  "track": "html",
+  "unit": "Links & media",
+  "order": 8,
+  "title": "Anchors and href",
+  "description": "The a element and how to link right.",
+  "xp": 10,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "Which attribute makes a link open in a new tab?",
+      "options": ["newtab=\"true\"", "target=\"_blank\"", "open=\"tab\"", "rel=\"newtab\""],
+      "answer": 1,
+      "explanation": "target=\"_blank\". Best practice: pair with rel=\"noopener\" for security."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Which link goes to the section with id=\"pricing\" on the SAME page?",
+      "options": [
+        "<a href=\"pricing\">",
+        "<a href=\".pricing\">",
+        "<a href=\"#pricing\">",
+        "<a href=\"/pricing\">"
+      ],
+      "answer": 2,
+      "explanation": "In-page anchors use '#' + the id."
+    },
+    {
+      "type": "predict",
+      "prompt": "Which URL is RELATIVE to the current page?",
+      "language": "html",
+      "code": "A) href=\"https://x.com/a\"\nB) href=\"//x.com/a\"\nC) href=\"/about\"\nD) href=\"about.html\"",
+      "options": ["A", "B", "C", "D"],
+      "answer": 3,
+      "explanation": "'about.html' has no leading slash or scheme — resolved relative to the current URL."
+    },
+    {
+      "type": "fix-bug",
+      "prompt": "Make this open in a new tab safely (no reverse tabnabbing).",
+      "language": "html",
+      "broken": "<a href=\"https://example.com\">Example</a>",
+      "mustInclude": ["target=\"_blank\"", "rel=", "noopener"],
+      "explanation": "target=\"_blank\" rel=\"noopener\" — noopener prevents the opened page from accessing window.opener."
+    }
+  ]
+}

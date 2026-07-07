@@ -1,0 +1,36 @@
+{
+  "id": "js/for-of",
+  "track": "js",
+  "unit": "Control flow",
+  "order": 12,
+  "title": "for-of and for-in",
+  "description": "Two similar-looking loops, very different jobs.",
+  "xp": 12,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "for-of iterates over:",
+      "options": ["Object keys", "Values of iterables (arrays, strings, Sets, Maps)", "Prototype chain", "DOM elements"],
+      "answer": 1,
+      "explanation": "for-of walks the values yielded by an iterable."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "for (const c of 'hi') {\n  console.log(c);\n}",
+      "options": ["hi", "'h' then 'i'", "0 then 1", "TypeError"],
+      "answer": 1,
+      "explanation": "Strings are iterable — each char in turn."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "const obj = { a: 1, b: 2 };\nfor (const key in obj) {\n  console.log(key);\n}",
+      "options": ["1 then 2", "'a' then 'b'", "'a: 1' then 'b: 2'", "TypeError"],
+      "answer": 1,
+      "explanation": "for-in walks object KEYS (as strings). Use Object.entries() if you want values too."
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "id": "html/attributes",
+  "track": "html",
+  "unit": "Elements & structure",
+  "order": 3,
+  "title": "Attributes",
+  "description": "Key-value pairs on the opening tag.",
+  "xp": 10,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "Which is a correctly written attribute?",
+      "options": [
+        "<img src=logo.png>",
+        "<img src \"logo.png\">",
+        "<img src=\"logo.png\">",
+        "<img src.\"logo.png\">"
+      ],
+      "answer": 2,
+      "explanation": "attribute=\"value\" with an equals sign and quoted value is the canonical form."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Which attribute is BOOLEAN — its presence alone is enough?",
+      "options": ["src", "href", "disabled", "class"],
+      "answer": 2,
+      "explanation": "Boolean attributes like disabled, checked, required don't need a value."
+    },
+    {
+      "type": "fix-bug",
+      "prompt": "Give this input a name and mark it required.",
+      "language": "html",
+      "broken": "<input type=\"email\">",
+      "mustInclude": ["name=", "required"],
+      "hint": "name=\"email\" required",
+      "explanation": "Forms submit inputs by their name. required makes the field mandatory."
+    }
+  ]
+}

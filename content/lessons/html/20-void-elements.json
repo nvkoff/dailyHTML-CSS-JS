@@ -1,0 +1,42 @@
+{
+  "id": "html/void-elements",
+  "track": "html",
+  "unit": "Elements & structure",
+  "order": 20,
+  "title": "Void elements",
+  "description": "Tags that don't take a closing tag.",
+  "xp": 10,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "Which is a void element (no closing tag)?",
+      "options": ["<div>", "<span>", "<br>", "<button>"],
+      "answer": 2,
+      "explanation": "<br>, <hr>, <img>, <input>, <meta>, <link> are common voids."
+    },
+    {
+      "type": "mcq",
+      "prompt": "In HTML5, self-closing slashes on void elements (<br />) are:",
+      "options": [
+        "Required",
+        "Forbidden",
+        "Allowed but optional — a style choice",
+        "Only valid in XHTML"
+      ],
+      "answer": 2,
+      "explanation": "HTML5 parsers accept <br> and <br />. Pick one style and stick with it."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Which is CORRECT?",
+      "options": [
+        "<hr></hr>",
+        "<hr>",
+        "<hr>content</hr>",
+        "<horizontal-rule>"
+      ],
+      "answer": 1,
+      "explanation": "<hr> is a horizontal rule — void element."
+    }
+  ]
+}

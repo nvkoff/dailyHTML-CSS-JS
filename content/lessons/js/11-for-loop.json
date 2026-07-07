@@ -1,0 +1,36 @@
+{
+  "id": "js/for-loop",
+  "track": "js",
+  "unit": "Control flow",
+  "order": 11,
+  "title": "The classic for loop",
+  "description": "for (init; condition; update)",
+  "xp": 10,
+  "questions": [
+    {
+      "type": "predict",
+      "prompt": "How many times does it log?",
+      "language": "js",
+      "code": "for (let i = 0; i < 5; i++) {\n  console.log(i);\n}",
+      "options": ["4", "5", "6", "infinite"],
+      "answer": 1,
+      "explanation": "i goes 0, 1, 2, 3, 4 → 5 iterations."
+    },
+    {
+      "type": "predict",
+      "prompt": "What is the FINAL value logged?",
+      "language": "js",
+      "code": "for (let i = 10; i > 0; i -= 2) {\n  console.log(i);\n}",
+      "options": ["0", "2", "1", "-1"],
+      "answer": 1,
+      "explanation": "i: 10, 8, 6, 4, 2, then i > 0 fails at 0. Last logged: 2."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Which loop is BEST when you need the index while iterating an array?",
+      "options": ["for-in", "forEach", "classic for", "for-of"],
+      "answer": 2,
+      "explanation": "Classic for or arr.forEach((v, i) => ...) — both expose the index."
+    }
+  ]
+}

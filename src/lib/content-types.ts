@@ -34,16 +34,30 @@ const fixBugQuestion = z.object({
   explanation: z.string().optional(),
 });
 
+const writeToMatchQuestion = z.object({
+  type: z.literal("write-to-match"),
+  prompt: z.string(),
+  html: z.string(),
+  targetCss: z.string(),
+  startingCss: z.string(),
+  mustInclude: z.array(z.string()).default([]),
+  mustNotInclude: z.array(z.string()).default([]),
+  hint: z.string().optional(),
+  explanation: z.string().optional(),
+});
+
 export const questionSchema = z.discriminatedUnion("type", [
   mcqQuestion,
   predictQuestion,
   fixBugQuestion,
+  writeToMatchQuestion,
 ]);
 
 export type Question = z.infer<typeof questionSchema>;
 export type McqQuestion = z.infer<typeof mcqQuestion>;
 export type PredictQuestion = z.infer<typeof predictQuestion>;
 export type FixBugQuestion = z.infer<typeof fixBugQuestion>;
+export type WriteToMatchQuestion = z.infer<typeof writeToMatchQuestion>;
 
 export const lessonSchema = z.object({
   id: z.string(),
@@ -66,7 +80,7 @@ export function gradeQuestion(question: Question, answer: unknown): boolean {
   if (question.type === "mcq" || question.type === "predict") {
     return typeof answer === "number" && answer === question.answer;
   }
-  if (question.type === "fix-bug") {
+  if (question.type === "fix-bug" || question.type === "write-to-match") {
     if (typeof answer !== "string") return false;
     const submitted = answer;
     const included = question.mustInclude.every((s) =>

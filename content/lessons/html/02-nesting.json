@@ -1,0 +1,39 @@
+{
+  "id": "html/nesting",
+  "track": "html",
+  "unit": "Elements & structure",
+  "order": 2,
+  "title": "Nesting elements",
+  "description": "Parents, children, and why closing order matters.",
+  "xp": 10,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "Which of these is properly nested?",
+      "options": [
+        "<b><i>text</b></i>",
+        "<b><i>text</i></b>",
+        "<b>text</i></b>",
+        "<i>text<b></b>"
+      ],
+      "answer": 1,
+      "explanation": "Inner element closes first: LIFO."
+    },
+    {
+      "type": "mcq",
+      "prompt": "A <p> element should NOT directly contain:",
+      "options": ["a <span>", "an <a>", "another <p>", "an <em>"],
+      "answer": 2,
+      "explanation": "<p> is a block for phrasing content — it can't contain another <p>."
+    },
+    {
+      "type": "predict",
+      "prompt": "What visible text does this render?",
+      "language": "html",
+      "code": "<p>Hi <strong>there <em>friend</em></strong>!</p>",
+      "options": ["Hi", "Hi there friend!", "Hi there!", "friend"],
+      "answer": 1,
+      "explanation": "Nested inline elements are all rendered inline. Text: 'Hi there friend!'"
+    }
+  ]
+}

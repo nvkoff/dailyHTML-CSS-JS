@@ -1,0 +1,43 @@
+{
+  "id": "js/numbers",
+  "track": "js",
+  "unit": "Values & types",
+  "order": 3,
+  "title": "Numbers & Math",
+  "description": "There's only one number type — and its quirks.",
+  "xp": 12,
+  "questions": [
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "console.log(0.1 + 0.2 === 0.3);",
+      "options": ["true", "false", "TypeError", "NaN"],
+      "answer": 1,
+      "explanation": "Floating-point rounding: 0.1 + 0.2 = 0.30000000000000004."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Which produces the integer part of 7 / 2?",
+      "options": ["Math.floor(7/2)", "7 // 2", "int(7/2)", "7.integerDivide(2)"],
+      "answer": 0,
+      "explanation": "JavaScript has no // operator. Use Math.floor or Math.trunc."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "console.log(typeof NaN);",
+      "options": ["'nan'", "'number'", "'undefined'", "'NaN'"],
+      "answer": 1,
+      "explanation": "NaN is a numeric value — typeof NaN === 'number'. To test, use Number.isNaN(x)."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Which converts the string '42' to the number 42?",
+      "options": ["Number('42')", "'42' | 0", "parseInt('42', 10)", "All of them"],
+      "answer": 3,
+      "explanation": "All work; Number() and parseInt(x, 10) are the most explicit and safe."
+    }
+  ]
+}

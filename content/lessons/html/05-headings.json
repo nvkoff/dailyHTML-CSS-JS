@@ -1,0 +1,34 @@
+{
+  "id": "html/headings",
+  "track": "html",
+  "unit": "Text & inline",
+  "order": 5,
+  "title": "Headings and paragraphs",
+  "description": "Structure text with h1-h6 and p.",
+  "xp": 10,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "How many <h1> elements should a well-structured page have?",
+      "options": ["Zero", "One", "One per section", "As many as you want"],
+      "answer": 1,
+      "explanation": "One <h1> per document is the recommended and most accessible pattern."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Which heading level represents a subsection of an <h2>?",
+      "options": ["h1", "h3", "h4", "h6"],
+      "answer": 1,
+      "explanation": "Levels are hierarchical: h1 > h2 > h3 > ..."
+    },
+    {
+      "type": "predict",
+      "prompt": "Which of these is bad practice?",
+      "language": "html",
+      "code": "A) <h1>Site</h1>...<h2>Section</h2>\nB) <h1>Site</h1>...<h4>Section</h4>\nC) <h1>Site</h1>...<h2>Section</h2><h3>Sub</h3>\nD) <h2>Sub</h2> inside a section",
+      "options": ["A", "B", "C", "D"],
+      "answer": 1,
+      "explanation": "Skipping heading levels (h1 → h4) breaks the document outline."
+    }
+  ]
+}

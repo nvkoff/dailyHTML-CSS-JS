@@ -1,0 +1,43 @@
+{
+  "id": "html/form-basics",
+  "track": "html",
+  "unit": "Forms",
+  "order": 11,
+  "title": "Form basics",
+  "description": "form, input, button — the three-part harmony.",
+  "xp": 12,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "Which attribute of <form> sets where to submit?",
+      "options": ["src", "action", "target", "post"],
+      "answer": 1,
+      "explanation": "action=URL. Method defaults to GET; use method=\"post\" for form submissions with side effects."
+    },
+    {
+      "type": "mcq",
+      "prompt": "For a button INSIDE a form to submit it, what type should it have?",
+      "options": ["type=\"button\"", "type=\"submit\"", "type=\"send\"", "type is optional"],
+      "answer": 1,
+      "explanation": "The default for <button> in a form is submit — but being explicit avoids surprises."
+    },
+    {
+      "type": "predict",
+      "prompt": "The user types 'ada' and presses Enter. What key/value gets submitted?",
+      "language": "html",
+      "code": "<form action=\"/go\">\n  <input name=\"user\" />\n  <button>OK</button>\n</form>",
+      "options": ["ada=user", "user=ada", "value=ada", "nothing — no method"],
+      "answer": 1,
+      "explanation": "The input's name becomes the key. Default method is GET → /go?user=ada."
+    },
+    {
+      "type": "fix-bug",
+      "prompt": "This button reloads the page instead of submitting. Fix it.",
+      "language": "html",
+      "broken": "<form action=\"/save\">\n  <input name=\"note\" />\n  <button type=\"button\">Save</button>\n</form>",
+      "mustInclude": ["type=\"submit\""],
+      "hint": "type=\"button\" makes it a plain button — no form submission.",
+      "explanation": "For submit behavior, use type=\"submit\" or omit type (default is submit)."
+    }
+  ]
+}

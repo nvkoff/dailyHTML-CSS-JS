@@ -1,0 +1,35 @@
+{
+  "id": "html/id-class",
+  "track": "html",
+  "unit": "Elements & structure",
+  "order": 4,
+  "title": "IDs and classes",
+  "description": "Naming elements so CSS and JS can find them.",
+  "xp": 10,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "How many elements on a page can share the same ID?",
+      "options": ["Any number", "Exactly one", "At most three", "Only <div>s"],
+      "answer": 1,
+      "explanation": "An id must be unique in the document. Use class for groups."
+    },
+    {
+      "type": "predict",
+      "prompt": "Which is correct if the element should have BOTH classes 'btn' and 'primary'?",
+      "language": "html",
+      "code": "A) <button class=\"btn primary\">\nB) <button class=\"btn\" class=\"primary\">\nC) <button class=[btn, primary]>\nD) <button class=\"btn.primary\">",
+      "options": ["A", "B", "C", "D"],
+      "answer": 0,
+      "explanation": "Multiple classes are space-separated in a single class attribute."
+    },
+    {
+      "type": "fix-bug",
+      "prompt": "Give this heading id=\"page-title\" and class \"headline big\".",
+      "language": "html",
+      "broken": "<h1>Welcome</h1>",
+      "mustInclude": ["id=\"page-title\"", "class=\"headline big\""],
+      "explanation": "IDs are unique; classes are space-separated."
+    }
+  ]
+}

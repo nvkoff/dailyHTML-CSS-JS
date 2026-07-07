@@ -1,0 +1,38 @@
+{
+  "id": "html/a11y-attrs",
+  "track": "html",
+  "unit": "Semantics & a11y",
+  "order": 17,
+  "title": "aria-label & friends",
+  "description": "When HTML alone can't say enough.",
+  "xp": 12,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "You have an icon-only button. Screen readers see nothing. What do you add?",
+      "options": ["title", "alt", "aria-label", "role=\"button\""],
+      "answer": 2,
+      "explanation": "aria-label gives an accessible name to elements with no visible text."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Which is the FIRST rule of ARIA?",
+      "options": [
+        "Always add role attributes",
+        "Prefer native HTML over ARIA",
+        "Only use it on divs",
+        "aria-hidden fixes everything"
+      ],
+      "answer": 1,
+      "explanation": "No ARIA is better than bad ARIA. Use the right native element first."
+    },
+    {
+      "type": "fix-bug",
+      "prompt": "Make this close-icon button accessible.",
+      "language": "html",
+      "broken": "<button>\n  <svg>...</svg>\n</button>",
+      "mustInclude": ["aria-label=\"Close\""],
+      "explanation": "aria-label=\"Close\" gives the button a name for assistive tech."
+    }
+  ]
+}

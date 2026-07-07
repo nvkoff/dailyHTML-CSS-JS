@@ -1,0 +1,36 @@
+{
+  "id": "js/arrays-mutate",
+  "track": "js",
+  "unit": "Arrays",
+  "order": 18,
+  "title": "push, pop, shift, unshift",
+  "description": "The four in-place mutators.",
+  "xp": 10,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "Which adds to the END of the array?",
+      "options": ["shift", "unshift", "push", "prepend"],
+      "answer": 2,
+      "explanation": "push → end. pop removes from end. unshift/shift work on the start."
+    },
+    {
+      "type": "predict",
+      "prompt": "What does list become?",
+      "language": "js",
+      "code": "const list = [1, 2, 3];\nlist.unshift(0);\nconsole.log(list);",
+      "options": ["[0, 1, 2, 3]", "[1, 2, 3, 0]", "[0]", "[3, 2, 1, 0]"],
+      "answer": 0,
+      "explanation": "unshift inserts at position 0 and returns the new length."
+    },
+    {
+      "type": "predict",
+      "prompt": "What does pop() return?",
+      "language": "js",
+      "code": "const list = [1, 2, 3];\nconsole.log(list.pop());",
+      "options": ["1", "2", "3", "[1, 2]"],
+      "answer": 2,
+      "explanation": "pop removes AND returns the last element. The array is now [1, 2]."
+    }
+  ]
+}

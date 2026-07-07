@@ -13,14 +13,23 @@ export function AppHeader({
 }) {
   return (
     <header className="sticky top-0 z-10 border-b bg-background/80 backdrop-blur">
-      <div className="mx-auto flex h-14 w-full max-w-4xl items-center gap-4 px-4">
+      <div className="mx-auto flex h-14 w-full max-w-4xl items-center gap-3 px-3 sm:gap-4 sm:px-4">
         <Link href="/learn" className="text-sm font-semibold tracking-tight">
-          Daily Frontend
+          <span className="hidden sm:inline">Daily Frontend</span>
+          <span className="sm:hidden">DF</span>
         </Link>
-        <div className="ml-auto flex items-center gap-4 text-sm">
-          <Stat icon={<Zap className="h-4 w-4" />} value={xp} label="XP" />
-          <Stat icon={<Flame className="h-4 w-4 text-orange-500" />} value={streak} label="day streak" />
-          <Stat icon={<Heart className="h-4 w-4 text-rose-500" />} value={hearts} label="hearts" />
+        <div className="ml-auto flex items-center gap-2 text-sm sm:gap-4">
+          <Stat icon={<Zap className="h-4 w-4" />} value={xp} label={`${xp} XP`} />
+          <Stat
+            icon={<Flame className="h-4 w-4 text-orange-500" />}
+            value={streak}
+            label={`${streak} day streak`}
+          />
+          <Stat
+            icon={<Heart className="h-4 w-4 text-rose-500" />}
+            value={hearts}
+            label={`${hearts} hearts`}
+          />
           <UserButton />
         </div>
       </div>
@@ -39,8 +48,9 @@ function Stat({
 }) {
   return (
     <div
-      className="flex items-center gap-1.5 tabular-nums text-muted-foreground"
+      className="flex items-center gap-1 tabular-nums text-muted-foreground sm:gap-1.5"
       title={label}
+      aria-label={label}
     >
       {icon}
       <span className="font-medium text-foreground">{value}</span>

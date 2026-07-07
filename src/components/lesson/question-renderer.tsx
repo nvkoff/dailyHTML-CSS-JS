@@ -4,6 +4,7 @@ import { Question } from "@/lib/content-types";
 import { CodeBlock } from "./code-block";
 import { ChoiceList } from "./choice-list";
 import { CodeEditor } from "./code-editor";
+import { WriteToMatch } from "./write-to-match";
 
 export type Answer = number | string | null;
 
@@ -52,22 +53,33 @@ export function QuestionRenderer({
     );
   }
 
-  // fix-bug
+  if (question.type === "fix-bug") {
+    return (
+      <div className="space-y-4">
+        <p className="text-base font-medium leading-relaxed">{question.prompt}</p>
+        <CodeEditor
+          language={question.language}
+          value={typeof answer === "string" ? answer : question.broken}
+          onChange={(v) => onAnswer(v)}
+          readOnly={locked}
+          height="260px"
+        />
+        {question.hint && !locked && (
+          <p className="text-sm text-muted-foreground">
+            <span className="font-medium text-foreground">Hint:</span> {question.hint}
+          </p>
+        )}
+      </div>
+    );
+  }
+
+  // write-to-match
   return (
-    <div className="space-y-4">
-      <p className="text-base font-medium leading-relaxed">{question.prompt}</p>
-      <CodeEditor
-        language={question.language}
-        value={typeof answer === "string" ? answer : question.broken}
-        onChange={(v) => onAnswer(v)}
-        readOnly={locked}
-        height="260px"
-      />
-      {question.hint && !locked && (
-        <p className="text-sm text-muted-foreground">
-          <span className="font-medium text-foreground">Hint:</span> {question.hint}
-        </p>
-      )}
-    </div>
+    <WriteToMatch
+      question={question}
+      value={typeof answer === "string" ? answer : question.startingCss}
+      onChange={(v) => onAnswer(v)}
+      locked={locked}
+    />
   );
 }

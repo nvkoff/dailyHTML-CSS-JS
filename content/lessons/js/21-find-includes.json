@@ -1,0 +1,41 @@
+{
+  "id": "js/find-includes",
+  "track": "js",
+  "unit": "Arrays",
+  "order": 21,
+  "title": "find, some, every, includes",
+  "description": "Search and predicate helpers.",
+  "xp": 12,
+  "questions": [
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "const users = [{ id: 1 }, { id: 2 }];\nconst u = users.find(x => x.id === 2);\nconsole.log(u);",
+      "options": ["{id: 1}", "{id: 2}", "undefined", "2"],
+      "answer": 1,
+      "explanation": "find returns the FIRST matching element (whole object)."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "console.log([1, 2, 3].includes(4));",
+      "options": ["true", "false", "-1", "undefined"],
+      "answer": 1,
+      "explanation": "includes returns a boolean. Not present → false."
+    },
+    {
+      "type": "mcq",
+      "prompt": "The difference between `some` and `every`:",
+      "options": [
+        "some returns first match, every returns last",
+        "some → true if ANY passes; every → true only if ALL pass",
+        "every mutates the array",
+        "They're the same"
+      ],
+      "answer": 1,
+      "explanation": "some = OR across items. every = AND across items."
+    }
+  ]
+}

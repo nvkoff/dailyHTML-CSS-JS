@@ -1,0 +1,48 @@
+{
+  "id": "html/what-is-html",
+  "track": "html",
+  "unit": "Elements & structure",
+  "order": 1,
+  "title": "What HTML is",
+  "description": "Tags, elements, and the document skeleton.",
+  "xp": 10,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "Which declaration tells the browser this is a modern HTML document?",
+      "options": ["<html5>", "<!DOCTYPE html>", "<meta html>", "<doctype html5>"],
+      "answer": 1,
+      "explanation": "<!DOCTYPE html> at the very top switches the browser into standards mode."
+    },
+    {
+      "type": "mcq",
+      "prompt": "The 'element' is:",
+      "options": [
+        "Just the opening tag",
+        "Everything from opening tag to closing tag, including content",
+        "The attribute name",
+        "Whatever the browser renders"
+      ],
+      "answer": 1,
+      "explanation": "An element = opening tag + content + closing tag (or the single self-closing tag for void elements)."
+    },
+    {
+      "type": "predict",
+      "prompt": "Which of these is a valid, complete HTML paragraph element?",
+      "language": "html",
+      "code": "A) <p>Hi\nB) <p>Hi</p>\nC) </p>Hi<p>\nD) <p/>Hi",
+      "options": ["A", "B", "C", "D"],
+      "answer": 1,
+      "explanation": "<p>Hi</p> — open tag, content, matching close tag."
+    },
+    {
+      "type": "fix-bug",
+      "prompt": "Add the required doctype and title to make this a valid HTML skeleton.",
+      "language": "html",
+      "broken": "<html>\n  <head>\n    <!-- add a title -->\n  </head>\n  <body>hi</body>\n</html>",
+      "mustInclude": ["<!DOCTYPE html>", "<title>"],
+      "hint": "Doctype goes on line 1, before <html>.",
+      "explanation": "Every HTML document needs a doctype and a title in the head."
+    }
+  ]
+}

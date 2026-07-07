@@ -1,0 +1,38 @@
+{
+  "id": "html/labels",
+  "track": "html",
+  "unit": "Forms",
+  "order": 13,
+  "title": "Labels & accessibility",
+  "description": "Every input needs a label. Two ways to bind them.",
+  "xp": 12,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "Which attribute connects a <label> to its <input>?",
+      "options": ["name", "for", "id", "target"],
+      "answer": 1,
+      "explanation": "<label for=\"...\"> matches the input's id."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Why does clicking the label focus the input when they're linked?",
+      "options": [
+        "It's just a style effect",
+        "The browser passes the click to the associated input",
+        "It happens only with checkboxes",
+        "It uses JavaScript"
+      ],
+      "answer": 1,
+      "explanation": "A native browser behavior — great for a11y and mobile UX."
+    },
+    {
+      "type": "fix-bug",
+      "prompt": "Bind this label to the input.",
+      "language": "html",
+      "broken": "<label>Email</label>\n<input type=\"email\" name=\"email\">",
+      "mustInclude": ["for=\"email\"", "id=\"email\""],
+      "explanation": "<label for=\"email\"> + <input id=\"email\"> forms the pair."
+    }
+  ]
+}

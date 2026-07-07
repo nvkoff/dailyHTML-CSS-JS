@@ -1,0 +1,42 @@
+{
+  "id": "html/article-section",
+  "track": "html",
+  "unit": "Semantics & a11y",
+  "order": 16,
+  "title": "article vs section",
+  "description": "Two words that look alike but mean different things.",
+  "xp": 10,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "<article> is best for content that:",
+      "options": [
+        "Groups related things on the page",
+        "Would make sense syndicated / on its own",
+        "Contains navigation",
+        "Contains only images"
+      ],
+      "answer": 1,
+      "explanation": "A blog post, a news story, a forum comment — self-contained."
+    },
+    {
+      "type": "mcq",
+      "prompt": "<section> is best for:",
+      "options": [
+        "Any block of content",
+        "A thematic grouping of content, typically with a heading",
+        "The site header",
+        "Wrapping a form"
+      ],
+      "answer": 1,
+      "explanation": "Use section when the content is a distinct thematic group; give it a heading."
+    },
+    {
+      "type": "mcq",
+      "prompt": "If content is just a styling wrapper (no meaning), use:",
+      "options": ["<section>", "<article>", "<div>", "<span>"],
+      "answer": 2,
+      "explanation": "<div> when there is no semantic role. Don't reach for section/article by default."
+    }
+  ]
+}

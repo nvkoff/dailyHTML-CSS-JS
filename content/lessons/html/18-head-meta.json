@@ -1,0 +1,47 @@
+{
+  "id": "html/head-meta",
+  "track": "html",
+  "unit": "Semantics & a11y",
+  "order": 18,
+  "title": "Head & meta essentials",
+  "description": "The invisible tags that make things behave.",
+  "xp": 10,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "Which meta tag makes a page scale correctly on mobile?",
+      "options": [
+        "<meta name=\"mobile\">",
+        "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">",
+        "<meta charset=\"utf-8\">",
+        "<meta responsive>"
+      ],
+      "answer": 1,
+      "explanation": "The viewport meta tells mobile browsers to lay out at device width, not a fake 980px canvas."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Which meta tag declares the character encoding?",
+      "options": [
+        "<meta charset=\"utf-8\">",
+        "<meta encoding=\"utf-8\">",
+        "<meta character=\"utf-8\">",
+        "<meta lang=\"utf-8\">"
+      ],
+      "answer": 0,
+      "explanation": "Always <meta charset=\"utf-8\"> as early as possible in <head>."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Where do <link rel=\"stylesheet\"> and <script src=\"...\"> go?",
+      "options": [
+        "<link> in <head>, <script> anywhere",
+        "Both must be in <head>",
+        "Both must be in <body>",
+        "<link> in <body>, <script> in <head>"
+      ],
+      "answer": 0,
+      "explanation": "Stylesheet in head for CSSOM. Scripts often go at the end of body or use defer/async."
+    }
+  ]
+}

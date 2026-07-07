@@ -1,0 +1,31 @@
+{
+  "id": "css/write-to-match-intro",
+  "track": "css",
+  "unit": "Flexbox",
+  "order": 16,
+  "title": "Build it: perfect centering",
+  "description": "Write CSS to match the target preview.",
+  "xp": 14,
+  "questions": [
+    {
+      "type": "write-to-match",
+      "prompt": "Center the pink dot in the box using flexbox.",
+      "html": "<div class=\"box\"><span class=\"dot\"></span></div>",
+      "targetCss": ".box { width: 160px; height: 120px; background: #eee; border-radius: 8px; display: flex; justify-content: center; align-items: center; }\n.dot { width: 24px; height: 24px; background: hotpink; border-radius: 50%; }",
+      "startingCss": ".box {\n  width: 160px;\n  height: 120px;\n  background: #eee;\n  border-radius: 8px;\n}\n.dot {\n  width: 24px;\n  height: 24px;\n  background: hotpink;\n  border-radius: 50%;\n}",
+      "mustInclude": ["display", "flex", "justify-content", "center", "align-items"],
+      "hint": "display: flex + justify-content: center + align-items: center",
+      "explanation": "The classic \"two lines to center anything\" pattern."
+    },
+    {
+      "type": "write-to-match",
+      "prompt": "Round the card and give it a subtle shadow.",
+      "html": "<div class=\"card\">Hi</div>",
+      "targetCss": ".card { width: 140px; height: 80px; background: white; border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); display: flex; align-items: center; padding-left: 16px; font-family: system-ui; }",
+      "startingCss": ".card {\n  width: 140px;\n  height: 80px;\n  background: white;\n  display: flex;\n  align-items: center;\n  padding-left: 16px;\n  font-family: system-ui;\n}",
+      "mustInclude": ["border-radius", "box-shadow"],
+      "hint": "border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);",
+      "explanation": "Rounded corners + shadow = card feel."
+    }
+  ]
+}

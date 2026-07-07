@@ -1,0 +1,35 @@
+{
+  "id": "html/lists",
+  "track": "html",
+  "unit": "Text & inline",
+  "order": 7,
+  "title": "Lists: ul, ol, dl",
+  "description": "Bullet lists, ordered lists, and description lists.",
+  "xp": 10,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "Order of steps in a recipe → which list is best?",
+      "options": ["<ul>", "<ol>", "<dl>", "<menu>"],
+      "answer": 1,
+      "explanation": "Ordered list — the sequence carries meaning."
+    },
+    {
+      "type": "predict",
+      "prompt": "How many bullet points render?",
+      "language": "html",
+      "code": "<ul>\n  <li>Apples</li>\n  <li>Bananas\n    <ul>\n      <li>Yellow</li>\n      <li>Green</li>\n    </ul>\n  </li>\n</ul>",
+      "options": ["2 top-level, 2 nested", "4 top-level", "2 top-level, 0 nested", "0"],
+      "answer": 0,
+      "explanation": "Two top-level <li>s (Apples, Bananas) and two nested (Yellow, Green)."
+    },
+    {
+      "type": "fix-bug",
+      "prompt": "Make this into a proper unordered list.",
+      "language": "html",
+      "broken": "<div>Milk</div>\n<div>Bread</div>\n<div>Eggs</div>",
+      "mustInclude": ["<ul>", "<li>Milk", "<li>Bread", "<li>Eggs"],
+      "explanation": "Wrap items in <ul>, use <li> for each."
+    }
+  ]
+}

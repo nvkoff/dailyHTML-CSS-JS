@@ -27,11 +27,11 @@ export default async function Home() {
       </header>
 
       <main className="flex-1">
-        <section className="mx-auto max-w-3xl px-6 py-24 text-center">
+        <section className="mx-auto max-w-3xl px-5 py-16 text-center sm:px-6 sm:py-24">
           <div className="mb-6 inline-flex items-center gap-1.5 rounded-full border bg-muted/50 px-3 py-1 text-xs">
             <Sparkles className="h-3.5 w-3.5" /> Bite-sized frontend practice
           </div>
-          <h1 className="text-balance text-4xl font-semibold tracking-tight sm:text-5xl">
+          <h1 className="text-balance text-3xl font-semibold tracking-tight sm:text-5xl">
             Get sharper at HTML, CSS &amp; JavaScript
             <span className="block text-muted-foreground">one lesson at a time.</span>
           </h1>
@@ -39,7 +39,7 @@ export default async function Home() {
             Short lessons, small tests, quick tech checks. Build a streak. Track
             your XP. Focus on the fundamentals.
           </p>
-          <div className="mt-8 flex items-center justify-center gap-2">
+          <div className="mt-8 flex flex-col items-stretch justify-center gap-2 sm:flex-row sm:items-center">
             <Button size="lg" asChild>
               <Link href="/sign-up">Start free</Link>
             </Button>
@@ -49,7 +49,7 @@ export default async function Home() {
           </div>
         </section>
 
-        <section className="mx-auto grid max-w-3xl gap-4 px-6 pb-24 sm:grid-cols-3">
+        <section className="mx-auto grid max-w-3xl gap-4 px-5 pb-16 sm:grid-cols-3 sm:px-6 sm:pb-24">
           <FeatureCard
             icon={<Zap className="h-4 w-4" />}
             title="Earn XP"

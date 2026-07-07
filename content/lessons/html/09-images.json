@@ -1,0 +1,34 @@
+{
+  "id": "html/images",
+  "track": "html",
+  "unit": "Links & media",
+  "order": 9,
+  "title": "Images and alt text",
+  "description": "img is a void element with two required attributes.",
+  "xp": 10,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "Which attribute describes an image for screen readers and broken-image fallback?",
+      "options": ["title", "alt", "caption", "aria-src"],
+      "answer": 1,
+      "explanation": "alt is the accessible description. Never leave it out — even empty (alt=\"\") is meaningful."
+    },
+    {
+      "type": "mcq",
+      "prompt": "For a PURELY DECORATIVE image (spacer, background flourish), the alt attribute should be:",
+      "options": ["Omitted", "alt=\"decoration\"", "alt=\"\"", "alt=\"image\""],
+      "answer": 2,
+      "explanation": "Empty alt=\"\" tells assistive tech to skip. Omitting causes screen readers to read the filename."
+    },
+    {
+      "type": "predict",
+      "prompt": "Which is CORRECT syntax?",
+      "language": "html",
+      "code": "A) <img src=\"logo.png\" alt=\"Logo\">\nB) <img src=\"logo.png\">Logo</img>\nC) <img>src=logo.png</img>\nD) <img/>alt=\"Logo\"/>",
+      "options": ["A", "B", "C", "D"],
+      "answer": 0,
+      "explanation": "<img> is a void element — no closing tag. src and alt as attributes."
+    }
+  ]
+}
