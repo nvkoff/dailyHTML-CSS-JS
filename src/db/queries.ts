@@ -1,4 +1,4 @@
-import { and, desc, eq, gte } from "drizzle-orm";
+import { and, desc, eq, gte, sql } from "drizzle-orm";
 import { db } from "./client";
 import { users, userStats, lessonProgress, dailyActivity } from "./schema";
 
@@ -143,12 +143,18 @@ export async function recordLessonComplete(args: {
   const { userId, lessonId, correctCount, totalCount, xpEarned } = args;
   await ensureUser(userId);
 
+  // Preserve the user's best attempt on each field.
   await db
     .insert(lessonProgress)
     .values({ userId, lessonId, correctCount, totalCount, xpEarned })
     .onConflictDoUpdate({
       target: [lessonProgress.userId, lessonProgress.lessonId],
-      set: { correctCount, totalCount, xpEarned, completedAt: new Date() },
+      set: {
+        correctCount: sql`GREATEST(${lessonProgress.correctCount}, ${correctCount})`,
+        totalCount,
+        xpEarned: sql`GREATEST(${lessonProgress.xpEarned}, ${xpEarned})`,
+        completedAt: new Date(),
+      },
     });
 
   return applyDayCompletion(userId, xpEarned);

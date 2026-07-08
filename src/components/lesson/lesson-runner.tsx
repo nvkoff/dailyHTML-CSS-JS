@@ -13,6 +13,8 @@ import { cn } from "@/lib/utils";
 
 type Phase = "answering" | "checked" | "done";
 
+const PASS_THRESHOLD = 0.8;
+
 export function LessonRunner({ lesson }: { lesson: Lesson }) {
   const [index, setIndex] = useState(0);
   const [answer, setAnswer] = useState<Answer>(null);
@@ -47,8 +49,8 @@ export function LessonRunner({ lesson }: { lesson: Lesson }) {
       setWasCorrect(null);
       setPhase("answering");
     } else {
-      const isDefeat = correctCount === 0;
-      const xp = isDefeat ? 0 : Math.round((correctCount / total) * lesson.xp);
+      const passed = correctCount / total >= PASS_THRESHOLD;
+      const xp = passed ? Math.round((correctCount / total) * lesson.xp) : 0;
       startTransition(async () => {
         try {
           const result = await submitLessonResult({
@@ -82,8 +84,9 @@ export function LessonRunner({ lesson }: { lesson: Lesson }) {
   }
 
   if (phase === "done") {
-    const isDefeat = correctCount === 0;
-    if (isDefeat) {
+    const passed = correctCount / total >= PASS_THRESHOLD;
+    if (!passed) {
+      const needed = Math.ceil(total * PASS_THRESHOLD);
       return (
         <div className="mx-auto flex w-full max-w-xl flex-col items-center justify-center gap-6 px-4 py-16 text-center sm:py-20">
           <div className="rounded-full bg-destructive/10 p-4">
@@ -92,8 +95,9 @@ export function LessonRunner({ lesson }: { lesson: Lesson }) {
           <div className="space-y-1">
             <h1 className="text-2xl font-semibold">Defeat</h1>
             <p className="text-muted-foreground">
-              0/{total} correct — no XP earned. Try again.
+              {correctCount}/{total} correct — you need at least {needed}/{total} (80%) to pass.
             </p>
+            <p className="text-sm text-muted-foreground">No XP earned.</p>
           </div>
           <div className="flex w-full flex-col gap-2 sm:flex-row">
             <Button asChild variant="outline" size="lg" className="flex-1">

@@ -30,7 +30,7 @@ export default async function PracticePage({
 
   const completedIds = new Set(
     progress
-      .filter((p) => p.correctCount === p.totalCount)
+      .filter((p) => p.correctCount / p.totalCount >= 0.8)
       .map((p) => p.lessonId),
   );
   const allDone =

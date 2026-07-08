@@ -106,7 +106,7 @@ function UnitBlock({
         {lessons.map((lesson) => {
           const done = progressById.get(lesson.id);
           const state: "done" | "started" | "todo" = done
-            ? done.correctCount === done.totalCount
+            ? done.correctCount / done.totalCount >= 0.8
               ? "done"
               : "started"
             : "todo";
