@@ -1,0 +1,84 @@
+{
+  "id": "js/functions",
+  "track": "js",
+  "section": "Basic",
+  "sectionOrder": 1,
+  "unit": "Functions",
+  "order": 5,
+  "title": "Functions",
+  "description": "Declarations, calls, and return.",
+  "xp": 14,
+  "questions": [
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "console.log(add(2, 3));\nfunction add(a, b) { return a + b; }",
+      "options": ["5", "undefined", "ReferenceError", "TypeError"],
+      "answer": 0,
+      "explanation": "Function DECLARATIONS are hoisted — you can call them before their definition."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "function noop() {\n  const x = 1;\n}\nconsole.log(noop());",
+      "options": ["undefined", "1", "null", "TypeError"],
+      "answer": 0,
+      "explanation": "No explicit return → returns undefined."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Extra arguments beyond declared parameters:",
+      "options": ["Throw an error", "Are silently ignored (or via `arguments`)", "Get logged", "Become globals"],
+      "answer": 1,
+      "explanation": "JS is loose with extras. Modern way to capture: rest params (...args)."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "function greet(name = 'friend') {\n  return 'Hi ' + name;\n}\nconsole.log(greet());",
+      "options": ["Hi friend", "Hi undefined", "Hi", "TypeError"],
+      "answer": 0,
+      "explanation": "Default value 'friend' fires when the arg is undefined or missing."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "function once() {\n  return 1;\n  return 2;\n}\nconsole.log(once());",
+      "options": ["1", "2", "[1, 2]", "undefined"],
+      "answer": 0,
+      "explanation": "Execution stops at the first return."
+    },
+    {
+      "type": "mcq",
+      "prompt": "A function is a value. Which is TRUE?",
+      "options": [
+        "Functions can be stored in variables and passed around",
+        "Functions cannot be arguments to other functions",
+        "Functions can only be declared, never assigned",
+        "Functions can't return functions"
+      ],
+      "answer": 0,
+      "explanation": "First-class functions — the core of JS."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Which is the SHORTEST correct arrow that doubles n?",
+      "options": ["n => { n * 2 }", "n => n * 2", "(n) => return n * 2", "n => (n * 2;)"],
+      "answer": 1,
+      "explanation": "No braces = implicit return. Braces need explicit return."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "const add = (a, b) => a + b;\nconsole.log(add(1, 2, 3));",
+      "options": ["3", "6", "TypeError", "1"],
+      "answer": 0,
+      "explanation": "Only the first two args are used. Third is silently ignored."
+    }
+  ]
+}

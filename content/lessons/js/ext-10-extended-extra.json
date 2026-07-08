@@ -1,0 +1,90 @@
+{
+  "id": "js/extended-extra",
+  "track": "js",
+  "section": "Basic extended",
+  "sectionOrder": 2,
+  "unit": "Extended Extra",
+  "order": 21,
+  "title": "Extra bits: destructuring, spread, try/catch",
+  "description": "The rest of the everyday toolkit.",
+  "xp": 14,
+  "questions": [
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "const { a, b = 10 } = { a: 1 };\nconsole.log(a, b);",
+      "options": ["1 10", "1 undefined", "undefined 10", "TypeError"],
+      "answer": 0,
+      "explanation": "Destructuring supports defaults for missing properties."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "const [x, y] = [1, 2, 3];\nconsole.log(x + y);",
+      "options": ["3", "6", "'12'", "undefined"],
+      "answer": 0,
+      "explanation": "Array destructuring by position. Third element ignored."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "const a = { x: 1 };\nconst b = { ...a, y: 2 };\nconsole.log(b);",
+      "options": [
+        "{ x: 1 }",
+        "{ x: 1, y: 2 }",
+        "{ y: 2 }",
+        "{ ...a, y: 2 }"
+      ],
+      "answer": 1,
+      "explanation": "Spread copies own enumerable props of a into a new object."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "try {\n  throw new Error('oops');\n} catch (e) {\n  console.log(e.message);\n}",
+      "options": ["'Error'", "'oops'", "undefined", "TypeError"],
+      "answer": 1,
+      "explanation": ".message holds the string passed to Error()."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "let x = 'a';\ntry {\n  x = 'b';\n  throw new Error();\n} catch {\n  x = 'c';\n} finally {\n  x = 'd';\n}\nconsole.log(x);",
+      "options": ["'b'", "'c'", "'d'", "'a'"],
+      "answer": 2,
+      "explanation": "finally runs after try/catch. It sets x to 'd' last."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "const { a: renamed = 5 } = { };\nconsole.log(renamed);",
+      "options": ["undefined", "5", "'a'", "TypeError"],
+      "answer": 1,
+      "explanation": "Rename AND default: pull 'a' into 'renamed', with 5 when missing."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "const [a, ...rest] = [1, 2, 3, 4];\nconsole.log(rest);",
+      "options": ["[2, 3, 4]", "[3, 4]", "2", "TypeError"],
+      "answer": 0,
+      "explanation": "Rest in destructuring captures leftover elements as an array."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "console.log([...new Set([1, 1, 2, 3, 3])]);",
+      "options": ["[1, 2, 3]", "[1, 1, 2, 3, 3]", "3", "Set([1,2,3])"],
+      "answer": 0,
+      "explanation": "Set removes duplicates; spread converts it back to an array. Classic dedup trick."
+    }
+  ]
+}

@@ -43,6 +43,51 @@
       "mustInclude": ["a[href$=\".pdf\"]", "green"],
       "hint": "The operator '$=' means 'ends with'.",
       "explanation": "a[href$=\".pdf\"] matches any href ending in .pdf."
+    },
+    {
+      "type": "mcq",
+      "prompt": "What does the `*=` operator do in [attr*=\"x\"]?",
+      "options": ["Starts with x", "Ends with x", "Contains x anywhere", "Equals x"],
+      "answer": 2,
+      "explanation": "[attr*=\"x\"] matches when the attribute value contains 'x' anywhere."
+    },
+    {
+      "type": "predict",
+      "prompt": "Which link matches `a[href~=\"about\"]`?",
+      "language": "css",
+      "code": "a[href~=\"about\"] { color: red; }",
+      "options": [
+        "<a href=\"/about\">",
+        "<a href=\"tour about us\">",
+        "<a href=\"aboutus\">",
+        "None"
+      ],
+      "answer": 1,
+      "explanation": "~= matches a whole word in a whitespace-separated list of values."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Which selector matches inputs with placeholder attribute (regardless of value)?",
+      "options": [
+        "input[placeholder=\"\"]",
+        "input[placeholder]",
+        "input:has-placeholder",
+        "input.placeholder"
+      ],
+      "answer": 1,
+      "explanation": "Just the attribute name — no operator — matches presence."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Attribute selectors are case-sensitive by default. Which flag makes them insensitive?",
+      "options": [
+        "[attr=\"val\" i]",
+        "[attr=\"val\" ignore]",
+        "[attr:i=\"val\"]",
+        "You can't"
+      ],
+      "answer": 0,
+      "explanation": "The `i` flag inside the brackets: [href^=\"HTTP\" i] matches http, HTTP, Http, etc."
     }
   ]
 }

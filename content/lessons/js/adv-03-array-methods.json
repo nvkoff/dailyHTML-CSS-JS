@@ -1,0 +1,85 @@
+{
+  "id": "js/array-methods",
+  "track": "js",
+  "section": "Advanced",
+  "sectionOrder": 3,
+  "unit": "Array Methods",
+  "order": 24,
+  "title": "Array methods",
+  "description": "The essential builders and helpers.",
+  "xp": 14,
+  "questions": [
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "console.log(Array.from('abc'));",
+      "options": ["'abc'", "['abc']", "['a','b','c']", "TypeError"],
+      "answer": 2,
+      "explanation": "Array.from turns iterables/array-likes into real arrays."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "console.log(Array.of(3));",
+      "options": ["[3]", "[undefined, undefined, undefined]", "3", "[]"],
+      "answer": 0,
+      "explanation": "Array.of makes an array from its arguments. Unlike Array(3) which pre-sizes."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "console.log(Array(3));",
+      "options": ["[3]", "[0, 0, 0]", "empty array of length 3", "TypeError"],
+      "answer": 2,
+      "explanation": "Array(n) creates a SPARSE array of length n — surprising. Use Array.of."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "console.log([1, 2, 3].indexOf(2));",
+      "options": ["-1", "0", "1", "2"],
+      "answer": 2,
+      "explanation": "indexOf returns the position (0-based) of the first match."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "console.log([1, [2, [3]]].flat());",
+      "options": ["[1, 2, [3]]", "[1, 2, 3]", "[1, [2, [3]]]", "TypeError"],
+      "answer": 0,
+      "explanation": "flat() defaults to depth 1. Use flat(Infinity) to flatten fully."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "console.log([1, 2, 3].join('|'));",
+      "options": ["'1|2|3'", "['1', '2', '3']", "'123'", "TypeError"],
+      "answer": 0,
+      "explanation": "join stringifies elements and joins with the separator."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "console.log([3, 1, 2].sort());",
+      "options": ["[1, 2, 3]", "[3, 2, 1]", "[3, 1, 2]", "TypeError"],
+      "answer": 0,
+      "explanation": "Default sort is by STRING order — fine for these numbers but tricky in general."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "console.log([10, 2, 1].sort());",
+      "options": ["[1, 2, 10]", "[10, 2, 1]", "[1, 10, 2]", "[10, 1, 2]"],
+      "answer": 2,
+      "explanation": "String order → '1', '10', '2'. Use sort((a,b) => a - b) for numbers."
+    }
+  ]
+}

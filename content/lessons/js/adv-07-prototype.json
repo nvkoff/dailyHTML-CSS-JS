@@ -1,0 +1,89 @@
+{
+  "id": "js/prototype",
+  "track": "js",
+  "section": "Advanced",
+  "sectionOrder": 3,
+  "unit": "Prototype",
+  "order": 28,
+  "title": "Prototype",
+  "description": "How inheritance actually works in JS.",
+  "xp": 16,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "In JS, an object's `[[Prototype]]` is:",
+      "options": [
+        "Another object it inherits from",
+        "A copy of the object",
+        "The constructor function",
+        "A class"
+      ],
+      "answer": 0,
+      "explanation": "JS uses prototypal inheritance — each object may link to a parent object."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "const parent = { greet() { return 'hi'; } };\nconst child = Object.create(parent);\nconsole.log(child.greet());",
+      "options": ["'hi'", "undefined", "TypeError", "'greet'"],
+      "answer": 0,
+      "explanation": "Object.create sets up prototype linkage. child inherits greet."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "const parent = { x: 1 };\nconst child = Object.create(parent);\nconsole.log(child.x);\nchild.x = 2;\nconsole.log(parent.x);",
+      "options": ["1 2", "1 1", "undefined 2", "2 2"],
+      "answer": 1,
+      "explanation": "Reading walks the prototype chain. Writing creates an OWN property on child."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "const arr = [];\nconsole.log(Object.getPrototypeOf(arr) === Array.prototype);",
+      "options": ["true", "false", "TypeError", "'Array'"],
+      "answer": 0,
+      "explanation": "Arrays inherit from Array.prototype (which inherits from Object.prototype)."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "const parent = { greet: () => 'p' };\nconst child = Object.create(parent);\nchild.greet = () => 'c';\nconsole.log(child.greet());",
+      "options": ["'p'", "'c'", "undefined", "TypeError"],
+      "answer": 1,
+      "explanation": "Own properties SHADOW inherited ones."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Which does NOT walk the prototype chain?",
+      "options": [
+        "Object.keys(obj)",
+        "for-in over obj",
+        "obj.x access",
+        "'x' in obj"
+      ],
+      "answer": 0,
+      "explanation": "Object.keys returns OWN keys only. for-in and `in` see inherited."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "function Cat(name) { this.name = name; }\nCat.prototype.meow = function () { return this.name + ' meows'; };\nconst c = new Cat('Kit');\nconsole.log(c.meow());",
+      "options": ["'Kit meows'", "'undefined meows'", "TypeError", "'meow'"],
+      "answer": 0,
+      "explanation": "Instance's __proto__ === Cat.prototype. meow is found there."
+    },
+    {
+      "type": "mcq",
+      "prompt": "The topmost prototype for regular objects is:",
+      "options": ["undefined", "null", "Object.prototype", "Function.prototype"],
+      "answer": 2,
+      "explanation": "Object.prototype's [[Prototype]] is null — end of the chain."
+    }
+  ]
+}

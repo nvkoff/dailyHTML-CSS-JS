@@ -34,6 +34,48 @@
       "options": ["200", "220", "230", "250"],
       "answer": 3,
       "explanation": "content-box: width = 200 + padding (2×20) + border (2×5) = 250px."
+    },
+    {
+      "type": "mcq",
+      "prompt": "The DEFAULT value of box-sizing is:",
+      "options": ["border-box", "content-box", "auto", "flex"],
+      "answer": 1,
+      "explanation": "Default: content-box. Modern resets switch to border-box for predictability."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Where does BORDER sit?",
+      "options": ["Around margin", "Between padding and margin", "Inside content", "Underneath padding"],
+      "answer": 1,
+      "explanation": "Inside → outside: content, padding, border, margin."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Which does NOT paint background color?",
+      "options": ["Content area", "Padding area", "Border area", "Margin area"],
+      "answer": 3,
+      "explanation": "Margin is fully transparent; background stops at the border."
+    },
+    {
+      "type": "predict",
+      "prompt": "What is the OUTER width including margin?",
+      "language": "css",
+      "code": ".box {\n  box-sizing: border-box;\n  width: 200px;\n  padding: 20px;\n  border: 2px solid;\n  margin: 10px;\n}",
+      "options": ["200px", "220px", "230px", "240px"],
+      "answer": 1,
+      "explanation": "border-box → width=200 includes padding+border. Total incl. margin = 200 + 2×10 = 220."
+    },
+    {
+      "type": "mcq",
+      "prompt": "outline vs border — the key difference:",
+      "options": [
+        "outline draws inside; border draws outside",
+        "outline doesn't affect layout (no space reserved); border does",
+        "border is animatable; outline is not",
+        "They're identical"
+      ],
+      "answer": 1,
+      "explanation": "outline overlays. Perfect for focus rings."
     }
   ]
 }

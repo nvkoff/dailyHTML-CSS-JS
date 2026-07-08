@@ -1,0 +1,83 @@
+{
+  "id": "js/logical-operators",
+  "track": "js",
+  "section": "Basic extended",
+  "sectionOrder": 2,
+  "unit": "Logical Operators",
+  "order": 19,
+  "title": "Logical operators",
+  "description": "&&, ||, ??, and their short-circuits.",
+  "xp": 12,
+  "questions": [
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "const name = '' || 'Anon';\nconsole.log(name);",
+      "options": ["''", "'Anon'", "undefined", "false"],
+      "answer": 1,
+      "explanation": "|| returns the FIRST truthy operand."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "const count = 0 || 5;\nconsole.log(count);",
+      "options": ["0", "5", "null", "undefined"],
+      "answer": 1,
+      "explanation": "0 is falsy → || falls through to 5. That's why ?? is safer for defaults."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "const count = 0 ?? 5;\nconsole.log(count);",
+      "options": ["0", "5", "null", "undefined"],
+      "answer": 0,
+      "explanation": "?? falls through only for null/undefined. 0 is a valid number."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "const isAdmin = true;\nconsole.log(isAdmin && 'edit');",
+      "options": ["true", "'edit'", "false", "undefined"],
+      "answer": 1,
+      "explanation": "&& returns the LAST evaluated operand. Truthy && x → x."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "const user = null;\nconsole.log(user?.name);",
+      "options": ["null", "undefined", "TypeError", "'null'"],
+      "answer": 1,
+      "explanation": "?.name short-circuits to undefined when the left side is null or undefined."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "console.log(!!'' || 'x');",
+      "options": ["true", "'x'", "false", "''"],
+      "answer": 1,
+      "explanation": "!!'' is false. false || 'x' → 'x'."
+    },
+    {
+      "type": "mcq",
+      "prompt": "For default values, which is SAFEST when 0 or '' are valid inputs?",
+      "options": ["||", "&&", "??", "typeof"],
+      "answer": 2,
+      "explanation": "?? only defaults on null/undefined."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "console.log(0 == '');",
+      "options": ["true", "false", "TypeError", "undefined"],
+      "answer": 0,
+      "explanation": "== coerces: '' → 0. Prefer === to avoid this."
+    }
+  ]
+}

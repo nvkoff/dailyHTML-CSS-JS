@@ -34,6 +34,63 @@
       "mustInclude": ["display", "flex"],
       "hint": "display: flex;",
       "explanation": "display: flex turns .row into a flex container so gap works."
+    },
+    {
+      "type": "mcq",
+      "prompt": "By default, flex items in a row:",
+      "options": [
+        "Stretch to fill cross axis, don't wrap",
+        "Wrap onto multiple lines",
+        "Center automatically",
+        "Take full container width"
+      ],
+      "answer": 0,
+      "explanation": "Default: nowrap, stretch on cross axis."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Which value on the container enables wrapping?",
+      "options": ["flex-wrap: wrap", "wrap: on", "flex: wrap", "align-items: wrap"],
+      "answer": 0,
+      "explanation": "flex-wrap: wrap (default is nowrap)."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs the display of children?",
+      "language": "css",
+      "code": ".row { display: flex; }\n\n<div class=\"row\"><span>a</span><span>b</span></span></div>",
+      "options": [
+        "inline like normal spans",
+        "block-like as flex items with a shared row",
+        "grid",
+        "invisible"
+      ],
+      "answer": 1,
+      "explanation": "Direct children of a flex container become flex items regardless of their default display."
+    },
+    {
+      "type": "mcq",
+      "prompt": "gap on a flex container:",
+      "options": [
+        "Adds space between items",
+        "Adds space around every item",
+        "Only works in grid",
+        "Adds margin to the first item"
+      ],
+      "answer": 0,
+      "explanation": "gap = spacing BETWEEN items — no edge padding."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Difference between display: flex and display: inline-flex?",
+      "options": [
+        "flex is a block-level container; inline-flex flows with surrounding text",
+        "They're identical",
+        "inline-flex doesn't wrap",
+        "flex only for divs"
+      ],
+      "answer": 0,
+      "explanation": "inline-flex is a flex container that sits in the inline flow like a span."
     }
   ]
 }

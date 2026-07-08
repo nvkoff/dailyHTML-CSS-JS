@@ -48,6 +48,42 @@
       "options": ["First", "Second", "Both", "Neither"],
       "answer": 2,
       "explanation": "~ is the general-sibling combinator: every <p> that follows the <h2>."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Which combinator has the LOWEST specificity impact?",
+      "options": ["Descendant (space)", "Child (>)", "Sibling (+)", "All have equal impact"],
+      "answer": 3,
+      "explanation": "Combinators don't add specificity — only the selectors on either side count."
+    },
+    {
+      "type": "predict",
+      "prompt": "Which <li>s become bold?",
+      "language": "css",
+      "code": "ul > li { font-weight: bold; }\n\n<ul>\n  <li>A\n    <ul><li>B</li></ul>\n  </li>\n</ul>",
+      "options": ["A only", "B only", "Both", "Neither"],
+      "answer": 2,
+      "explanation": "Both A and B are direct children of a <ul>. The nested <ul> makes B qualify too."
+    },
+    {
+      "type": "mcq",
+      "prompt": "'article p' vs 'article > p' — the difference?",
+      "options": [
+        "Same thing",
+        "'article p' matches p at any depth inside article; 'article > p' matches only direct children",
+        "'article > p' matches at any depth; 'article p' matches only direct",
+        "Only one is valid"
+      ],
+      "answer": 1,
+      "explanation": "Space = descendant. > = direct child."
+    },
+    {
+      "type": "fix-bug",
+      "prompt": "Target only <a> that are DIRECT children of <nav>.",
+      "language": "css",
+      "broken": "nav a { color: red; }",
+      "mustInclude": ["nav > a"],
+      "explanation": "> restricts to direct children only."
     }
   ]
 }

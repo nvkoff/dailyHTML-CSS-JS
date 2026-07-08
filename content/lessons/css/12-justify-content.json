@@ -48,6 +48,41 @@
       "mustInclude": ["justify-content", "center"],
       "hint": "justify-content: center;",
       "explanation": "In a row, justify-content controls horizontal alignment."
+    },
+    {
+      "type": "mcq",
+      "prompt": "The DEFAULT value of justify-content is:",
+      "options": ["center", "flex-start", "space-between", "stretch"],
+      "answer": 1,
+      "explanation": "flex-start — items pack at the start of the main axis."
+    },
+    {
+      "type": "predict",
+      "prompt": "In flex-direction: column, justify-content controls:",
+      "language": "css",
+      "code": ".c { display: flex; flex-direction: column; }",
+      "options": ["Horizontal alignment", "Vertical alignment", "Font size", "None"],
+      "answer": 1,
+      "explanation": "Main axis in column direction is vertical."
+    },
+    {
+      "type": "mcq",
+      "prompt": "What does justify-content: space-between do with a single item?",
+      "options": ["Centers it", "Places it at the start (nothing to space)", "Places it at the end", "Stretches it"],
+      "answer": 1,
+      "explanation": "With one item, there's nothing between → behaves like flex-start."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Which pushes ONE item to the right while others stay left?",
+      "options": [
+        "justify-content: flex-end on the container",
+        "margin-left: auto on the target item",
+        "float: right on the item",
+        "position: absolute"
+      ],
+      "answer": 1,
+      "explanation": "Auto margins in flex consume leftover space — great for spacer tricks."
     }
   ]
 }

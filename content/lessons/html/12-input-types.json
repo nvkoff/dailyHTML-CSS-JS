@@ -29,6 +29,41 @@
       "options": ["A", "B", "C", "D"],
       "answer": 3,
       "explanation": "inputmode=\"decimal\" — mobile shows numeric keyboard including '.' key."
+    },
+    {
+      "type": "mcq",
+      "prompt": "For a color picker input:",
+      "options": ["type=\"picker\"", "type=\"color\"", "type=\"rgb\"", "type=\"hex\""],
+      "answer": 1,
+      "explanation": "type=\"color\" gives a native picker; value is a hex string."
+    },
+    {
+      "type": "mcq",
+      "prompt": "For a search field with a clear-x on mobile:",
+      "options": ["type=\"text\"", "type=\"search\"", "type=\"find\"", "type=\"input\""],
+      "answer": 1,
+      "explanation": "type=\"search\" gets a subtle X clear button and better mobile UX."
+    },
+    {
+      "type": "mcq",
+      "prompt": "For a range slider:",
+      "options": ["type=\"slider\"", "type=\"range\"", "type=\"number\"", "type=\"scroll\""],
+      "answer": 1,
+      "explanation": "type=\"range\" with min, max, step attributes."
+    },
+    {
+      "type": "mcq",
+      "prompt": "For a native checkbox:",
+      "options": ["type=\"check\"", "type=\"checkbox\"", "type=\"toggle\"", "type=\"boolean\""],
+      "answer": 1,
+      "explanation": "type=\"checkbox\" — use the `checked` boolean attribute to preselect."
+    },
+    {
+      "type": "mcq",
+      "prompt": "For a hidden field (submitted but not visible):",
+      "options": ["type=\"hidden\"", "hidden=\"true\"", "display: none", "type=\"secret\""],
+      "answer": 0,
+      "explanation": "<input type=\"hidden\" name=\"token\" value=\"...\">."
     }
   ]
 }

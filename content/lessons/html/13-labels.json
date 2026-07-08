@@ -33,6 +33,61 @@
       "broken": "<label>Email</label>\n<input type=\"email\" name=\"email\">",
       "mustInclude": ["for=\"email\"", "id=\"email\""],
       "explanation": "<label for=\"email\"> + <input id=\"email\"> forms the pair."
+    },
+    {
+      "type": "mcq",
+      "prompt": "The other way to associate a label with an input is:",
+      "options": [
+        "Wrap the input inside the label: <label>Email <input></label>",
+        "Nothing — always need `for`",
+        "Use aria-labelledby only",
+        "Same class name"
+      ],
+      "answer": 0,
+      "explanation": "Wrapping is implicit association — for/id explicit. Both work."
+    },
+    {
+      "type": "mcq",
+      "prompt": "For a REQUIRED field, the modern signal to users is:",
+      "options": [
+        "The word 'required' next to the label",
+        "An asterisk plus a legend explaining what * means",
+        "Both together are best practice",
+        "Just red border"
+      ],
+      "answer": 2,
+      "explanation": "* is convention, but always explain it (visually or via aria-label)."
+    },
+    {
+      "type": "mcq",
+      "prompt": "placeholder is NOT a replacement for a label because:",
+      "options": [
+        "It disappears when the user types",
+        "It has poor contrast by default",
+        "Screen readers may treat it inconsistently",
+        "All of the above"
+      ],
+      "answer": 3,
+      "explanation": "Use label for the name; placeholder for a HINT / example only."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Group related radio buttons with:",
+      "options": ["<div>", "<fieldset> and <legend>", "<group>", "<section>"],
+      "answer": 1,
+      "explanation": "<fieldset> is the semantic group; <legend> gives it a label."
+    },
+    {
+      "type": "mcq",
+      "prompt": "The `autocomplete` attribute:",
+      "options": [
+        "Is deprecated",
+        "Hints the browser what data to autofill (e.g. autocomplete=\"email\")",
+        "Same as required",
+        "Only for admin"
+      ],
+      "answer": 1,
+      "explanation": "Good autocomplete values improve form UX dramatically on mobile."
     }
   ]
 }

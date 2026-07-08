@@ -1,0 +1,83 @@
+{
+  "id": "js/working-with-arrays",
+  "track": "js",
+  "section": "Basic",
+  "sectionOrder": 1,
+  "unit": "Working With Arrays",
+  "order": 11,
+  "title": "Working with arrays",
+  "description": "push, pop, shift, unshift, and slice.",
+  "xp": 12,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "Which adds to the END of the array?",
+      "options": ["shift", "unshift", "push", "prepend"],
+      "answer": 2,
+      "explanation": "push → end. unshift/shift work at the start."
+    },
+    {
+      "type": "predict",
+      "prompt": "What does list become?",
+      "language": "js",
+      "code": "const list = [1, 2, 3];\nlist.unshift(0);\nconsole.log(list);",
+      "options": ["[0, 1, 2, 3]", "[1, 2, 3, 0]", "[0]", "[3, 2, 1, 0]"],
+      "answer": 0,
+      "explanation": "unshift inserts at index 0 and returns the new length."
+    },
+    {
+      "type": "predict",
+      "prompt": "What does pop() return?",
+      "language": "js",
+      "code": "const list = [1, 2, 3];\nconsole.log(list.pop());",
+      "options": ["1", "2", "3", "[1, 2]"],
+      "answer": 2,
+      "explanation": "pop removes AND returns the last element."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "const list = [1, 2, 3, 4];\nconst copy = list.slice(1, 3);\nconsole.log(copy);",
+      "options": ["[1, 2]", "[2, 3]", "[2, 3, 4]", "[1, 2, 3]"],
+      "answer": 1,
+      "explanation": "slice(start, end) — end is exclusive. Also returns a NEW array (non-mutating)."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "const list = [1, 2, 3];\nlist.splice(1, 1);\nconsole.log(list);",
+      "options": ["[1, 2, 3]", "[1, 3]", "[2, 3]", "[1, 2]"],
+      "answer": 1,
+      "explanation": "splice mutates: remove 1 element at index 1 → [1, 3]."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "const a = [1, 2];\nconst b = [3, 4];\nconsole.log(a.concat(b));",
+      "options": ["[1, 2, 3, 4]", "[[1,2],[3,4]]", "[1, 3, 2, 4]", "[3, 4, 1, 2]"],
+      "answer": 0,
+      "explanation": "concat returns a NEW array joining the two."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "const list = [1, 2, 3];\nconsole.log([...list, 4]);",
+      "options": ["[1, 2, 3, 4]", "[[1, 2, 3], 4]", "[1, 2, 3]", "[4]"],
+      "answer": 0,
+      "explanation": "Spread flattens into a new array — great for immutable additions."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "const list = [1, 2, 3];\nconsole.log(list.reverse());",
+      "options": ["[1, 2, 3]", "[3, 2, 1]", "['3', '2', '1']", "undefined"],
+      "answer": 1,
+      "explanation": "reverse MUTATES and returns the array. Use [...list].reverse() to keep the original."
+    }
+  ]
+}

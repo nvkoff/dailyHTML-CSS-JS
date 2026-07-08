@@ -1,0 +1,89 @@
+{
+  "id": "js/main-concepts",
+  "track": "js",
+  "section": "Basic",
+  "sectionOrder": 1,
+  "unit": "Main Concepts",
+  "order": 1,
+  "title": "Main concepts",
+  "description": "Variables, statements, and how JS runs.",
+  "xp": 14,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "Which declaration allows reassignment but has block scope?",
+      "options": ["var", "let", "const", "static"],
+      "answer": 1,
+      "explanation": "let: block-scoped and reassignable. var is function-scoped. const cannot be reassigned."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Modern best practice for a value you'll never reassign:",
+      "options": ["var", "let", "const", "let & Object.freeze"],
+      "answer": 2,
+      "explanation": "Default to const; reach for let only when reassignment is needed."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "console.log(x);\nvar x = 5;",
+      "options": ["5", "undefined", "ReferenceError", "null"],
+      "answer": 1,
+      "explanation": "var declarations are hoisted; the value 5 isn't assigned yet — prints undefined."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "console.log(y);\nlet y = 5;",
+      "options": ["5", "undefined", "ReferenceError", "null"],
+      "answer": 2,
+      "explanation": "let/const live in the temporal dead zone before their declaration line."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Which is an EXPRESSION (returns a value)?",
+      "options": ["if (x) { ... }", "let y = 5;", "3 + 4", "for (...) { }"],
+      "answer": 2,
+      "explanation": "Expressions produce values. Statements DO things (declare, loop, branch)."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "const x = 1;\nx = 2;\nconsole.log(x);",
+      "options": ["1", "2", "undefined", "TypeError"],
+      "answer": 3,
+      "explanation": "Reassigning a const throws TypeError: Assignment to constant variable."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "const list = [1, 2];\nlist.push(3);\nconsole.log(list.length);",
+      "options": ["2", "3", "TypeError", "undefined"],
+      "answer": 1,
+      "explanation": "const forbids REBINDING the variable — it doesn't freeze the object it points to."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Which is NOT a primitive type in JS?",
+      "options": ["string", "number", "boolean", "array"],
+      "answer": 3,
+      "explanation": "Primitives: string, number, boolean, null, undefined, symbol, bigint. Arrays are objects."
+    },
+    {
+      "type": "mcq",
+      "prompt": "The `\"use strict\";` directive:",
+      "options": [
+        "Speeds up code",
+        "Enables stricter parsing rules and helpful errors",
+        "Disables let/const",
+        "Enables TypeScript"
+      ],
+      "answer": 1,
+      "explanation": "Strict mode turns silent bugs into errors. ES modules are strict by default."
+    }
+  ]
+}

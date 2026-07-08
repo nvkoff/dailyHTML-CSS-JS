@@ -48,6 +48,53 @@
       "mustInclude": ["flex", "200px", "1"],
       "hint": "sidebar { flex: 0 0 200px; } main { flex: 1; }",
       "explanation": "`0 0 200px` locks basis; `flex: 1` fills leftover."
+    },
+    {
+      "type": "mcq",
+      "prompt": "flex-shrink: 0 does what?",
+      "options": [
+        "Item grows indefinitely",
+        "Item refuses to shrink below its basis, even if the container is too small",
+        "Item disappears",
+        "Item wraps"
+      ],
+      "answer": 1,
+      "explanation": "Handy to prevent icons/logos from shrinking."
+    },
+    {
+      "type": "predict",
+      "prompt": "What is basis?",
+      "language": "css",
+      "code": ".item { flex-basis: 200px; }",
+      "options": [
+        "The item's INITIAL main-axis size before grow/shrink",
+        "The max size",
+        "The min size",
+        "Same as width"
+      ],
+      "answer": 0,
+      "explanation": "basis = starting size. grow adds, shrink removes, from there."
+    },
+    {
+      "type": "mcq",
+      "prompt": "`flex: auto;` is short for:",
+      "options": [
+        "1 1 auto",
+        "0 0 auto",
+        "1 1 0%",
+        "auto auto auto"
+      ],
+      "answer": 0,
+      "explanation": "1 1 auto — grow & shrink from the item's natural size."
+    },
+    {
+      "type": "predict",
+      "prompt": "Three items: flex: 1, flex: 1, flex: 2. Widths of the first two?",
+      "language": "css",
+      "code": ".row { display: flex; width: 400px; }\n.a, .b { flex: 1; }\n.c { flex: 2; }",
+      "options": ["100 100 200", "133 133 133", "50 50 300", "80 80 240"],
+      "answer": 0,
+      "explanation": "Ratios 1:1:2 → 100:100:200 out of 400px."
     }
   ]
 }

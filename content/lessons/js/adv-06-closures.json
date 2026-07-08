@@ -1,0 +1,91 @@
+{
+  "id": "js/closures",
+  "track": "js",
+  "section": "Advanced",
+  "sectionOrder": 3,
+  "unit": "Closures",
+  "order": 27,
+  "title": "Closures",
+  "description": "Functions remember where they were born.",
+  "xp": 16,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "A closure is:",
+      "options": [
+        "A locked variable",
+        "A function bundled with the variables from its outer scope",
+        "A finished promise",
+        "An arrow function"
+      ],
+      "answer": 1,
+      "explanation": "Closure = function + its lexical environment."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "function makeCounter() {\n  let n = 0;\n  return () => ++n;\n}\nconst c = makeCounter();\nc(); c();\nconsole.log(c());",
+      "options": ["1", "2", "3", "undefined"],
+      "answer": 2,
+      "explanation": "Three calls of the closure → 1, 2, 3."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "let x = 1;\nfunction outer() {\n  let x = 10;\n  return function () { return x; };\n}\nconsole.log(outer()());",
+      "options": ["1", "10", "undefined", "ReferenceError"],
+      "answer": 1,
+      "explanation": "Inner closes over outer's x (10), not the global."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "for (var i = 0; i < 3; i++) {\n  setTimeout(() => console.log(i), 0);\n}",
+      "options": ["0 1 2", "3 3 3", "0 0 0", "TypeError"],
+      "answer": 1,
+      "explanation": "var is function-scoped — all timeouts see the SAME i (3 at fire time)."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "for (let i = 0; i < 3; i++) {\n  setTimeout(() => console.log(i), 0);\n}",
+      "options": ["0 1 2", "3 3 3", "0 0 0", "TypeError"],
+      "answer": 0,
+      "explanation": "let creates a NEW binding per iteration — each timeout captures its own i."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "function makeAdder(x) {\n  return y => x + y;\n}\nconst add5 = makeAdder(5);\nconsole.log(add5(3));",
+      "options": ["3", "5", "8", "TypeError"],
+      "answer": 2,
+      "explanation": "Classic partial application via closure."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "function outer() {\n  let secret = 42;\n  return {\n    get: () => secret,\n    set: v => (secret = v)\n  };\n}\nconst obj = outer();\nobj.set(99);\nconsole.log(obj.get());",
+      "options": ["42", "99", "undefined", "TypeError"],
+      "answer": 1,
+      "explanation": "Two closures share the same `secret` — private state pattern."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Closures are useful for:",
+      "options": [
+        "Private state",
+        "Currying/partial application",
+        "Callback stability",
+        "All of the above"
+      ],
+      "answer": 3,
+      "explanation": "Data hiding, currying, and memoization — closures do it all."
+    }
+  ]
+}

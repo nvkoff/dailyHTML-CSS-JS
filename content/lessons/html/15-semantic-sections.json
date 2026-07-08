@@ -28,6 +28,61 @@
       "broken": "<div class=\"top\">\n  <div class=\"menu\">Home</div>\n</div>\n<div class=\"content\">Article</div>\n<div class=\"bottom\">© 2026</div>",
       "mustInclude": ["<header>", "<nav>", "<main>", "<footer>"],
       "explanation": "header/nav/main/footer are recognized landmarks for assistive tech."
+    },
+    {
+      "type": "mcq",
+      "prompt": "<aside> is best for:",
+      "options": [
+        "Advertising or sidebars",
+        "The main content",
+        "Site header",
+        "Form errors"
+      ],
+      "answer": 0,
+      "explanation": "aside = content tangentially related to what surrounds it."
+    },
+    {
+      "type": "mcq",
+      "prompt": "For an image with a caption:",
+      "options": [
+        "<figure> + <figcaption>",
+        "<img> + <p>",
+        "<div class=\"caption\">",
+        "<picture>"
+      ],
+      "answer": 0,
+      "explanation": "figure groups the media and its caption semantically."
+    },
+    {
+      "type": "mcq",
+      "prompt": "How many <nav> elements per page are OK?",
+      "options": ["One", "One per major group of links", "Any number", "Zero"],
+      "answer": 1,
+      "explanation": "Multiple <nav>s are fine (main, footer). Label each with aria-label."
+    },
+    {
+      "type": "mcq",
+      "prompt": "The `role=\"button\"` attribute:",
+      "options": [
+        "Is required on every button",
+        "Should be avoided — use <button> instead",
+        "Makes any element clickable",
+        "Overrides styles"
+      ],
+      "answer": 1,
+      "explanation": "First rule of ARIA: prefer native HTML."
+    },
+    {
+      "type": "mcq",
+      "prompt": "<main> should:",
+      "options": [
+        "Appear once per document",
+        "Not be nested inside <article>, <aside>, or <nav>",
+        "Skip repeated content like the site header",
+        "All of the above"
+      ],
+      "answer": 3,
+      "explanation": "Main = unique primary content of THIS page."
     }
   ]
 }

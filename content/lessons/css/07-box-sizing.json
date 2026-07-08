@@ -36,6 +36,55 @@
       "mustInclude": ["*", "box-sizing", "border-box"],
       "hint": "Use the universal selector *.",
       "explanation": "`*, *::before, *::after { box-sizing: border-box; }` is the common pattern; `* { box-sizing: border-box; }` also works."
+    },
+    {
+      "type": "predict",
+      "prompt": "How wide is the box?",
+      "language": "css",
+      "code": ".b {\n  box-sizing: border-box;\n  width: 100px;\n  padding: 30px;\n  border: 5px solid;\n}",
+      "options": ["30", "60", "100", "170"],
+      "answer": 2,
+      "explanation": "border-box: total width stays at 100 — content shrinks."
+    },
+    {
+      "type": "predict",
+      "prompt": "How wide is CONTENT in that box?",
+      "language": "css",
+      "code": ".b {\n  box-sizing: border-box;\n  width: 100px;\n  padding: 30px;\n  border: 5px solid;\n}",
+      "options": ["100px", "70px", "30px", "40px"],
+      "answer": 2,
+      "explanation": "100 - 2×30 (padding) - 2×5 (border) = 30px content."
+    },
+    {
+      "type": "mcq",
+      "prompt": "When you set width: 50%, box-sizing decides:",
+      "options": [
+        "Whether 50% counts before or after padding/border",
+        "The unit interpretation",
+        "The color",
+        "The parent's width"
+      ],
+      "answer": 0,
+      "explanation": "border-box → 50% is the total; padding/border eat INTO it. content-box → 50% is content only, box grows."
+    },
+    {
+      "type": "mcq",
+      "prompt": "The main reason border-box became popular:",
+      "options": [
+        "Faster rendering",
+        "Predictable width — set 300px and it stays 300px",
+        "Fewer selectors needed",
+        "It's required for grid"
+      ],
+      "answer": 1,
+      "explanation": "Widths behave the way most beginners expect."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Frameworks like Bootstrap and Tailwind assume:",
+      "options": ["content-box", "border-box", "outline-box", "none"],
+      "answer": 1,
+      "explanation": "Modern CSS frameworks apply * { box-sizing: border-box; } in their reset."
     }
   ]
 }

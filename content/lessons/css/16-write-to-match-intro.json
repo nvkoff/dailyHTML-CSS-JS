@@ -26,6 +26,68 @@
       "mustInclude": ["border-radius", "box-shadow"],
       "hint": "border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);",
       "explanation": "Rounded corners + shadow = card feel."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Which line perfectly centers `.child` inside a flex `.parent`?",
+      "options": [
+        "align: center",
+        "text-align: center",
+        "justify-content: center; align-items: center;",
+        "margin: 0"
+      ],
+      "answer": 2,
+      "explanation": "The classic two-line centering combo."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Which box-shadow syntax is CORRECT?",
+      "options": [
+        "box-shadow: 4px 4px 12px #000",
+        "box-shadow: #000 4px 4px 12px",
+        "box-shadow: 4px 4px",
+        "Both A and B"
+      ],
+      "answer": 3,
+      "explanation": "Color can go anywhere in box-shadow. Offsets and blur come in a fixed order."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Which converts a square into a circle?",
+      "options": [
+        "border-radius: 50%",
+        "border-radius: 100%",
+        "border-radius: 100vmax",
+        "All of the above work"
+      ],
+      "answer": 3,
+      "explanation": "All three clip a square to a circle. 50% is the most common."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Which centers text horizontally in a block?",
+      "options": ["text-align: center", "align-items: center", "justify-self: center", "margin: 0"],
+      "answer": 0,
+      "explanation": "text-align works on inline content within a block."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Which stacks two divs vertically with a 12px gap?",
+      "options": [
+        "display: flex; flex-direction: column; gap: 12px;",
+        "display: flex; margin: 12px;",
+        "display: block; gap: 12px;",
+        "display: inline; margin-top: 12px;"
+      ],
+      "answer": 0,
+      "explanation": "Column direction + gap gives clean vertical spacing."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Which color format supports alpha (transparency)?",
+      "options": ["#fff", "rgb()", "rgba() or hex #rrggbbaa", "hsl()"],
+      "answer": 2,
+      "explanation": "rgba, hsla, and 8-digit hex all carry an alpha channel. Modern rgb()/hsl() accept alpha too via the / syntax."
     }
   ]
 }

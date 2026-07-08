@@ -1,15 +1,20 @@
 import Link from "next/link";
 import { UserButton } from "@clerk/nextjs";
-import { Flame, Zap, Heart } from "lucide-react";
+import { Zap, Heart } from "lucide-react";
+import { StreakPopover } from "./streak-popover";
 
 export function AppHeader({
   xp,
   streak,
   hearts,
+  freezes,
+  activeDates,
 }: {
   xp: number;
   streak: number;
   hearts: number;
+  freezes: number;
+  activeDates: string[];
 }) {
   return (
     <header className="sticky top-0 z-10 border-b bg-background/80 backdrop-blur">
@@ -18,15 +23,11 @@ export function AppHeader({
           <span className="hidden sm:inline">Daily Frontend</span>
           <span className="sm:hidden">DF</span>
         </Link>
-        <div className="ml-auto flex items-center gap-2 text-sm sm:gap-4">
-          <Stat icon={<Zap className="h-4 w-4" />} value={xp} label={`${xp} XP`} />
+        <div className="ml-auto flex items-center gap-2 text-sm sm:gap-3">
+          <Stat icon={<Zap className="h-5 w-5" />} value={xp} label={`${xp} XP`} />
+          <StreakPopover streak={streak} freezes={freezes} activeDates={activeDates} />
           <Stat
-            icon={<Flame className="h-4 w-4 text-orange-500" />}
-            value={streak}
-            label={`${streak} day streak`}
-          />
-          <Stat
-            icon={<Heart className="h-4 w-4 text-rose-500" />}
+            icon={<Heart className="h-5 w-5 text-rose-500" />}
             value={hearts}
             label={`${hearts} hearts`}
           />
@@ -48,7 +49,7 @@ function Stat({
 }) {
   return (
     <div
-      className="flex items-center gap-1 tabular-nums text-muted-foreground sm:gap-1.5"
+      className="flex items-center gap-1.5 tabular-nums text-muted-foreground"
       title={label}
       aria-label={label}
     >

@@ -36,6 +36,58 @@
       "mustInclude": ["flex-direction", "column"],
       "hint": "flex-direction: column;",
       "explanation": "column makes items stack top-to-bottom."
+    },
+    {
+      "type": "mcq",
+      "prompt": "flex-direction: column-reverse does what?",
+      "options": [
+        "Items stack bottom-to-top",
+        "Items rotate 180°",
+        "Items float to sides",
+        "Nothing"
+      ],
+      "answer": 0,
+      "explanation": "Reverses the visual order along the (now vertical) main axis."
+    },
+    {
+      "type": "mcq",
+      "prompt": "In column direction, `width: 100%` on an item does what?",
+      "options": [
+        "Fills the CROSS axis (horizontal) fully",
+        "Fills the container vertically",
+        "No effect",
+        "Errors"
+      ],
+      "answer": 0,
+      "explanation": "Cross axis in column is horizontal — 100% width fills it."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Which property switches to column on narrow screens using a media query?",
+      "options": [
+        "flex-direction",
+        "flex-wrap",
+        "align-items",
+        "order"
+      ],
+      "answer": 0,
+      "explanation": "@media (max-width: 640px) { .row { flex-direction: column; } } — classic pattern."
+    },
+    {
+      "type": "predict",
+      "prompt": "In row-reverse, which end do items appear at?",
+      "language": "css",
+      "code": ".row { display: flex; flex-direction: row-reverse; }",
+      "options": ["Left", "Right", "Center", "Depends on width"],
+      "answer": 1,
+      "explanation": "row-reverse packs items at the (visual) right in LTR."
+    },
+    {
+      "type": "mcq",
+      "prompt": "In column direction, `justify-content: space-between` distributes items:",
+      "options": ["Horizontally", "Vertically", "In a grid", "Randomly"],
+      "answer": 1,
+      "explanation": "Main axis in column direction is vertical."
     }
   ]
 }

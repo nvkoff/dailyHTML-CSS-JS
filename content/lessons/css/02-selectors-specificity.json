@@ -41,6 +41,48 @@
       "mustNotInclude": ["!important"],
       "hint": "Use the id selector.",
       "explanation": "#go { color: red; } beats .btn on specificity."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Specificity ranking (highest → lowest) is:",
+      "options": [
+        "id > class > element > universal",
+        "class > id > element",
+        "element > class > id",
+        "inline > !important > id"
+      ],
+      "answer": 0,
+      "explanation": "Inline style beats all normal rules; !important beats inline."
+    },
+    {
+      "type": "predict",
+      "prompt": "Which rule wins?",
+      "language": "css",
+      "code": "p.a { color: red; }\np { color: blue !important; }",
+      "options": ["red", "blue", "black", "invalid"],
+      "answer": 1,
+      "explanation": "!important overrides specificity — even a low-specificity rule wins."
+    },
+    {
+      "type": "mcq",
+      "prompt": "!important should be:",
+      "options": [
+        "Used liberally",
+        "Avoided except for utility overrides and 3rd-party CSS",
+        "Required for all IDs",
+        "Placed at the top of every file"
+      ],
+      "answer": 1,
+      "explanation": "!important disables normal cascade — use sparingly, or you'll fight yourself later."
+    },
+    {
+      "type": "predict",
+      "prompt": "What's the specificity of `.a.b#c`?",
+      "language": "css",
+      "code": ".a.b#c { }",
+      "options": ["(1,2,0)", "(0,3,0)", "(3,0,0)", "(0,1,3)"],
+      "answer": 0,
+      "explanation": "IDs → 1, classes → 2, elements → 0. Format (id, class, element)."
     }
   ]
 }

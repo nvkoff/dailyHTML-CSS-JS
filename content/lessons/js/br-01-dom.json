@@ -1,0 +1,91 @@
+{
+  "id": "js/dom",
+  "track": "js",
+  "section": "Browser & Async",
+  "sectionOrder": 4,
+  "unit": "DOM",
+  "order": 31,
+  "title": "DOM basics",
+  "description": "Find, read, and change elements from JS.",
+  "xp": 16,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "document.querySelector('#header') returns:",
+      "options": [
+        "An array of matches",
+        "The first element matching the selector, or null",
+        "All elements with that id",
+        "The <html> element"
+      ],
+      "answer": 1,
+      "explanation": "querySelector = first match. querySelectorAll returns a NodeList of all."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Which returns a NodeList of ALL matches?",
+      "options": ["querySelector", "querySelectorAll", "getElements", "queryAll"],
+      "answer": 1,
+      "explanation": "querySelectorAll — iterate with forEach or spread to array."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs when no matching element exists?",
+      "language": "js",
+      "code": "const el = document.querySelector('.nope');\nconsole.log(el);",
+      "options": ["An empty array", "undefined", "null", "Error"],
+      "answer": 2,
+      "explanation": "querySelector returns null on no match — always guard before use."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Which reads the visible text of an element?",
+      "options": ["el.innerHTML", "el.textContent", "el.value", "el.dataset"],
+      "answer": 1,
+      "explanation": "textContent is text only. innerHTML includes markup. value is for form inputs."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Which SAFELY sets user-provided text (avoids XSS)?",
+      "options": ["el.innerHTML = user", "el.textContent = user", "document.write(user)", "eval(user)"],
+      "answer": 1,
+      "explanation": "textContent is inert — sets text without parsing HTML."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Which toggles a class on an element?",
+      "options": [
+        "el.className.toggle('active')",
+        "el.classList.toggle('active')",
+        "el.class = 'active'",
+        "el.toggleClass('active')"
+      ],
+      "answer": 1,
+      "explanation": "classList exposes add/remove/toggle/contains."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Which creates a NEW element?",
+      "options": [
+        "new Element('div')",
+        "document.new('div')",
+        "document.createElement('div')",
+        "HTMLElement('div')"
+      ],
+      "answer": 2,
+      "explanation": "createElement + appendChild is the standard pattern."
+    },
+    {
+      "type": "mcq",
+      "prompt": "el.dataset.userId corresponds to which HTML attribute?",
+      "options": [
+        "user-id",
+        "userid",
+        "data-user-id",
+        "data-userId"
+      ],
+      "answer": 2,
+      "explanation": "dataset auto-camelCases data-* attributes. data-user-id → dataset.userId."
+    }
+  ]
+}

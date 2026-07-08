@@ -34,6 +34,48 @@
       "mustInclude": ["name=", "required"],
       "hint": "name=\"email\" required",
       "explanation": "Forms submit inputs by their name. required makes the field mandatory."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Attribute names in HTML are:",
+      "options": ["Case-sensitive", "Case-insensitive", "PascalCase required", "Uppercase only"],
+      "answer": 1,
+      "explanation": "class and CLASS behave the same. Convention: lowercase."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Which is an example of a GLOBAL attribute (works on any element)?",
+      "options": ["src", "href", "id", "action"],
+      "answer": 2,
+      "explanation": "id, class, style, hidden, title, tabindex, data-* are globals."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Custom data attributes use the prefix:",
+      "options": ["custom-", "user-", "data-", "x-"],
+      "answer": 2,
+      "explanation": "data-* attributes are official. Read from JS as element.dataset.camelCase."
+    },
+    {
+      "type": "predict",
+      "prompt": "How does JS read `data-user-id` from an element?",
+      "language": "html",
+      "code": "<div data-user-id=\"42\"></div>\n<!-- JS: div.dataset.??? -->",
+      "options": ["userId", "user-id", "userid", "data-user-id"],
+      "answer": 0,
+      "explanation": "data-user-id → dataset.userId (auto camelCased)."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Boolean attribute short forms (like `disabled` alone) mean:",
+      "options": [
+        "false",
+        "true",
+        "Depends on the browser",
+        "Only work with quotes"
+      ],
+      "answer": 1,
+      "explanation": "The presence of a boolean attribute means true. Value doesn't matter — even disabled=\"false\" is truthy."
     }
   ]
 }

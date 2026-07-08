@@ -1,0 +1,85 @@
+{
+  "id": "js/working-with-strings",
+  "track": "js",
+  "section": "Basic extended",
+  "sectionOrder": 2,
+  "unit": "Working With Strings",
+  "order": 15,
+  "title": "Working with strings",
+  "description": "Search, compare, and transform.",
+  "xp": 12,
+  "questions": [
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "console.log('hello'.indexOf('l'));",
+      "options": ["-1", "1", "2", "3"],
+      "answer": 2,
+      "explanation": "indexOf returns the FIRST match position (0-based)."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "console.log('hello'.lastIndexOf('l'));",
+      "options": ["-1", "1", "2", "3"],
+      "answer": 3,
+      "explanation": "lastIndexOf scans from the end. Last 'l' is at index 3."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "console.log('image.png'.endsWith('.png'));",
+      "options": ["true", "false", "-1", "TypeError"],
+      "answer": 0,
+      "explanation": "startsWith/endsWith return booleans."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "console.log('a b'.replaceAll(' ', '-'));",
+      "options": ["'a-b'", "'a b'", "'-'", "'a - b'"],
+      "answer": 0,
+      "explanation": "replaceAll replaces every occurrence. replace only touches the first."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "console.log(['a','b','c'].join('-'));",
+      "options": ["'abc'", "'a-b-c'", "['a','b','c']", "TypeError"],
+      "answer": 1,
+      "explanation": "Array.join is the reverse of split."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "console.log('abc'.length);",
+      "options": ["2", "3", "4", "undefined"],
+      "answer": 1,
+      "explanation": "length is a property, not a method — no parentheses."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "console.log('a' < 'b');",
+      "options": ["true", "false", "0", "TypeError"],
+      "answer": 0,
+      "explanation": "String comparison is by Unicode code points. 'a' (97) < 'b' (98)."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "console.log('abc'.at(-1));",
+      "options": ["'a'", "'c'", "-1", "undefined"],
+      "answer": 1,
+      "explanation": ".at(-1) returns the last character."
+    }
+  ]
+}

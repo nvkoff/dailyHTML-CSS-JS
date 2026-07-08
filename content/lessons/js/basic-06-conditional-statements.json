@@ -1,0 +1,84 @@
+{
+  "id": "js/conditional-statements",
+  "track": "js",
+  "section": "Basic",
+  "sectionOrder": 1,
+  "unit": "Conditional Statements",
+  "order": 6,
+  "title": "Conditional statements",
+  "description": "if / else if / else and the ternary.",
+  "xp": 12,
+  "questions": [
+    {
+      "type": "predict",
+      "prompt": "What logs when x = 5?",
+      "language": "js",
+      "code": "const x = 5;\nif (x < 0) console.log('neg');\nelse if (x === 0) console.log('zero');\nelse console.log('pos');",
+      "options": ["neg", "zero", "pos", "nothing"],
+      "answer": 2,
+      "explanation": "5 is not < 0, not === 0, so it falls to else → 'pos'."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Which is BAD practice?",
+      "options": [
+        "Wrapping single-line if bodies in { }",
+        "Chaining else if",
+        "Assigning inside a condition: if (x = 5)",
+        "Testing typeof to guard"
+      ],
+      "answer": 2,
+      "explanation": "if (x = 5) assigns 5 to x — a silent bug. Use === for comparison."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "const label = 10 > 5 ? 'big' : 'small';\nconsole.log(label);",
+      "options": ["'big'", "'small'", "10", "true"],
+      "answer": 0,
+      "explanation": "Ternary condition ? if-true : if-false."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Which is an EXPRESSION (returns a value)?",
+      "options": ["if (x) { y }", "x > 5", "x > 5 ? 'a' : 'b'", "Both B and C"],
+      "answer": 3,
+      "explanation": "Comparisons and ternaries are expressions. if statements are not."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs when x = 0?",
+      "language": "js",
+      "code": "const x = 0;\nif (x) console.log('has value');\nelse console.log('empty');",
+      "options": ["has value", "empty", "false", "TypeError"],
+      "answer": 1,
+      "explanation": "0 is falsy — the else branch fires."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "const x = 3;\nif (x > 0) if (x > 5) console.log('big');\nelse console.log('small');",
+      "options": ["big", "small", "nothing", "TypeError"],
+      "answer": 1,
+      "explanation": "Dangling else binds to the NEAREST if. Here it binds to x > 5, so when x=3 → 'small'."
+    },
+    {
+      "type": "fix-bug",
+      "prompt": "This should log 'adult' only when age is 18 or more. Fix it.",
+      "language": "js",
+      "broken": "const age = 17;\nif (age = 18) console.log('adult');",
+      "mustInclude": [">="],
+      "hint": "Use >= for comparison, not = which is assignment.",
+      "explanation": "`age >= 18` is a comparison."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Which shortens: `if (isValid) submit();`?",
+      "options": ["isValid && submit();", "isValid || submit();", "isValid ?? submit();", "submit() ?: isValid;"],
+      "answer": 0,
+      "explanation": "&& short-circuits: only runs the right side when the left is truthy."
+    }
+  ]
+}

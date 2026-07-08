@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { auth } from "@clerk/nextjs/server";
-import { listLessonsByUnit, listLessons } from "@/lib/content";
+import { listLessonsBySection, listLessons } from "@/lib/content";
 import { getAllProgress } from "@/db/queries";
 import { SkillTree } from "@/components/skill-tree";
 import { Track } from "@/lib/content-types";
@@ -28,8 +28,8 @@ export default async function LearnPage({
   const track = coerceTrack(params.track);
   const { userId } = await auth();
 
-  const [unitGroups, lessons, progress] = await Promise.all([
-    listLessonsByUnit(track),
+  const [sections, lessons, progress] = await Promise.all([
+    listLessonsBySection(track),
     listLessons(track),
     userId ? getAllProgress(userId) : Promise.resolve([]),
   ]);
@@ -69,14 +69,14 @@ export default async function LearnPage({
         </div>
       </nav>
 
-      {unitGroups.length === 0 ? (
+      {sections.length === 0 ? (
         <div className="mx-auto max-w-md px-4 py-20 text-center text-muted-foreground">
           Lessons for this track are coming soon.
         </div>
       ) : (
         <SkillTree
           track={track}
-          unitGroups={unitGroups}
+          sections={sections}
           progress={progress}
           allComplete={allComplete}
         />

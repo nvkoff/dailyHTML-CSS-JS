@@ -29,6 +29,48 @@
       "options": ["A", "B", "C", "D"],
       "answer": 1,
       "explanation": "Skipping heading levels (h1 → h4) breaks the document outline."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Which HTML tag makes text a NEW paragraph?",
+      "options": ["<par>", "<p>", "<paragraph>", "<br>"],
+      "answer": 1,
+      "explanation": "<p> — a block-level container for prose."
+    },
+    {
+      "type": "mcq",
+      "prompt": "For a line break WITHIN a paragraph:",
+      "options": ["<newline>", "<br>", "<nl>", "\\n"],
+      "answer": 1,
+      "explanation": "<br> is a void element for hard breaks (addresses, poetry)."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Which is a THEMATIC break (topic change)?",
+      "options": ["<hr>", "<br>", "<div>", "<sep>"],
+      "answer": 0,
+      "explanation": "<hr> is semantically a thematic break (renders as a horizontal rule)."
+    },
+    {
+      "type": "predict",
+      "prompt": "How is this rendered by a screen reader?",
+      "language": "html",
+      "code": "<h1>Products</h1>\n<h1>Pricing</h1>",
+      "options": [
+        "Both announced as top-level headings — bad structure",
+        "Only the first is announced",
+        "As one combined heading",
+        "As a subheading"
+      ],
+      "answer": 0,
+      "explanation": "Multiple h1s hurt the document outline. Prefer ONE h1 per document."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Which is the SMALLEST heading?",
+      "options": ["h1", "h6", "small", "sub"],
+      "answer": 1,
+      "explanation": "h6 is the deepest (smallest by default). Use only if you actually go that deep."
     }
   ]
 }

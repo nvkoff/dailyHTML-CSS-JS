@@ -34,6 +34,51 @@
       "options": ["span", "cols", "colspan", "columnspan"],
       "answer": 2,
       "explanation": "colspan=\"2\" horizontally; rowspan=\"2\" vertically."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Semantic wrappers for body rows and footer rows:",
+      "options": ["<tbody> and <tfoot>", "<body> and <foot>", "<rowbody> and <rowfoot>", "You don't need them"],
+      "answer": 0,
+      "explanation": "thead, tbody, tfoot group rows for a11y and styling."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Using tables for LAYOUT (non-data):",
+      "options": [
+        "Fine — that's what they're for",
+        "Considered bad practice; hurts a11y and mobile",
+        "Only OK in emails (email HTML uses tables)",
+        "Both B and C"
+      ],
+      "answer": 3,
+      "explanation": "Web pages: use grid/flex. Email HTML historically requires tables for compatibility."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Which attribute on <th> improves a11y for cross-referenced data?",
+      "options": ["scope", "for", "role", "label"],
+      "answer": 0,
+      "explanation": "<th scope=\"col\"> or scope=\"row\" ties header cells to data cells."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Which is BAD table markup?",
+      "options": [
+        "<tr> outside <tbody>",
+        "Nested tables",
+        "Merging table + form",
+        "None — all are fine"
+      ],
+      "answer": 3,
+      "explanation": "All are technically valid; just be intentional. Nested tables are usually a smell though."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Which CSS property collapses table borders into single lines?",
+      "options": ["border: 0", "border-collapse: collapse", "border-style: none", "table-layout: fixed"],
+      "answer": 1,
+      "explanation": "border-collapse: collapse merges adjacent cell borders."
     }
   ]
 }

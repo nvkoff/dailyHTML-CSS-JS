@@ -1,0 +1,85 @@
+{
+  "id": "js/strings-methods",
+  "track": "js",
+  "section": "Basic",
+  "sectionOrder": 1,
+  "unit": "Strings Methods",
+  "order": 10,
+  "title": "String methods",
+  "description": "The essentials for working with text.",
+  "xp": 12,
+  "questions": [
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "console.log('  hi  '.trim());",
+      "options": ["'hi'", "'  hi  '", "'  hi'", "'hi  '"],
+      "answer": 0,
+      "explanation": "trim removes whitespace from both ends. Also: trimStart / trimEnd."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "console.log('Hello'.toLowerCase());",
+      "options": ["'HELLO'", "'hello'", "'Hello'", "'hELLO'"],
+      "answer": 1,
+      "explanation": "toLowerCase / toUpperCase return NEW strings; strings are immutable."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "console.log('abcde'.slice(1, 3));",
+      "options": ["'bc'", "'bcd'", "'abc'", "'ab'"],
+      "answer": 0,
+      "explanation": "slice(start, end): end is EXCLUSIVE. Positions 1..2 → 'bc'."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "console.log('hi'.repeat(3));",
+      "options": ["'hi'", "'hihihi'", "['hi','hi','hi']", "3"],
+      "answer": 1,
+      "explanation": "repeat concatenates the string n times."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "console.log('a-b-c'.split('-'));",
+      "options": ["['abc']", "['a', 'b', 'c']", "'a b c'", "TypeError"],
+      "answer": 1,
+      "explanation": "split returns an array; the separator is removed."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "console.log('hello'.includes('ell'));",
+      "options": ["true", "false", "-1", "TypeError"],
+      "answer": 0,
+      "explanation": "includes returns a boolean — was the substring present?"
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "console.log('hello'.replace('l', 'L'));",
+      "options": ["'heLlo'", "'heLLo'", "'HELLO'", "'hello'"],
+      "answer": 0,
+      "explanation": "replace with a string replaces only the FIRST match. Use /l/g regex for all."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "console.log('foo'.padStart(5, '0'));",
+      "options": ["'foo00'", "'00foo'", "'  foo'", "'foo  '"],
+      "answer": 1,
+      "explanation": "padStart pads until length is 5. Useful for zero-padded numbers."
+    }
+  ]
+}

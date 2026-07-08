@@ -1,0 +1,79 @@
+{
+  "id": "js/numbers",
+  "track": "js",
+  "section": "Basic",
+  "sectionOrder": 1,
+  "unit": "Numbers",
+  "order": 2,
+  "title": "Numbers",
+  "description": "One number type covering integers and decimals.",
+  "xp": 12,
+  "questions": [
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "console.log(0.1 + 0.2 === 0.3);",
+      "options": ["true", "false", "TypeError", "NaN"],
+      "answer": 1,
+      "explanation": "Floating-point: 0.1 + 0.2 = 0.30000000000000004."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "console.log(typeof NaN);",
+      "options": ["'nan'", "'number'", "'undefined'", "'NaN'"],
+      "answer": 1,
+      "explanation": "NaN is a numeric value. Test with Number.isNaN(x), not x === NaN."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Which produces the integer part of 7 / 2?",
+      "options": ["Math.floor(7/2)", "7 // 2", "int(7/2)", "7.round()"],
+      "answer": 0,
+      "explanation": "JS has no // operator. Use Math.floor or Math.trunc."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "console.log(5 % 2);",
+      "options": ["2", "1", "2.5", "0"],
+      "answer": 1,
+      "explanation": "% is the remainder operator. 5 divided by 2 = 2 remainder 1."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Which is JS's max safe integer?",
+      "options": ["2^32 - 1", "Number.MAX_SAFE_INTEGER", "Infinity", "2^128"],
+      "answer": 1,
+      "explanation": "Number.MAX_SAFE_INTEGER = 2^53 - 1. Beyond that, precision breaks."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "console.log(10 / 0);",
+      "options": ["0", "NaN", "Infinity", "Error"],
+      "answer": 2,
+      "explanation": "Divide by zero yields Infinity (or -Infinity), not an error."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Which rounds to 2 decimal places, returning a NUMBER?",
+      "options": ["(3.14159).toFixed(2)", "Math.round(3.14159 * 100) / 100", "Number.round(3.14159, 2)", "parseInt(3.14159, 2)"],
+      "answer": 1,
+      "explanation": "toFixed returns a string. Math.round + shift/unshift gives a number."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "console.log(Math.max(1, 5, 3, 2));",
+      "options": ["5", "1", "[5]", "TypeError"],
+      "answer": 0,
+      "explanation": "Math.max takes variadic args and returns the largest number."
+    }
+  ]
+}

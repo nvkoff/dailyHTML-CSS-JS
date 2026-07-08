@@ -33,6 +33,41 @@
       "broken": "<video src=\"clip.mp4\">\n</video>",
       "mustInclude": ["controls", "Your browser"],
       "explanation": "Text between <video>...</video> shows only in browsers that can't play video."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Which attribute mutes a video by default?",
+      "options": ["silent", "muted", "volume=\"0\"", "sound=\"off\""],
+      "answer": 1,
+      "explanation": "muted is required for autoplay to work in most browsers."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Which attribute makes a video autoplay (with muted)?",
+      "options": ["play", "auto", "autoplay", "start"],
+      "answer": 2,
+      "explanation": "autoplay is a boolean attribute — plays automatically when possible."
+    },
+    {
+      "type": "mcq",
+      "prompt": "For subtitles / captions on a video:",
+      "options": ["<caption>", "<track>", "<subtitle>", "<span>"],
+      "answer": 1,
+      "explanation": "<track src=\"subs.vtt\" kind=\"subtitles\" srclang=\"en\">."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Which attribute shows a still image before playback?",
+      "options": ["thumb", "poster", "preview", "still"],
+      "answer": 1,
+      "explanation": "<video poster=\"cover.jpg\"> — shows until play."
+    },
+    {
+      "type": "mcq",
+      "prompt": "For audio:",
+      "options": ["<sound>", "<audio>", "<music>", "<voice>"],
+      "answer": 1,
+      "explanation": "<audio> element — same controls / preload / loop attributes as video."
     }
   ]
 }

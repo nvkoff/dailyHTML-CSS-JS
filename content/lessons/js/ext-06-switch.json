@@ -1,0 +1,78 @@
+{
+  "id": "js/switch",
+  "track": "js",
+  "section": "Basic extended",
+  "sectionOrder": 2,
+  "unit": "Switch",
+  "order": 17,
+  "title": "Switch",
+  "description": "Branch on a value — and watch for fall-through.",
+  "xp": 10,
+  "questions": [
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "const x = 2;\nswitch (x) {\n  case 1: console.log('a');\n  case 2: console.log('b');\n  case 3: console.log('c');\n  default: console.log('d');\n}",
+      "options": ["b", "b c d", "d", "TypeError"],
+      "answer": 1,
+      "explanation": "Without break, execution FALLS THROUGH all following cases."
+    },
+    {
+      "type": "mcq",
+      "prompt": "How does switch compare each case?",
+      "options": ["Uses ==", "Uses ===", "Uses equals()", "Alphabetical"],
+      "answer": 1,
+      "explanation": "switch uses strict equality (===)."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "switch ('2') {\n  case 2: console.log('num');\n    break;\n  default: console.log('other');\n}",
+      "options": ["'num'", "'other'", "nothing", "TypeError"],
+      "answer": 1,
+      "explanation": "'2' !== 2 (strict) — no case matches, so default runs."
+    },
+    {
+      "type": "fix-bug",
+      "prompt": "Make this only log 'ok' when status === 'ok'.",
+      "language": "js",
+      "broken": "switch (status) {\n  case 'ok': console.log('ok');\n  case 'error': console.log('err');\n}",
+      "mustInclude": ["break"],
+      "explanation": "Add `break;` after 'ok' log to stop fall-through."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs when x = 1?",
+      "language": "js",
+      "code": "const x = 1;\nswitch (x) {\n  case 1:\n  case 2:\n    console.log('low');\n    break;\n  default:\n    console.log('high');\n}",
+      "options": ["'low'", "'high'", "'low' 'high'", "nothing"],
+      "answer": 0,
+      "explanation": "Empty case falls through — cases 1 and 2 share the same code."
+    },
+    {
+      "type": "mcq",
+      "prompt": "For value-based logic, a common alternative to switch is:",
+      "options": ["for-of", "An object lookup ({ ok: fn, error: fn2 })[status]?.()", "await", "regex"],
+      "answer": 1,
+      "explanation": "Object dispatch is data-driven and easier to extend."
+    },
+    {
+      "type": "mcq",
+      "prompt": "The `default` case must be:",
+      "options": ["Last", "First", "Optional and can go anywhere", "Placed after break;"],
+      "answer": 2,
+      "explanation": "Convention puts default last, but position doesn't matter — it fires when no case matches."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "const x = 5;\nswitch (true) {\n  case x < 3: console.log('S'); break;\n  case x < 10: console.log('M'); break;\n  default: console.log('L');\n}",
+      "options": ["'S'", "'M'", "'L'", "TypeError"],
+      "answer": 1,
+      "explanation": "switch(true) with condition-cases is a range pattern. 3 <= 5 < 10 → 'M'."
+    }
+  ]
+}

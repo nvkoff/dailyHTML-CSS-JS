@@ -126,7 +126,7 @@ export function PracticeRunner({
       <div className="flex items-center gap-2 sm:gap-3">
         <Button variant="ghost" size="icon" asChild className="shrink-0">
           <Link href={`/learn?track=${track}`}>
-            <ArrowLeft className="h-4 w-4" />
+            <ArrowLeft className="h-5 w-5" />
           </Link>
         </Button>
         <div className="flex-1">
@@ -156,11 +156,11 @@ export function PracticeRunner({
           <div className="flex items-center gap-2 font-medium">
             {wasCorrect ? (
               <>
-                <CheckCircle2 className="h-5 w-5 text-success" /> Correct
+                <CheckCircle2 className="h-6 w-6 text-success" /> Correct
               </>
             ) : (
               <>
-                <XCircle className="h-5 w-5 text-destructive" /> Not quite
+                <XCircle className="h-6 w-6 text-destructive" /> Not quite
               </>
             )}
           </div>

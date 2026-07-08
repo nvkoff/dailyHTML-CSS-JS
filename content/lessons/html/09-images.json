@@ -29,6 +29,46 @@
       "options": ["A", "B", "C", "D"],
       "answer": 0,
       "explanation": "<img> is a void element — no closing tag. src and alt as attributes."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Which attributes help the browser reserve space and avoid layout shift?",
+      "options": ["only src", "width and height", "alt", "src and alt"],
+      "answer": 1,
+      "explanation": "Explicit width/height (or aspect-ratio in CSS) prevent CLS on load."
+    },
+    {
+      "type": "mcq",
+      "prompt": "loading=\"lazy\" on <img>:",
+      "options": [
+        "Defers loading until the image is near the viewport",
+        "Skips the image entirely",
+        "Makes it low-res",
+        "Requires JavaScript"
+      ],
+      "answer": 0,
+      "explanation": "Native lazy loading — one attribute, browser handles the rest."
+    },
+    {
+      "type": "mcq",
+      "prompt": "For responsive images at different sizes:",
+      "options": ["srcset + sizes", "media", "size", "img array"],
+      "answer": 0,
+      "explanation": "srcset lists candidates; sizes hints the intended display width."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Best format for photos with transparency at small size?",
+      "options": ["JPG", "GIF", "PNG or WebP", "BMP"],
+      "answer": 2,
+      "explanation": "PNG for lossless with alpha; WebP is smaller with the same feature set."
+    },
+    {
+      "type": "mcq",
+      "prompt": "For scalable icons/logos:",
+      "options": ["JPG", "PNG", "SVG", "GIF"],
+      "answer": 2,
+      "explanation": "SVG is vector — sharp at any size, tiny file."
     }
   ]
 }

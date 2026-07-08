@@ -32,6 +32,51 @@
       ],
       "answer": 1,
       "explanation": "Unlike <input>, textarea takes its default value as text content between opening and closing tags."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Group related options in a <select> with:",
+      "options": ["<div>", "<optgroup>", "<group>", "<subselect>"],
+      "answer": 1,
+      "explanation": "<optgroup label=\"Fruits\"> groups options and shows the label."
+    },
+    {
+      "type": "mcq",
+      "prompt": "For a native suggestion list (datalist) attached to an input:",
+      "options": [
+        "<datalist> + input list=\"id\"",
+        "<autocomplete>",
+        "<select multiple>",
+        "<input suggest>"
+      ],
+      "answer": 0,
+      "explanation": "<datalist id=\"colors\"><option value=\"red\">...</datalist> + <input list=\"colors\">."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Preventing a textarea resize needs:",
+      "options": ["CSS resize: none", "HTML resize=\"no\"", "cols=\"0\"", "You can't"],
+      "answer": 0,
+      "explanation": "CSS resize: none | horizontal | vertical | both."
+    },
+    {
+      "type": "mcq",
+      "prompt": "For a textarea to grow with content:",
+      "options": [
+        "field-sizing: content (modern CSS)",
+        "auto-grow attribute",
+        "resize: auto",
+        "size=\"auto\""
+      ],
+      "answer": 0,
+      "explanation": "field-sizing: content is the new native way. Historically people used JS."
+    },
+    {
+      "type": "mcq",
+      "prompt": "To show multiple options at once in a select:",
+      "options": ["<select size=\"5\">", "<select multiple>", "<select expanded>", "Both A and B work differently"],
+      "answer": 3,
+      "explanation": "size=n shows n options at once. multiple lets you pick multiple."
     }
   ]
 }

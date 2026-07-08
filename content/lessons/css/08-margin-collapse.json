@@ -39,6 +39,50 @@
       ],
       "answer": 0,
       "explanation": "Any padding, border, or overflow != visible on the parent stops parent-child collapse."
+    },
+    {
+      "type": "predict",
+      "prompt": "The margin between these is?",
+      "language": "css",
+      "code": "p:nth-child(1) { margin-bottom: 40px; }\np:nth-child(2) { margin-top: 20px; }",
+      "options": ["60px", "40px", "20px", "0"],
+      "answer": 1,
+      "explanation": "Adjacent margins collapse to the LARGER one — 40px."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Do horizontal (left/right) margins collapse?",
+      "options": ["Yes, always", "No, never", "Only for inline elements", "Only in flexbox"],
+      "answer": 1,
+      "explanation": "Only VERTICAL margins collapse in normal flow."
+    },
+    {
+      "type": "mcq",
+      "prompt": "What has margin-bottom: auto do on a NORMAL block?",
+      "options": [
+        "Same as margin-bottom: 0",
+        "Fills remaining space (like flex)",
+        "Errors",
+        "Same as margin-bottom: 100%"
+      ],
+      "answer": 0,
+      "explanation": "auto only fills space inside flex/grid — computes to 0 in regular block flow."
+    },
+    {
+      "type": "predict",
+      "prompt": "Do these margins collapse?",
+      "language": "css",
+      "code": ".parent { border: 1px solid; }\n.parent > .child { margin-top: 40px; }",
+      "options": ["Yes", "No", "Only in Firefox", "Depends on the child"],
+      "answer": 1,
+      "explanation": "Border on the parent stops parent-child margin collapse."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Which never has collapsing margins?",
+      "options": ["Block elements", "Flex items", "Grid items", "Both B and C"],
+      "answer": 3,
+      "explanation": "Flex and grid items don't collapse — gap is a cleaner tool there."
     }
   ]
 }

@@ -38,7 +38,7 @@ export function ChoiceList({
           >
             <span
               className={cn(
-                "flex h-6 w-6 items-center justify-center rounded-full border text-xs font-medium",
+                "flex h-7 w-7 items-center justify-center rounded-full border text-xs font-medium",
                 isSelected && !showResult && "border-primary bg-primary text-primary-foreground",
                 showResult && isCorrect && "border-success bg-success text-success-foreground",
                 showResult && isSelected && !isCorrect && "border-destructive bg-destructive text-destructive-foreground",

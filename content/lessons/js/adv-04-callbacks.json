@@ -1,0 +1,94 @@
+{
+  "id": "js/callbacks",
+  "track": "js",
+  "section": "Advanced",
+  "sectionOrder": 3,
+  "unit": "Callbacks",
+  "order": 25,
+  "title": "Callbacks",
+  "description": "Pass a function so someone else can call it.",
+  "xp": 14,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "A callback is:",
+      "options": [
+        "A special JS keyword",
+        "A function passed as an argument to be invoked later",
+        "A returned promise",
+        "A DOM event"
+      ],
+      "answer": 1,
+      "explanation": "First-class functions make callbacks natural in JS."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "function run(cb) { cb(5); }\nrun(x => console.log(x * 2));",
+      "options": ["5", "10", "undefined", "TypeError"],
+      "answer": 1,
+      "explanation": "run invokes cb with 5; the arrow doubles → 10."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "console.log('a');\nsetTimeout(() => console.log('b'), 0);\nconsole.log('c');",
+      "options": ["a b c", "a c b", "c a b", "b a c"],
+      "answer": 1,
+      "explanation": "setTimeout defers even with 0ms — 'b' runs after the current tick."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "[1, 2, 3].forEach(n => console.log(n));",
+      "options": ["Nothing", "'n'", "1 then 2 then 3", "[1,2,3]"],
+      "answer": 2,
+      "explanation": "forEach invokes the callback for each element."
+    },
+    {
+      "type": "mcq",
+      "prompt": "'Callback hell' refers to:",
+      "options": [
+        "A rare CPU exception",
+        "Deep nesting of callbacks that hurt readability",
+        "Slow callback execution",
+        "TypeErrors in callbacks"
+      ],
+      "answer": 1,
+      "explanation": "The classic problem promises and async/await solve."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Which is the CANONICAL Node-style callback signature?",
+      "options": [
+        "(result) => {}",
+        "(error, result) => {}",
+        "(result, error) => {}",
+        "(...args) => {}"
+      ],
+      "answer": 1,
+      "explanation": "Node convention: error first, then value."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "function once(fn) {\n  let called = false;\n  return (...args) => {\n    if (!called) { called = true; fn(...args); }\n  };\n}\nconst hi = once(name => console.log(name));\nhi('A'); hi('B');",
+      "options": ["A B", "A", "B", "nothing"],
+      "answer": 1,
+      "explanation": "once returns a wrapper that only runs fn on the first call."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "const fn = n => n + 1;\nconsole.log([1, 2, 3].map(fn));",
+      "options": ["[1, 2, 3]", "[2, 3, 4]", "[fn, fn, fn]", "TypeError"],
+      "answer": 1,
+      "explanation": "Passing a named function as a callback works the same as an inline arrow."
+    }
+  ]
+}

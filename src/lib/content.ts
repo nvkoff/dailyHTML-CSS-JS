@@ -35,18 +35,49 @@ export async function listLessons(track: Track): Promise<LessonMeta[]> {
   }));
 }
 
-export async function listLessonsByUnit(track: Track) {
+export type UnitGroup = { unit: string; lessons: LessonMeta[] };
+export type SectionGroup = {
+  section: string | null;
+  sectionOrder: number;
+  units: UnitGroup[];
+};
+
+export async function listLessonsBySection(
+  track: Track,
+): Promise<SectionGroup[]> {
   const lessons = await listLessons(track);
-  const byUnit = new Map<string, LessonMeta[]>();
+
+  const bySection = new Map<
+    string,
+    { sectionOrder: number; units: Map<string, LessonMeta[]> }
+  >();
+
   for (const lesson of lessons) {
-    const list = byUnit.get(lesson.unit) ?? [];
-    list.push(lesson);
-    byUnit.set(lesson.unit, list);
+    const sectionKey = lesson.section ?? "";
+    if (!bySection.has(sectionKey)) {
+      bySection.set(sectionKey, {
+        sectionOrder: lesson.sectionOrder ?? 0,
+        units: new Map(),
+      });
+    }
+    const sec = bySection.get(sectionKey)!;
+    if (lesson.sectionOrder !== undefined) {
+      sec.sectionOrder = Math.min(sec.sectionOrder, lesson.sectionOrder);
+    }
+    if (!sec.units.has(lesson.unit)) sec.units.set(lesson.unit, []);
+    sec.units.get(lesson.unit)!.push(lesson);
   }
-  return Array.from(byUnit.entries()).map(([unit, lessons]) => ({
-    unit,
-    lessons,
-  }));
+
+  return Array.from(bySection.entries())
+    .map(([section, { sectionOrder, units }]) => ({
+      section: section === "" ? null : section,
+      sectionOrder,
+      units: Array.from(units.entries()).map(([unit, lessons]) => ({
+        unit,
+        lessons,
+      })),
+    }))
+    .sort((a, b) => a.sectionOrder - b.sectionOrder);
 }
 
 export async function getLesson(id: string): Promise<Lesson | null> {

@@ -1,0 +1,85 @@
+{
+  "id": "js/type-conversion",
+  "track": "js",
+  "section": "Basic extended",
+  "sectionOrder": 2,
+  "unit": "Type Conversion",
+  "order": 18,
+  "title": "Type conversion",
+  "description": "Explicit vs implicit (coercion).",
+  "xp": 12,
+  "questions": [
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "console.log(typeof null);",
+      "options": ["'null'", "'undefined'", "'object'", "'number'"],
+      "answer": 2,
+      "explanation": "A famous JS bug — typeof null is 'object'. Test with x === null."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "console.log(1 + '2');",
+      "options": ["3", "'12'", "'3'", "NaN"],
+      "answer": 1,
+      "explanation": "+ with a string coerces the other side to string."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "console.log('5' - 2);",
+      "options": ["'3'", "3", "'52'", "NaN"],
+      "answer": 1,
+      "explanation": "- has no string overload — both sides coerced to numbers."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "console.log(Number('   42  '));",
+      "options": ["NaN", "42", "'42'", "Error"],
+      "answer": 1,
+      "explanation": "Number() trims whitespace and parses if possible."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "console.log(+true);",
+      "options": ["true", "1", "'true'", "TypeError"],
+      "answer": 1,
+      "explanation": "Unary + coerces to number. true → 1, false → 0."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "console.log(String(null));",
+      "options": ["''", "'null'", "'undefined'", "TypeError"],
+      "answer": 1,
+      "explanation": "String(null) === 'null'. Handy to remember for template output."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "console.log([1,2] + [3,4]);",
+      "options": ["[1,2,3,4]", "'1,23,4'", "10", "TypeError"],
+      "answer": 1,
+      "explanation": "Arrays are coerced via toString → '1,2' + '3,4' = '1,23,4'. Weird but true."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "console.log(Boolean('false'));",
+      "options": ["true", "false", "'false'", "TypeError"],
+      "answer": 0,
+      "explanation": "Non-empty string is truthy — regardless of contents."
+    }
+  ]
+}

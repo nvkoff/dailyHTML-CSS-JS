@@ -1,0 +1,85 @@
+{
+  "id": "js/methods",
+  "track": "js",
+  "section": "Advanced",
+  "sectionOrder": 3,
+  "unit": "Methods",
+  "order": 23,
+  "title": "Methods & `this`",
+  "description": "Functions attached to objects — and the this trap.",
+  "xp": 14,
+  "questions": [
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "const user = {\n  name: 'Ada',\n  greet() { return 'Hi ' + this.name; }\n};\nconsole.log(user.greet());",
+      "options": ["'Hi Ada'", "'Hi undefined'", "TypeError", "'Hi'"],
+      "answer": 0,
+      "explanation": "Method call: `this` is the object before the dot."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "const user = {\n  name: 'Ada',\n  greet() { return this.name; }\n};\nconst g = user.greet;\nconsole.log(g());",
+      "options": ["'Ada'", "undefined", "TypeError", "''"],
+      "answer": 2,
+      "explanation": "Detached call: `this` is undefined in strict mode → TypeError reading .name."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "const user = { name: 'Ada' };\nfunction greet() { return this.name; }\nconsole.log(greet.call(user));",
+      "options": ["'Ada'", "undefined", "TypeError", "greet"],
+      "answer": 0,
+      "explanation": "call sets `this` explicitly. bind/apply do similar things."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "const user = {\n  name: 'Ada',\n  greet: () => this.name\n};\nconsole.log(user.greet());",
+      "options": ["'Ada'", "undefined", "TypeError", "'this'"],
+      "answer": 1,
+      "explanation": "Arrows have LEXICAL this — they don't get one from the caller."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "const bag = { count: 0, inc() { this.count++; } };\nbag.inc();\nbag.inc();\nconsole.log(bag.count);",
+      "options": ["0", "1", "2", "NaN"],
+      "answer": 2,
+      "explanation": "Method mutates via `this`. Two calls → 2."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "const user = { name: 'Ada' };\nfunction greet() { return this.name; }\nconst bound = greet.bind(user);\nconsole.log(bound());",
+      "options": ["'Ada'", "undefined", "TypeError", "'this'"],
+      "answer": 0,
+      "explanation": "bind returns a NEW function permanently bound to `this`."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "const arr = [1, 2, 3];\nconsole.log(Array.prototype.slice.call(arr, 1));",
+      "options": ["[2, 3]", "[1, 2, 3]", "TypeError", "[]"],
+      "answer": 0,
+      "explanation": "Borrowing a method with call — same as arr.slice(1)."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "function greet(g) { return g + ', ' + this.name; }\nconsole.log(greet.call({ name: 'Ada' }, 'Hi'));",
+      "options": ["'Hi, Ada'", "'Hi, undefined'", "TypeError", "'Ada'"],
+      "answer": 0,
+      "explanation": "call takes this first, then args. apply takes args as an array."
+    }
+  ]
+}

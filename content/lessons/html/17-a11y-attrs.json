@@ -33,6 +33,61 @@
       "broken": "<button>\n  <svg>...</svg>\n</button>",
       "mustInclude": ["aria-label=\"Close\""],
       "explanation": "aria-label=\"Close\" gives the button a name for assistive tech."
+    },
+    {
+      "type": "mcq",
+      "prompt": "aria-labelledby vs aria-label:",
+      "options": [
+        "labelledby refers to another element's id for the label",
+        "They're identical",
+        "labelledby is deprecated",
+        "aria-label works only on buttons"
+      ],
+      "answer": 0,
+      "explanation": "labelledby is great when the label already exists elsewhere on the page."
+    },
+    {
+      "type": "mcq",
+      "prompt": "aria-hidden=\"true\" on a decorative element:",
+      "options": [
+        "Removes it from the a11y tree (screen readers skip)",
+        "Hides it visually",
+        "Slows the page",
+        "Same as display: none"
+      ],
+      "answer": 0,
+      "explanation": "Purely for AT. Visual users still see it."
+    },
+    {
+      "type": "mcq",
+      "prompt": "For a live-updating status message:",
+      "options": ["role=\"status\" (implicit aria-live)", "role=\"alert\"", "aria-updates=\"true\"", "Both A and B (different urgency)"],
+      "answer": 3,
+      "explanation": "status = polite. alert = assertive (interrupts). Pick per urgency."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Which is the CORRECT way to hide something ONLY visually?",
+      "options": [
+        "display: none",
+        "visibility: hidden",
+        "A .sr-only class with clip/positioning that keeps it in a11y tree",
+        "aria-hidden"
+      ],
+      "answer": 2,
+      "explanation": "Screen-reader-only content should be off-screen but not display:none, which removes from AT."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Which is the tab order that matches the visual layout?",
+      "options": [
+        "Whatever tabindex says",
+        "Source order — unless tabindex breaks it",
+        "Random",
+        "Depends on CSS order property"
+      ],
+      "answer": 1,
+      "explanation": "Default: DOM source order. Avoid positive tabindex which reorders unpredictably."
     }
   ]
 }

@@ -1,0 +1,94 @@
+{
+  "id": "js/loops-details",
+  "track": "js",
+  "section": "Basic extended",
+  "sectionOrder": 2,
+  "unit": "Loops in Details",
+  "order": 14,
+  "title": "Loops in details",
+  "description": "for-of vs for-in, labels, and infinite loops.",
+  "xp": 12,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "for-of iterates over:",
+      "options": ["Object keys", "Values of iterables (arrays, strings, Sets, Maps)", "Prototype chain", "DOM elements only"],
+      "answer": 1,
+      "explanation": "for-of yields VALUES from any iterable."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "const obj = { a: 1, b: 2 };\nfor (const key in obj) console.log(key);",
+      "options": ["1 then 2", "'a' then 'b'", "'a: 1' then 'b: 2'", "TypeError"],
+      "answer": 1,
+      "explanation": "for-in walks object KEYS (as strings)."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Which loop is BEST for iterating an array?",
+      "options": ["for-in", "for-of", "while(true)", "Any is fine"],
+      "answer": 1,
+      "explanation": "for-of is the modern choice for arrays. for-in over an array is discouraged (inherited props, order surprises)."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "outer: for (let i = 0; i < 3; i++) {\n  for (let j = 0; j < 3; j++) {\n    if (i === 1 && j === 1) break outer;\n    console.log(i, j);\n  }\n}",
+      "options": [
+        "Loops until i=2, j=2",
+        "Stops before logging 1, 1",
+        "Runs forever",
+        "TypeError"
+      ],
+      "answer": 1,
+      "explanation": "Labels + break outer breaks the OUTER loop entirely."
+    },
+    {
+      "type": "predict",
+      "prompt": "How many logs?",
+      "language": "js",
+      "code": "for (let i = 0; i < 5; i++) {\n  if (i % 2 === 0) continue;\n  console.log(i);\n}",
+      "options": ["2", "3", "5", "0"],
+      "answer": 0,
+      "explanation": "Odd only: 1 and 3 → 2 logs."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Which is the most typical `for` pattern for reverse iteration?",
+      "options": [
+        "for (let i = arr.length; i > 0; i--)",
+        "for (let i = arr.length - 1; i >= 0; i--)",
+        "for (let i = 0; i > arr.length; i--)",
+        "arr.reverse().forEach(...)"
+      ],
+      "answer": 1,
+      "explanation": "Start at last valid index (length - 1), stop at 0 inclusive."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs? (limit: first 3 iterations)",
+      "language": "js",
+      "code": "for (let i = 0; ; i++) {\n  if (i > 2) break;\n  console.log(i);\n}",
+      "options": ["0 1 2", "0 1 2 3", "nothing", "infinite"],
+      "answer": 0,
+      "explanation": "Empty condition = infinite loop; break exits when i > 2."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "const list = [1, 2, 3];\nfor (const [i, v] of list.entries()) {\n  console.log(i, v);\n}",
+      "options": [
+        "1 2 3",
+        "0 1, 1 2, 2 3",
+        "0 1 2",
+        "TypeError"
+      ],
+      "answer": 1,
+      "explanation": ".entries() yields [index, value] pairs — destructure them."
+    }
+  ]
+}

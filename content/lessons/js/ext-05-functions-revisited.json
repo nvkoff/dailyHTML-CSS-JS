@@ -1,0 +1,84 @@
+{
+  "id": "js/functions-revisited",
+  "track": "js",
+  "section": "Basic extended",
+  "sectionOrder": 2,
+  "unit": "Functions Revisited",
+  "order": 16,
+  "title": "Functions revisited",
+  "description": "Arrows, defaults, rest, and scope.",
+  "xp": 14,
+  "questions": [
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "function sum(...nums) {\n  return nums.reduce((a, b) => a + b, 0);\n}\nconsole.log(sum(1, 2, 3, 4));",
+      "options": ["1234", "10", "[1,2,3,4]", "TypeError"],
+      "answer": 1,
+      "explanation": "Rest gathers all args into an array; reduce sums them."
+    },
+    {
+      "type": "mcq",
+      "prompt": "The rest parameter (`...args`) must be:",
+      "options": ["First parameter", "Last parameter", "The only parameter", "Named 'args'"],
+      "answer": 1,
+      "explanation": "Rest must come LAST — it gathers everything left over."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Compared to a regular function, an arrow function:",
+      "options": [
+        "Has its own `this`",
+        "Inherits `this` from the enclosing scope",
+        "Always uses window as `this`",
+        "Has no `this`"
+      ],
+      "answer": 1,
+      "explanation": "Lexical `this` — arrows don't rebind. That's why they're perfect inside callbacks."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "const fn = (a, b = a) => b;\nconsole.log(fn(5));",
+      "options": ["undefined", "5", "TypeError", "0"],
+      "answer": 1,
+      "explanation": "Defaults can reference previous parameters."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "function outer() {\n  const secret = 42;\n  return () => secret;\n}\nconsole.log(outer()());",
+      "options": ["42", "undefined", "ReferenceError", "null"],
+      "answer": 0,
+      "explanation": "The returned function closes over `secret`."
+    },
+    {
+      "type": "mcq",
+      "prompt": "In `arr.map(x => x * 2)`, `x => x * 2` is:",
+      "options": ["A statement", "A named function", "An anonymous arrow expression passed as callback", "A promise"],
+      "answer": 2,
+      "explanation": "Functions are values. Passing one as an argument is a callback."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "let name = 'A';\nfunction show() { console.log(name); }\nname = 'B';\nshow();",
+      "options": ["A", "B", "undefined", "ReferenceError"],
+      "answer": 1,
+      "explanation": "Closures see the CURRENT value of variables in their scope — not a snapshot."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "const fn = () => ({ x: 1 });\nconsole.log(fn().x);",
+      "options": ["undefined", "1", "'x'", "TypeError"],
+      "answer": 1,
+      "explanation": "Wrap an object literal in () to return it implicitly from an arrow."
+    }
+  ]
+}

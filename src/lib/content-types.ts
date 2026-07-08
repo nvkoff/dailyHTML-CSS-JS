@@ -62,6 +62,8 @@ export type WriteToMatchQuestion = z.infer<typeof writeToMatchQuestion>;
 export const lessonSchema = z.object({
   id: z.string(),
   track: trackSchema,
+  section: z.string().optional(),
+  sectionOrder: z.number().int().nonnegative().optional(),
   unit: z.string(),
   order: z.number().int().nonnegative(),
   title: z.string(),

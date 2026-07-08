@@ -43,6 +43,58 @@
       "mustInclude": ["justify-content", "center", "align-items"],
       "hint": "justify-content: center; align-items: center;",
       "explanation": "The two-line perfect centering trick."
+    },
+    {
+      "type": "mcq",
+      "prompt": "align-items differs from align-content in that:",
+      "options": [
+        "align-items works on the whole container; align-content on each item",
+        "align-items aligns each item on the cross axis; align-content aligns MULTIPLE lines when wrapping",
+        "They're synonyms",
+        "align-content is deprecated"
+      ],
+      "answer": 1,
+      "explanation": "align-content only matters when flex-wrap creates multiple lines."
+    },
+    {
+      "type": "predict",
+      "prompt": "What does align-items: baseline do?",
+      "language": "css",
+      "code": ".row { display: flex; align-items: baseline; }",
+      "options": [
+        "Aligns top edges",
+        "Aligns text baselines across items",
+        "Stretches to container height",
+        "No effect"
+      ],
+      "answer": 1,
+      "explanation": "Great for aligning text of different sizes on the same visual line."
+    },
+    {
+      "type": "mcq",
+      "prompt": "How to align ONE item differently from the rest?",
+      "options": [
+        "align-items on the item",
+        "align-self on the item",
+        "justify-self",
+        "You can't"
+      ],
+      "answer": 1,
+      "explanation": "align-self overrides align-items for that specific item."
+    },
+    {
+      "type": "predict",
+      "prompt": "What happens with align-items: stretch and no explicit heights?",
+      "language": "css",
+      "code": ".row { display: flex; align-items: stretch; height: 200px; }\n.row > * { /* no height set */ }",
+      "options": [
+        "Items become 200px tall",
+        "Items collapse to 0",
+        "Items become 100vh",
+        "Layout errors"
+      ],
+      "answer": 0,
+      "explanation": "stretch (default) fills the cross axis when no height is set on the item."
     }
   ]
 }

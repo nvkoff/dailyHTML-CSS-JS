@@ -1,0 +1,91 @@
+{
+  "id": "js/classes",
+  "track": "js",
+  "section": "Advanced",
+  "sectionOrder": 3,
+  "unit": "Classes",
+  "order": 30,
+  "title": "Classes",
+  "description": "Syntax sugar over constructors + prototypes.",
+  "xp": 16,
+  "questions": [
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "class User {\n  constructor(name) { this.name = name; }\n  greet() { return 'Hi ' + this.name; }\n}\nconsole.log(new User('Ada').greet());",
+      "options": ["'Hi Ada'", "'Hi undefined'", "TypeError", "'greet'"],
+      "answer": 0,
+      "explanation": "class is sugar over constructor functions + prototypes."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "class A {}\nA();",
+      "options": ["undefined", "TypeError", "A", "null"],
+      "answer": 1,
+      "explanation": "Classes must be called with new — otherwise TypeError."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "class A { hi() { return 'A'; } }\nclass B extends A { hi() { return super.hi() + 'B'; } }\nconsole.log(new B().hi());",
+      "options": ["'A'", "'B'", "'AB'", "TypeError"],
+      "answer": 2,
+      "explanation": "super.hi() calls the parent's method; then we append 'B'."
+    },
+    {
+      "type": "mcq",
+      "prompt": "In a subclass constructor, `super(...)` must be called BEFORE:",
+      "options": [
+        "Using `this`",
+        "Return statement",
+        "Any code",
+        "Only if the parent has a constructor"
+      ],
+      "answer": 0,
+      "explanation": "Accessing this before super() throws ReferenceError."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "class Counter {\n  count = 0;\n  inc() { this.count++; }\n}\nconst c = new Counter();\nc.inc(); c.inc();\nconsole.log(c.count);",
+      "options": ["0", "1", "2", "undefined"],
+      "answer": 2,
+      "explanation": "Class fields initialize on instance creation. Two inc calls → 2."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "class Bag {\n  #items = [];\n  add(x) { this.#items.push(x); }\n  size() { return this.#items.length; }\n}\nconst b = new Bag();\nb.add('a'); b.add('b');\nconsole.log(b.size());",
+      "options": ["0", "1", "2", "TypeError"],
+      "answer": 2,
+      "explanation": "#items is a private field — accessed only inside the class."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "class Ctr {\n  static create() { return new Ctr(); }\n}\nconst c = Ctr.create();\nconsole.log(c instanceof Ctr);",
+      "options": ["true", "false", "TypeError", "undefined"],
+      "answer": 0,
+      "explanation": "Static methods are on the CLASS itself (like a factory)."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Which is TRUE?",
+      "options": [
+        "Methods declared with method() { } are own instance properties",
+        "Methods are on Class.prototype and shared by instances",
+        "Classes copy methods per instance",
+        "Class methods can't be overridden"
+      ],
+      "answer": 1,
+      "explanation": "Class methods live on the prototype — one copy shared by all instances."
+    }
+  ]
+}

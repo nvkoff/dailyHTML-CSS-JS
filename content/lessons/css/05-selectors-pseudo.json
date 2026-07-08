@@ -38,6 +38,41 @@
       "mustInclude": ["li::before", "content:", "★"],
       "hint": "li::before { content: \"★ \"; } — the content property is required.",
       "explanation": "::before generates a pseudo-element; content is required for it to render."
+    },
+    {
+      "type": "mcq",
+      "prompt": ":nth-child(2n) matches:",
+      "options": ["First 2 children", "Every second child (even indices)", "The 2nd child only", "Nothing"],
+      "answer": 1,
+      "explanation": "n starts at 0. 2n = 0, 2, 4… — even children (1-indexed: 2nd, 4th…)."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Which matches an element ONLY when it's the sole child?",
+      "options": [":first-child", ":only-child", ":lone-child", ":unique"],
+      "answer": 1,
+      "explanation": ":only-child fires when there's exactly one child."
+    },
+    {
+      "type": "mcq",
+      "prompt": ":not(.excluded) matches:",
+      "options": [
+        "Only elements with class 'excluded'",
+        "Every element without class 'excluded'",
+        "Nothing",
+        "Only the parent of .excluded"
+      ],
+      "answer": 1,
+      "explanation": ":not() inverts a selector — used to build 'everything except' rules."
+    },
+    {
+      "type": "predict",
+      "prompt": "Which style wins on `<input>` when it has focus?",
+      "language": "css",
+      "code": "input { border: 1px solid gray; }\ninput:focus { border-color: blue; }",
+      "options": ["gray", "blue", "None", "Depends on browser"],
+      "answer": 1,
+      "explanation": ":focus adds specificity 0-1-1 vs 0-0-1 for `input`, and it's later."
     }
   ]
 }

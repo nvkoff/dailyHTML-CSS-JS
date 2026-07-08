@@ -31,6 +31,58 @@
       "mustInclude": ["border-radius", "12px", "0"],
       "hint": "border-radius: TL TR BR BL — like margin, going clockwise from top-left.",
       "explanation": "border-radius: 12px 0 12px 0 rounds only two opposite corners."
+    },
+    {
+      "type": "mcq",
+      "prompt": "border shorthand order is:",
+      "options": [
+        "color style width",
+        "width style color",
+        "style width color",
+        "The order doesn't matter"
+      ],
+      "answer": 3,
+      "explanation": "Any order works: `border: 1px solid red;` = `border: red 1px solid;`."
+    },
+    {
+      "type": "predict",
+      "prompt": "What renders?",
+      "language": "css",
+      "code": ".b {\n  width: 100px;\n  height: 60px;\n  border-radius: 100vmax;\n}",
+      "options": ["A square", "A pill / stadium shape", "A circle", "Nothing"],
+      "answer": 1,
+      "explanation": "Huge radius on a non-square box = pill shape."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Which sets style=dashed?",
+      "options": ["border-dashed", "border-style: dashed;", "border: dashed;", "outline-dashed"],
+      "answer": 1,
+      "explanation": "border-style controls solid | dashed | dotted | double | …"
+    },
+    {
+      "type": "mcq",
+      "prompt": "What does `border: none` differ from `border: 0`?",
+      "options": [
+        "Nothing",
+        "border: none removes style; border: 0 sets width to 0",
+        "border: 0 is invalid",
+        "Only Chrome respects border: 0"
+      ],
+      "answer": 1,
+      "explanation": "Practically the same effect for hiding. Style properties may cascade differently."
+    },
+    {
+      "type": "mcq",
+      "prompt": "border-radius with slash — `border-radius: 50px / 20px` — means:",
+      "options": [
+        "50px horizontal radius, 20px vertical radius (ellipse-shaped corner)",
+        "50/20 percentage",
+        "Syntax error",
+        "50px on left, 20px on right"
+      ],
+      "answer": 0,
+      "explanation": "Slash separates the two axes for elliptical corners."
     }
   ]
 }

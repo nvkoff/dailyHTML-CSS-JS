@@ -1,0 +1,92 @@
+{
+  "id": "js/promises",
+  "track": "js",
+  "section": "Browser & Async",
+  "sectionOrder": 4,
+  "unit": "Promises",
+  "order": 33,
+  "title": "Promises & async/await",
+  "description": "Handle asynchronous work without callback hell.",
+  "xp": 16,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "A Promise represents:",
+      "options": [
+        "A callback function",
+        "The eventual result of an async operation",
+        "A timer",
+        "A stack trace"
+      ],
+      "answer": 1,
+      "explanation": "Three states: pending → fulfilled or rejected."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "Promise.resolve(1).then(v => console.log(v));",
+      "options": ["1", "undefined", "Promise", "TypeError"],
+      "answer": 0,
+      "explanation": ".then callback receives the resolved value."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "async function fn() { return 42; }\nconsole.log(fn());",
+      "options": ["42", "Promise", "undefined", "TypeError"],
+      "answer": 1,
+      "explanation": "async functions always return a Promise — you must await or .then it."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "async function fn() {\n  const v = await Promise.resolve(5);\n  return v + 1;\n}\nfn().then(console.log);",
+      "options": ["5", "6", "Promise", "TypeError"],
+      "answer": 1,
+      "explanation": "await unwraps the Promise. Then we add 1 → 6."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Which catches an error inside async code?",
+      "options": [
+        "try/catch around the await",
+        ".catch on the returned Promise",
+        "Both",
+        "Neither — errors are silent"
+      ],
+      "answer": 2,
+      "explanation": "Either works. try/catch is often clearer inside async functions."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "console.log('a');\nPromise.resolve().then(() => console.log('b'));\nconsole.log('c');",
+      "options": ["a b c", "a c b", "c a b", "b a c"],
+      "answer": 1,
+      "explanation": ".then callbacks are microtasks — run after the current sync code."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Promise.all waits until:",
+      "options": [
+        "The first one resolves",
+        "All resolve — or one rejects",
+        "All settle regardless of outcome",
+        "A timeout fires"
+      ],
+      "answer": 1,
+      "explanation": "Promise.all fails fast. For 'wait for all outcomes' use Promise.allSettled."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Which returns the first result (resolve OR reject) among multiple promises?",
+      "options": ["Promise.all", "Promise.any", "Promise.race", "Promise.first"],
+      "answer": 2,
+      "explanation": "Promise.race resolves/rejects with the FIRST to settle. Promise.any waits for first success."
+    }
+  ]
+}

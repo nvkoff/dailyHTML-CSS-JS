@@ -1,0 +1,83 @@
+{
+  "id": "js/arrays",
+  "track": "js",
+  "section": "Basic",
+  "sectionOrder": 1,
+  "unit": "Arrays",
+  "order": 7,
+  "title": "Arrays",
+  "description": "Ordered collections. Zero-indexed.",
+  "xp": 12,
+  "questions": [
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "const list = ['a', 'b', 'c'];\nconsole.log(list[0]);",
+      "options": ["'a'", "'b'", "'c'", "1"],
+      "answer": 0,
+      "explanation": "First element is at index 0."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "const list = ['a', 'b'];\nconsole.log(list[5]);",
+      "options": ["'a'", "'b'", "undefined", "RangeError"],
+      "answer": 2,
+      "explanation": "Out-of-bounds access returns undefined."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "const list = [10, 20, 30];\nconsole.log(list.at(-1));",
+      "options": ["10", "20", "30", "undefined"],
+      "answer": 2,
+      "explanation": ".at(-1) returns the last element — cleaner than list[list.length - 1]."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "const list = [1, 2, 3];\nlist.length = 1;\nconsole.log(list);",
+      "options": ["[1, 2, 3]", "[1]", "[]", "TypeError"],
+      "answer": 1,
+      "explanation": "Setting length shorter TRUNCATES the array in place."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "console.log([1, 2, 3].length);",
+      "options": ["2", "3", "4", "undefined"],
+      "answer": 1,
+      "explanation": "length is the number of elements, not the last index."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "const list = [1, 2];\nlist[5] = 99;\nconsole.log(list.length);",
+      "options": ["2", "3", "5", "6"],
+      "answer": 3,
+      "explanation": "Writing past the end extends the array; indices 2..4 are undefined ('holes'), length = 6."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Which creates a NEW empty array?",
+      "options": ["Array()", "[]", "new Array()", "All of them"],
+      "answer": 3,
+      "explanation": "All three make an empty array. Literal [] is the idiomatic choice."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "console.log([1, 2, 3][2]);",
+      "options": ["1", "2", "3", "undefined"],
+      "answer": 2,
+      "explanation": "Index 2 = third element = 3."
+    }
+  ]
+}

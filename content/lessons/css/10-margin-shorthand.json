@@ -34,6 +34,63 @@
       "options": ["4px", "8px", "12px", "0"],
       "answer": 1,
       "explanation": "Three values = top, horizontal (both), bottom. So right = 8px."
+    },
+    {
+      "type": "mcq",
+      "prompt": "`margin: 0 auto;` centers the element horizontally IF:",
+      "options": [
+        "It has display: block and a defined width",
+        "It has display: inline",
+        "It has position: absolute",
+        "It has flex-direction: row"
+      ],
+      "answer": 0,
+      "explanation": "Block-level + explicit width → auto splits leftover space equally."
+    },
+    {
+      "type": "mcq",
+      "prompt": "What is a NEGATIVE margin useful for?",
+      "options": [
+        "Pulling an element outside its parent",
+        "Overlapping siblings",
+        "Compensating for wrapper padding",
+        "All of the above"
+      ],
+      "answer": 3,
+      "explanation": "Negative margins have many legitimate uses — carefully."
+    },
+    {
+      "type": "predict",
+      "prompt": "In `padding: 8px 16px;` — what is BOTTOM padding?",
+      "language": "css",
+      "code": ".el { padding: 8px 16px; }",
+      "options": ["8px", "16px", "0", "auto"],
+      "answer": 0,
+      "explanation": "Two values: vertical then horizontal. Bottom = vertical = 8px."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Which is a modern spacing property that avoids per-side syntax?",
+      "options": [
+        "gap (in flex/grid containers)",
+        "margin: auto everywhere",
+        "padding: reset",
+        "outline"
+      ],
+      "answer": 0,
+      "explanation": "gap sets space BETWEEN items without needing per-item margins."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Logical properties like margin-inline-start:",
+      "options": [
+        "Are deprecated",
+        "Respect writing direction — 'start' means left in LTR, right in RTL",
+        "Only work in Firefox",
+        "Same as margin-left in all cases"
+      ],
+      "answer": 1,
+      "explanation": "Great for supporting both LTR and RTL languages without duplicating styles."
     }
   ]
 }

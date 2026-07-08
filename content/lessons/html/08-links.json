@@ -42,6 +42,46 @@
       "broken": "<a href=\"https://example.com\">Example</a>",
       "mustInclude": ["target=\"_blank\"", "rel=", "noopener"],
       "explanation": "target=\"_blank\" rel=\"noopener\" — noopener prevents the opened page from accessing window.opener."
+    },
+    {
+      "type": "mcq",
+      "prompt": "For a mailto link:",
+      "options": [
+        "href=\"mailto:me@x.com\"",
+        "href=\"email:me@x.com\"",
+        "href=\"@me@x.com\"",
+        "type=\"mail\""
+      ],
+      "answer": 0,
+      "explanation": "mailto: opens the user's mail client."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Which is BEST link text for accessibility?",
+      "options": [
+        "\"click here\"",
+        "\"read more\"",
+        "\"Download the 2026 pricing PDF\"",
+        "\"→\""
+      ],
+      "answer": 2,
+      "explanation": "Descriptive link text is scannable and works for screen-reader users listing links."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Which is a link that runs a phone dialer?",
+      "options": ["tel:", "phone:", "call:", "dial:"],
+      "answer": 0,
+      "explanation": "<a href=\"tel:+1234567890\">Call us</a>."
+    },
+    {
+      "type": "predict",
+      "prompt": "Where does this link go relative to /blog/post?",
+      "language": "html",
+      "code": "<a href=\"../about\">About</a>",
+      "options": ["/blog/../about", "/about", "/blog/about", "TypeError"],
+      "answer": 1,
+      "explanation": ".. climbs one level: from /blog/post to /blog, then to /about."
     }
   ]
 }

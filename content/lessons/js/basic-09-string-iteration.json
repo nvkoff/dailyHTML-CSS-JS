@@ -1,0 +1,83 @@
+{
+  "id": "js/string-iteration",
+  "track": "js",
+  "section": "Basic",
+  "sectionOrder": 1,
+  "unit": "String Iteration",
+  "order": 9,
+  "title": "Iterating strings",
+  "description": "Loop over characters.",
+  "xp": 12,
+  "questions": [
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "for (const c of 'hi') console.log(c);",
+      "options": ["'hi'", "'h' then 'i'", "0 then 1", "TypeError"],
+      "answer": 1,
+      "explanation": "Strings are iterable — for-of yields each character."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "const s = 'abc';\nfor (let i = 0; i < s.length; i++) console.log(s[i]);",
+      "options": ["'a', 'b', 'c'", "'a', 'b'", "0, 1, 2", "'abc'"],
+      "answer": 0,
+      "explanation": "Classic index-based iteration prints each character."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "console.log([...'hey']);",
+      "options": ["['hey']", "['h', 'e', 'y']", "'hey'", "TypeError"],
+      "answer": 1,
+      "explanation": "Spreading a string produces an array of its characters."
+    },
+    {
+      "type": "predict",
+      "prompt": "What is x?",
+      "language": "js",
+      "code": "let x = 0;\nfor (const c of 'hello') x++;",
+      "options": ["4", "5", "6", "0"],
+      "answer": 1,
+      "explanation": "'hello' has 5 characters; x increments 5 times."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "console.log('abc'.charAt(1));",
+      "options": ["'a'", "'b'", "'c'", "1"],
+      "answer": 1,
+      "explanation": "charAt returns the character at the given index (like bracket access)."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Which converts 'abcd' → ['a','b','c','d']?",
+      "options": ["'abcd'.split()", "'abcd'.split('')", "'abcd'.chars()", "Array('abcd')"],
+      "answer": 1,
+      "explanation": "split('') breaks a string into its characters."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "for (const [i, c] of 'ab'.split('').entries()) {\n  console.log(i, c);\n}",
+      "options": ["0 'a', 1 'b'", "'a' 'b'", "0 1", "TypeError"],
+      "answer": 0,
+      "explanation": ".entries() yields [index, value] pairs — destructure them."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "console.log('aba'.indexOf('b'));",
+      "options": ["-1", "0", "1", "2"],
+      "answer": 2,
+      "explanation": "indexOf returns the first position — 'b' is at index 1."
+    }
+  ]
+}

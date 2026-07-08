@@ -37,6 +37,46 @@
       ],
       "answer": 1,
       "explanation": "<hr> is a horizontal rule — void element."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Which is NOT a void element?",
+      "options": ["<meta>", "<link>", "<script>", "<img>"],
+      "answer": 2,
+      "explanation": "<script> can have content (inline JS) — needs a closing tag."
+    },
+    {
+      "type": "mcq",
+      "prompt": "How many attributes can a void element have?",
+      "options": ["Zero", "One", "As many as needed", "Only 'src' or 'href'"],
+      "answer": 2,
+      "explanation": "Void just means 'no content'. Attribute count is unrestricted."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Which void element is for line breaks?",
+      "options": ["<lb>", "<br>", "<nl>", "<newline>"],
+      "answer": 1,
+      "explanation": "<br> for hard breaks in prose."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Are <br /> and <br> different in HTML5?",
+      "options": [
+        "Yes — <br /> is invalid",
+        "No — both are accepted, self-closing / is optional",
+        "Only <br /> works in XHTML",
+        "<br> is deprecated"
+      ],
+      "answer": 1,
+      "explanation": "Both parse the same in HTML5. Pick a style and stick with it."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Which is used to embed a CSS file (void element)?",
+      "options": ["<style>", "<link rel=\"stylesheet\" href=\"...\">", "<script>", "<import>"],
+      "answer": 1,
+      "explanation": "<link> is void — src via href attribute."
     }
   ]
 }

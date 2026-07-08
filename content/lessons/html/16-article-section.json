@@ -37,6 +37,61 @@
       "options": ["<section>", "<article>", "<div>", "<span>"],
       "answer": 2,
       "explanation": "<div> when there is no semantic role. Don't reach for section/article by default."
+    },
+    {
+      "type": "mcq",
+      "prompt": "<span> vs <div>:",
+      "options": [
+        "<span> is inline; <div> is block",
+        "They're identical",
+        "<span> is deprecated",
+        "<div> is inline; <span> is block"
+      ],
+      "answer": 0,
+      "explanation": "Both are meaningless containers. span is inline. div is block."
+    },
+    {
+      "type": "mcq",
+      "prompt": "<time datetime=\"2026-07-08\">:",
+      "options": [
+        "Just renders text — no purpose",
+        "Provides a machine-readable datetime",
+        "Automatically formats the date",
+        "Replaces the text with a clock"
+      ],
+      "answer": 1,
+      "explanation": "<time> gives search engines and screen readers the ISO datetime."
+    },
+    {
+      "type": "mcq",
+      "prompt": "For an ADDRESS block:",
+      "options": ["<address>", "<location>", "<mail>", "<block>"],
+      "answer": 0,
+      "explanation": "<address> is for contact info of nearby content."
+    },
+    {
+      "type": "mcq",
+      "prompt": "<details> + <summary>:",
+      "options": [
+        "Native collapse/expand — no JS needed",
+        "Just for print",
+        "Deprecated",
+        "Only in Safari"
+      ],
+      "answer": 0,
+      "explanation": "Widely supported native disclosure widget. Zero JS."
+    },
+    {
+      "type": "mcq",
+      "prompt": "<dialog>:",
+      "options": [
+        "Native modal element with .showModal()",
+        "Deprecated",
+        "Only works in Firefox",
+        "Same as <details>"
+      ],
+      "answer": 0,
+      "explanation": "<dialog> is a native modal with backdrop and focus management."
     }
   ]
 }

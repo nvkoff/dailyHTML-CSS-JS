@@ -36,6 +36,37 @@
       "options": ["all", "*", ".*", "any"],
       "answer": 1,
       "explanation": "* matches every element."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Which selects an element by id?",
+      "options": [".main", "#main", "*main", "main:id"],
+      "answer": 1,
+      "explanation": "# is the id selector."
+    },
+    {
+      "type": "predict",
+      "prompt": "Which paragraphs turn red?",
+      "language": "css",
+      "code": "p, li { color: red; }\n\n<p>a</p><ul><li>b</li></ul>",
+      "options": ["Only p", "Only li", "Both", "Neither"],
+      "answer": 2,
+      "explanation": "Comma-separated selectors form a group — both p and li get the style."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Which selector has HIGHER specificity?",
+      "options": [".card", "div", "*", "html"],
+      "answer": 0,
+      "explanation": "Class > element > universal. .card wins."
+    },
+    {
+      "type": "fix-bug",
+      "prompt": "Style ALL links AND all buttons in one rule.",
+      "language": "css",
+      "broken": "/* one rule with both selectors */\na { color: teal; }",
+      "mustInclude": ["a", "button", ","],
+      "explanation": "Comma-separated group: `a, button { color: teal; }`."
     }
   ]
 }

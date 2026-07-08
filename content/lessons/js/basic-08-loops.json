@@ -1,0 +1,83 @@
+{
+  "id": "js/loops",
+  "track": "js",
+  "section": "Basic",
+  "sectionOrder": 1,
+  "unit": "Loops",
+  "order": 8,
+  "title": "Loops",
+  "description": "for, while, and how to break/continue.",
+  "xp": 12,
+  "questions": [
+    {
+      "type": "predict",
+      "prompt": "How many times does it log?",
+      "language": "js",
+      "code": "for (let i = 0; i < 5; i++) console.log(i);",
+      "options": ["4", "5", "6", "infinite"],
+      "answer": 1,
+      "explanation": "i goes 0, 1, 2, 3, 4 → 5 iterations."
+    },
+    {
+      "type": "predict",
+      "prompt": "How many times does it log?",
+      "language": "js",
+      "code": "let i = 0;\nwhile (i < 3) {\n  console.log(i);\n  i++;\n}",
+      "options": ["2", "3", "4", "infinite"],
+      "answer": 1,
+      "explanation": "0, 1, 2 → 3 iterations, then i=3 exits."
+    },
+    {
+      "type": "predict",
+      "prompt": "How many times does it log?",
+      "language": "js",
+      "code": "let n = 0;\ndo {\n  console.log(n);\n  n++;\n} while (n < 0);",
+      "options": ["0", "1", "infinite", "TypeError"],
+      "answer": 1,
+      "explanation": "do-while runs at least once before checking the condition."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "for (let i = 0; i < 5; i++) {\n  if (i === 3) break;\n  console.log(i);\n}",
+      "options": ["0 1 2", "0 1 2 3", "0 1 2 3 4", "3"],
+      "answer": 0,
+      "explanation": "break exits the loop entirely at i=3."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "for (let i = 0; i < 4; i++) {\n  if (i === 2) continue;\n  console.log(i);\n}",
+      "options": ["0 1 2 3", "0 1 3", "0 1", "2"],
+      "answer": 1,
+      "explanation": "continue skips the rest of THIS iteration and jumps to the next."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Which loop is BEST when you need the index while iterating an array?",
+      "options": ["for-in", "forEach", "classic for", "for-of"],
+      "answer": 2,
+      "explanation": "Classic for exposes the index directly. arr.forEach((v, i) => ...) also works."
+    },
+    {
+      "type": "predict",
+      "prompt": "What is the FINAL value logged?",
+      "language": "js",
+      "code": "for (let i = 10; i > 0; i -= 2) console.log(i);",
+      "options": ["0", "2", "1", "-1"],
+      "answer": 1,
+      "explanation": "i: 10, 8, 6, 4, 2, then exits. Last logged: 2."
+    },
+    {
+      "type": "predict",
+      "prompt": "What is x after this?",
+      "language": "js",
+      "code": "let x = 0;\nfor (let i = 1; i <= 3; i++) x += i;",
+      "options": ["3", "5", "6", "10"],
+      "answer": 2,
+      "explanation": "1 + 2 + 3 = 6."
+    }
+  ]
+}

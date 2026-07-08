@@ -34,6 +34,58 @@
       "options": ["Hi", "Hi there friend!", "Hi there!", "friend"],
       "answer": 1,
       "explanation": "Nested inline elements are all rendered inline. Text: 'Hi there friend!'"
+    },
+    {
+      "type": "mcq",
+      "prompt": "In HTML, indentation is:",
+      "options": [
+        "Required for correctness",
+        "Ignored by the browser but helpful for humans",
+        "Rendered as spaces",
+        "Only allowed with tabs"
+      ],
+      "answer": 1,
+      "explanation": "The parser ignores extra whitespace; use indentation for readability."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Which is INVALID nesting?",
+      "options": [
+        "<a><span>text</span></a>",
+        "<p><a>text</a></p>",
+        "<a><div>text</div></a>",
+        "<button><em>text</em></button>"
+      ],
+      "answer": 2,
+      "explanation": "Historically block inside inline was invalid. In HTML5, <a> can wrap block content — but <div> inside <p> is not allowed."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Nested lists — the correct pattern is:",
+      "options": [
+        "<ul><li><ul>...</ul></li></ul>",
+        "<ul><ul>...</ul></ul>",
+        "<ul><li>...</li><ul>...</ul></ul>",
+        "<ol><ul>...</ul></ol>"
+      ],
+      "answer": 0,
+      "explanation": "A nested list must live INSIDE an <li>."
+    },
+    {
+      "type": "predict",
+      "prompt": "How many <p>s in the DOM?",
+      "language": "html",
+      "code": "<p>A <p>B <p>C",
+      "options": ["1", "2", "3", "0"],
+      "answer": 2,
+      "explanation": "The parser auto-closes an open <p> when a new one starts."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Which is a BLOCK-level element?",
+      "options": ["<span>", "<em>", "<div>", "<a>"],
+      "answer": 2,
+      "explanation": "<div> is block by default; <span>/<em>/<a> are inline."
     }
   ]
 }

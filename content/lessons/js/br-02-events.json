@@ -1,0 +1,91 @@
+{
+  "id": "js/events",
+  "track": "js",
+  "section": "Browser & Async",
+  "sectionOrder": 4,
+  "unit": "Events",
+  "order": 32,
+  "title": "Events",
+  "description": "Listen for clicks, input, and everything else.",
+  "xp": 14,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "Which is the CORRECT way to listen for a click?",
+      "options": [
+        "btn.click = () => {}",
+        "btn.on('click', ...)",
+        "btn.addEventListener('click', () => {})",
+        "addEventListener(btn, 'click', ...)"
+      ],
+      "answer": 2,
+      "explanation": "addEventListener on the target element with the event name and handler."
+    },
+    {
+      "type": "mcq",
+      "prompt": "To stop a form's default submit action:",
+      "options": [
+        "return false",
+        "e.preventDefault()",
+        "e.stopPropagation()",
+        "form.stop()"
+      ],
+      "answer": 1,
+      "explanation": "preventDefault cancels the default browser action."
+    },
+    {
+      "type": "mcq",
+      "prompt": "The event's `target` is:",
+      "options": [
+        "The element the listener is on",
+        "The element that ORIGINATED the event (where the user clicked)",
+        "The nearest ancestor",
+        "The document"
+      ],
+      "answer": 1,
+      "explanation": "target = original source. currentTarget = the element the listener is on."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Which stops the event from bubbling to ancestors?",
+      "options": ["preventDefault()", "stopPropagation()", "return false", "cancelEvent()"],
+      "answer": 1,
+      "explanation": "stopPropagation halts bubbling. preventDefault only cancels default behavior."
+    },
+    {
+      "type": "mcq",
+      "prompt": "'Event delegation' means:",
+      "options": [
+        "Firing events from parent to child",
+        "Listening on a parent and using e.target to identify which child was clicked",
+        "Blocking events",
+        "Custom events"
+      ],
+      "answer": 1,
+      "explanation": "One listener handles many children; scales better than binding to each."
+    },
+    {
+      "type": "predict",
+      "prompt": "How many times is 'clicked' logged when the user clicks?",
+      "language": "js",
+      "code": "btn.addEventListener('click', () => console.log('clicked'), { once: true });\nbtn.click();\nbtn.click();",
+      "options": ["0", "1", "2", "infinite"],
+      "answer": 1,
+      "explanation": "{ once: true } removes the listener after firing once."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Which reads the value from a text input?",
+      "options": ["input.text", "input.value", "input.data", "input.content"],
+      "answer": 1,
+      "explanation": ".value is where form controls hold their current value."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Which event fires as the user types?",
+      "options": ["click", "change", "input", "submit"],
+      "answer": 2,
+      "explanation": "'input' fires on every keystroke. 'change' waits for blur/commit."
+    }
+  ]
+}

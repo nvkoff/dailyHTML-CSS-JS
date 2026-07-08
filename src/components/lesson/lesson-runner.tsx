@@ -2,7 +2,8 @@
 
 import { useEffect, useState, useTransition } from "react";
 import Link from "next/link";
-import { CheckCircle2, XCircle, ArrowLeft, Flame, Zap } from "lucide-react";
+import { CheckCircle2, XCircle, ArrowLeft, Flame, Zap, Skull, RotateCcw } from "lucide-react";
+import { useRouter } from "next/navigation";
 import { Lesson, Question, gradeQuestion } from "@/lib/content-types";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
@@ -20,6 +21,7 @@ export function LessonRunner({ lesson }: { lesson: Lesson }) {
   const [wasCorrect, setWasCorrect] = useState<boolean | null>(null);
   const [summary, setSummary] = useState<{ newStreak: number; totalXp: number } | null>(null);
   const [saving, startTransition] = useTransition();
+  const router = useRouter();
 
   const question = lesson.questions[index];
   const total = lesson.questions.length;
@@ -45,7 +47,8 @@ export function LessonRunner({ lesson }: { lesson: Lesson }) {
       setWasCorrect(null);
       setPhase("answering");
     } else {
-      const xp = Math.round((correctCount / total) * lesson.xp);
+      const isDefeat = correctCount === 0;
+      const xp = isDefeat ? 0 : Math.round((correctCount / total) * lesson.xp);
       startTransition(async () => {
         try {
           const result = await submitLessonResult({
@@ -63,16 +66,51 @@ export function LessonRunner({ lesson }: { lesson: Lesson }) {
     }
   }
 
+  function handleRetry() {
+    setIndex(0);
+    setAnswer(null);
+    setWasCorrect(null);
+    setCorrectCount(0);
+    setSummary(null);
+    setPhase("answering");
+    router.refresh();
+  }
+
   function canSubmit(q: Question, a: Answer) {
     if (q.type === "mcq" || q.type === "predict") return typeof a === "number";
     return typeof a === "string" && a.trim().length > 0;
   }
 
   if (phase === "done") {
+    const isDefeat = correctCount === 0;
+    if (isDefeat) {
+      return (
+        <div className="mx-auto flex w-full max-w-xl flex-col items-center justify-center gap-6 px-4 py-16 text-center sm:py-20">
+          <div className="rounded-full bg-destructive/10 p-4">
+            <Skull className="h-12 w-12 text-destructive" />
+          </div>
+          <div className="space-y-1">
+            <h1 className="text-2xl font-semibold">Defeat</h1>
+            <p className="text-muted-foreground">
+              0/{total} correct — no XP earned. Try again.
+            </p>
+          </div>
+          <div className="flex w-full flex-col gap-2 sm:flex-row">
+            <Button asChild variant="outline" size="lg" className="flex-1">
+              <Link href="/learn">Back</Link>
+            </Button>
+            <Button size="lg" className="flex-1" onClick={handleRetry}>
+              <RotateCcw className="mr-1 h-5 w-5" /> Try again
+            </Button>
+          </div>
+        </div>
+      );
+    }
+    const xpEarned = Math.round((correctCount / total) * lesson.xp);
     return (
-      <div className="mx-auto flex w-full max-w-xl flex-col items-center justify-center gap-6 py-20 text-center">
+      <div className="mx-auto flex w-full max-w-xl flex-col items-center justify-center gap-6 px-4 py-16 text-center sm:py-20">
         <div className="rounded-full bg-success/10 p-4">
-          <CheckCircle2 className="h-10 w-10 text-success" />
+          <CheckCircle2 className="h-12 w-12 text-success" />
         </div>
         <div className="space-y-1">
           <h1 className="text-2xl font-semibold">Lesson complete</h1>
@@ -83,15 +121,13 @@ export function LessonRunner({ lesson }: { lesson: Lesson }) {
         <div className="grid w-full grid-cols-2 gap-3">
           <div className="rounded-lg border p-4">
             <div className="flex items-center justify-center gap-1 text-xs text-muted-foreground">
-              <Zap className="h-3.5 w-3.5" /> XP earned
+              <Zap className="h-4 w-4" /> XP earned
             </div>
-            <div className="text-center text-2xl font-semibold">
-              +{Math.round((correctCount / total) * lesson.xp)}
-            </div>
+            <div className="text-center text-2xl font-semibold">+{xpEarned}</div>
           </div>
           <div className="rounded-lg border p-4">
             <div className="flex items-center justify-center gap-1 text-xs text-muted-foreground">
-              <Flame className="h-3.5 w-3.5" /> Streak
+              <Flame className="h-4 w-4 text-orange-500" /> Streak
             </div>
             <div className="text-center text-2xl font-semibold">
               {summary?.newStreak ?? "-"}
@@ -110,7 +146,7 @@ export function LessonRunner({ lesson }: { lesson: Lesson }) {
       <div className="flex items-center gap-2 sm:gap-3">
         <Button variant="ghost" size="icon" asChild className="shrink-0">
           <Link href="/learn">
-            <ArrowLeft className="h-4 w-4" />
+            <ArrowLeft className="h-5 w-5" />
           </Link>
         </Button>
         <div className="flex-1">
@@ -140,11 +176,11 @@ export function LessonRunner({ lesson }: { lesson: Lesson }) {
           <div className="flex items-center gap-2 font-medium">
             {wasCorrect ? (
               <>
-                <CheckCircle2 className="h-5 w-5 text-success" /> Correct
+                <CheckCircle2 className="h-6 w-6 text-success" /> Correct
               </>
             ) : (
               <>
-                <XCircle className="h-5 w-5 text-destructive" /> Not quite
+                <XCircle className="h-6 w-6 text-destructive" /> Not quite
               </>
             )}
           </div>

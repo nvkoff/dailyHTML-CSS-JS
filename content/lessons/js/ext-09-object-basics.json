@@ -1,0 +1,86 @@
+{
+  "id": "js/object-basics",
+  "track": "js",
+  "section": "Basic extended",
+  "sectionOrder": 2,
+  "unit": "Object Basics",
+  "order": 20,
+  "title": "Object basics",
+  "description": "Keys, values, and how to access them.",
+  "xp": 12,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "Which is a valid object literal?",
+      "options": [
+        "{ 'name': 'Ada', 'age': 30 }",
+        "{ name: 'Ada', age: 30 }",
+        "{ name = 'Ada', age = 30 }",
+        "Both A and B"
+      ],
+      "answer": 3,
+      "explanation": "Keys can be unquoted identifiers or quoted strings. = is a syntax error."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "const u = { name: 'Ada' };\nu.age = 30;\nconsole.log(Object.keys(u).length);",
+      "options": ["1", "2", "0", "TypeError"],
+      "answer": 1,
+      "explanation": "Object.keys returns the own enumerable keys. Two: name, age."
+    },
+    {
+      "type": "mcq",
+      "prompt": "The shorthand `{ name }` inside an object literal is equivalent to:",
+      "options": ["{ name: 'name' }", "{ name: name }", "{ 'name': undefined }", "Syntax error"],
+      "answer": 1,
+      "explanation": "ES6 shorthand: when key and value name match, drop the value."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "const key = 'age';\nconst u = { name: 'Ada', age: 30 };\nconsole.log(u[key]);",
+      "options": ["undefined", "'age'", "30", "TypeError"],
+      "answer": 2,
+      "explanation": "Bracket notation reads the key from a variable — dot notation can't."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "const u = { name: 'Ada' };\nconsole.log('name' in u);",
+      "options": ["true", "false", "'Ada'", "TypeError"],
+      "answer": 0,
+      "explanation": "in checks whether a key exists (own or inherited)."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "const u = { name: 'Ada' };\ndelete u.name;\nconsole.log(u.name);",
+      "options": ["'Ada'", "undefined", "null", "TypeError"],
+      "answer": 1,
+      "explanation": "delete removes the property; access returns undefined."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "const u = { a: 1, b: 2 };\nconsole.log(Object.values(u));",
+      "options": ["[1, 2]", "['a', 'b']", "{a:1,b:2}", "TypeError"],
+      "answer": 0,
+      "explanation": "Object.values → array of values."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "const u = { a: 1 };\nfor (const [k, v] of Object.entries(u)) {\n  console.log(k, v);\n}",
+      "options": ["'a' 1", "'a' undefined", "1 'a'", "TypeError"],
+      "answer": 0,
+      "explanation": "entries yields [key, value] pairs — destructure to iterate."
+    }
+  ]
+}

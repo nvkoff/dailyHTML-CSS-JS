@@ -1,0 +1,79 @@
+{
+  "id": "js/boolean",
+  "track": "js",
+  "section": "Basic",
+  "sectionOrder": 1,
+  "unit": "Boolean",
+  "order": 4,
+  "title": "Boolean & truthiness",
+  "description": "true, false, and the seven falsy values.",
+  "xp": 12,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "Which value is TRUTHY?",
+      "options": ["0", "''", "'0'", "null"],
+      "answer": 2,
+      "explanation": "The STRING '0' has length > 0 — truthy. The NUMBER 0 is falsy."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "if ([]) console.log('yes');\nelse console.log('no');",
+      "options": ["yes", "no", "TypeError", "undefined"],
+      "answer": 0,
+      "explanation": "An empty array is an object — objects are always truthy."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Which is NOT falsy?",
+      "options": ["undefined", "NaN", "-0", "'false'"],
+      "answer": 3,
+      "explanation": "Falsy: false, 0, -0, 0n, '', null, undefined, NaN. Everything else is truthy."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "console.log(!!'hello');",
+      "options": ["true", "false", "'hello'", "TypeError"],
+      "answer": 0,
+      "explanation": "!!x converts x to a boolean. 'hello' is truthy → true."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "console.log(true + true);",
+      "options": ["true", "2", "1", "'truetrue'"],
+      "answer": 1,
+      "explanation": "Booleans coerce to numbers: true → 1, false → 0. 1 + 1 = 2."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "console.log(Boolean(''));",
+      "options": ["true", "false", "''", "undefined"],
+      "answer": 1,
+      "explanation": "Empty string is falsy — Boolean('') === false."
+    },
+    {
+      "type": "mcq",
+      "prompt": "How do you invert a boolean?",
+      "options": ["not(x)", "!x", "~x", "-x"],
+      "answer": 1,
+      "explanation": "The ! operator negates. ~ is bitwise NOT."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "js",
+      "code": "console.log(true && false);",
+      "options": ["true", "false", "0", "TypeError"],
+      "answer": 1,
+      "explanation": "&& returns first falsy or the last value if all truthy. Here → false."
+    }
+  ]
+}

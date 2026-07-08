@@ -1,0 +1,89 @@
+{
+  "id": "js/code-style",
+  "track": "js",
+  "section": "Basic extended",
+  "sectionOrder": 2,
+  "unit": "Code Style",
+  "order": 12,
+  "title": "Code style",
+  "description": "Semicolons, naming, and staying readable.",
+  "xp": 10,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "Idiomatic JS variable names use:",
+      "options": ["snake_case", "PascalCase", "camelCase", "kebab-case"],
+      "answer": 2,
+      "explanation": "camelCase for variables and functions. PascalCase for classes/constructors."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Idiomatic JS class names use:",
+      "options": ["snake_case", "PascalCase", "camelCase", "SCREAMING_SNAKE"],
+      "answer": 1,
+      "explanation": "PascalCase signals constructor/class."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Constants that never change use:",
+      "options": ["camelCase", "PascalCase", "SCREAMING_SNAKE_CASE", "kebab-case"],
+      "answer": 2,
+      "explanation": "SCREAMING_SNAKE for magic constants like MAX_RETRIES."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Preferred quote style in modern JS?",
+      "options": [
+        "Always double quotes",
+        "Always single quotes",
+        "Pick one and be consistent (many teams use single or template literals)",
+        "It's forbidden to mix"
+      ],
+      "answer": 2,
+      "explanation": "Consistency > preference. Most linters enforce a single choice."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Which is safer against ASI (automatic semicolon insertion) bugs?",
+      "options": [
+        "Always insert semicolons at end of statements",
+        "Never use semicolons",
+        "Use semicolons only in loops",
+        "Rely on the runtime"
+      ],
+      "answer": 0,
+      "explanation": "Explicit semicolons avoid rare ASI gotchas. No-semicolon style is fine too — but be aware of the trap lines starting with ( [ / + -."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Preferred indentation in most JS codebases?",
+      "options": ["Tabs of 4", "2 spaces", "8 spaces", "Whatever your keyboard does"],
+      "answer": 1,
+      "explanation": "2 spaces is the most common convention — used by Prettier, Airbnb style, and most projects."
+    },
+    {
+      "type": "mcq",
+      "prompt": "A function named `isReady` is a strong hint that it:",
+      "options": [
+        "Sets ready state",
+        "Returns a boolean",
+        "Throws when not ready",
+        "Is async"
+      ],
+      "answer": 1,
+      "explanation": "is/has/can prefixes → boolean predicates. Follow the convention."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Which is bad practice for readability?",
+      "options": [
+        "Descriptive function names",
+        "Small functions (< 20 lines)",
+        "Single-letter names outside tiny loops",
+        "Named constants for magic numbers"
+      ],
+      "answer": 2,
+      "explanation": "Single-letter names (i, j, x, y) OK in tight scopes; hurt elsewhere."
+    }
+  ]
+}

@@ -30,6 +30,48 @@
       "broken": "<h1>Welcome</h1>",
       "mustInclude": ["id=\"page-title\"", "class=\"headline big\""],
       "explanation": "IDs are unique; classes are space-separated."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Which is BEST for an element that appears many times (menu items)?",
+      "options": ["id", "class", "name", "role"],
+      "answer": 1,
+      "explanation": "class is reusable — style all menu items with one rule."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Two elements with the same id — what happens?",
+      "options": [
+        "Browser throws an error",
+        "Undefined behavior: querySelector returns just the first, but validators complain",
+        "Both get selected",
+        "Page won't load"
+      ],
+      "answer": 1,
+      "explanation": "It renders, but violates the spec. Fragment links (#id) become ambiguous."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Which JS API returns an ELEMENT by id?",
+      "options": ["document.getElementByClass", "document.getElementById('x')", "document.id('x')", "document.byId('x')"],
+      "answer": 1,
+      "explanation": "getElementById — one of the oldest DOM methods."
+    },
+    {
+      "type": "predict",
+      "prompt": "How do you select by class in CSS?",
+      "language": "html",
+      "code": "<!-- HTML -->\n<div class=\"card\"></div>\n\n/* CSS: pick the correct selector */\n??? { color: red; }",
+      "options": ["#card", ".card", "card", "*card"],
+      "answer": 1,
+      "explanation": "Dot for class, hash for id."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Valid id names must NOT contain:",
+      "options": ["Digits", "Hyphens", "Spaces", "Letters"],
+      "answer": 2,
+      "explanation": "IDs can't contain spaces. Otherwise, most characters are allowed."
     }
   ]
 }

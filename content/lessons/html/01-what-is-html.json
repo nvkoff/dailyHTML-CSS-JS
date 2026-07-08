@@ -43,6 +43,41 @@
       "mustInclude": ["<!DOCTYPE html>", "<title>"],
       "hint": "Doctype goes on line 1, before <html>.",
       "explanation": "Every HTML document needs a doctype and a title in the head."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Which is a VOID element (no closing tag)?",
+      "options": ["<div>", "<img>", "<p>", "<button>"],
+      "answer": 1,
+      "explanation": "img, br, hr, input, meta, link are voids — no children, no closing tag."
+    },
+    {
+      "type": "mcq",
+      "prompt": "HTML comments look like:",
+      "options": ["// this", "/* this */", "<!-- this -->", "# this"],
+      "answer": 2,
+      "explanation": "<!-- ... --> is the HTML comment syntax."
+    },
+    {
+      "type": "predict",
+      "prompt": "How does the browser handle unknown tags?",
+      "language": "html",
+      "code": "<froblex>Hi</froblex>",
+      "options": [
+        "Throws an error",
+        "Renders as an inline element with the text",
+        "Removes them",
+        "Refuses to load the page"
+      ],
+      "answer": 1,
+      "explanation": "Unknown tags act like inline elements — parsed but with default styling."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Which section holds metadata (not visible content)?",
+      "options": ["<body>", "<head>", "<meta>", "<html>"],
+      "answer": 1,
+      "explanation": "<head> holds title, meta, link, script — the invisible essentials."
     }
   ]
 }

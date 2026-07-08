@@ -42,6 +42,61 @@
       ],
       "answer": 0,
       "explanation": "Stylesheet in head for CSSOM. Scripts often go at the end of body or use defer/async."
+    },
+    {
+      "type": "mcq",
+      "prompt": "For a favicon:",
+      "options": [
+        "<link rel=\"icon\" href=\"favicon.ico\">",
+        "<meta name=\"icon\">",
+        "<script src=\"favicon.ico\">",
+        "It's automatic"
+      ],
+      "answer": 0,
+      "explanation": "<link rel=\"icon\"> — the modern way. Also \"apple-touch-icon\" for iOS."
+    },
+    {
+      "type": "mcq",
+      "prompt": "defer vs async on <script>?",
+      "options": [
+        "defer waits until HTML is parsed, runs in order; async runs whenever downloaded (order not guaranteed)",
+        "They're identical",
+        "async is faster",
+        "defer is deprecated"
+      ],
+      "answer": 0,
+      "explanation": "defer for ordered app code; async for independent things (analytics)."
+    },
+    {
+      "type": "mcq",
+      "prompt": "<meta name=\"description\" content=\"...\"> is used by:",
+      "options": [
+        "The browser tab title",
+        "Search engines and social previews",
+        "CSS",
+        "None"
+      ],
+      "answer": 1,
+      "explanation": "Description appears in Google snippets and social cards."
+    },
+    {
+      "type": "mcq",
+      "prompt": "For a page's language:",
+      "options": ["<meta lang>", "<html lang=\"en\">", "<body lang>", "Content-Language header only"],
+      "answer": 1,
+      "explanation": "Set lang on <html> for the whole document."
+    },
+    {
+      "type": "mcq",
+      "prompt": "For preloading a critical font:",
+      "options": [
+        "<link rel=\"preload\" as=\"font\" href=\"...\" crossorigin>",
+        "<meta preload>",
+        "<script rel=\"preload\">",
+        "You can't preload fonts"
+      ],
+      "answer": 0,
+      "explanation": "Preload avoids the FOIT/FOUT flash — crossorigin is required for fonts."
     }
   ]
 }

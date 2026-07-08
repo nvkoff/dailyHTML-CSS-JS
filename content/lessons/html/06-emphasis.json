@@ -32,6 +32,41 @@
       ],
       "answer": 1,
       "explanation": "<mark> means relevance in current context — like highlighted search hits."
+    },
+    {
+      "type": "mcq",
+      "prompt": "For a keyboard shortcut, use:",
+      "options": ["<key>", "<kbd>", "<code>", "<samp>"],
+      "answer": 1,
+      "explanation": "<kbd>Ctrl+C</kbd> = keyboard input semantically."
+    },
+    {
+      "type": "mcq",
+      "prompt": "For a variable in prose:",
+      "options": ["<var>", "<x>", "<val>", "<em>"],
+      "answer": 0,
+      "explanation": "<var> denotes a variable (mathematical or programming)."
+    },
+    {
+      "type": "mcq",
+      "prompt": "For inline code:",
+      "options": ["<code>", "<pre>", "<mono>", "<script>"],
+      "answer": 0,
+      "explanation": "<code> for inline, <pre><code> for a formatted code block."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Which tells screen readers to skip a decorative element?",
+      "options": ["hidden", "aria-hidden=\"true\"", "visibility: hidden", "display: none"],
+      "answer": 1,
+      "explanation": "aria-hidden hides from assistive tech but keeps visible on screen."
+    },
+    {
+      "type": "mcq",
+      "prompt": "For a short quote INLINE:",
+      "options": ["<q>", "<quote>", "<i>", "<pre>"],
+      "answer": 0,
+      "explanation": "<q> for inline. <blockquote> for block-level long quotes."
     }
   ]
 }

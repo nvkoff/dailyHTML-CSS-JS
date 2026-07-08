@@ -38,6 +38,49 @@
       "mustInclude": ["type=\"submit\""],
       "hint": "type=\"button\" makes it a plain button — no form submission.",
       "explanation": "For submit behavior, use type=\"submit\" or omit type (default is submit)."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Default method of a form is:",
+      "options": ["GET", "POST", "PUT", "DELETE"],
+      "answer": 0,
+      "explanation": "GET puts values in the URL. Use POST for side effects."
+    },
+    {
+      "type": "mcq",
+      "prompt": "For file uploads, form must set:",
+      "options": [
+        "enctype=\"multipart/form-data\"",
+        "type=\"file\"",
+        "method=\"POST\"",
+        "action=\"upload\""
+      ],
+      "answer": 0,
+      "explanation": "Default enctype (application/x-www-form-urlencoded) can't send files."
+    },
+    {
+      "type": "mcq",
+      "prompt": "novalidate on the form:",
+      "options": [
+        "Enables validation",
+        "Disables the browser's built-in validation",
+        "Removes required attributes",
+        "Ignores the form"
+      ],
+      "answer": 1,
+      "explanation": "Useful when you handle validation with JS or a UI library."
+    },
+    {
+      "type": "mcq",
+      "prompt": "An input WITHOUT a name attribute:",
+      "options": [
+        "Is skipped on submission",
+        "Uses its id",
+        "Errors",
+        "Uses its label"
+      ],
+      "answer": 0,
+      "explanation": "name is required to be included in submission — no name, no value sent."
     }
   ]
 }
