@@ -80,9 +80,24 @@ export async function listLessonsBySection(
     .sort((a, b) => a.sectionOrder - b.sectionOrder);
 }
 
+const VALID_TRACKS: Track[] = [
+  "css",
+  "html",
+  "js",
+  "react",
+  "react-native",
+  "ts",
+  "redux",
+];
+
 export async function getLesson(id: string): Promise<Lesson | null> {
   const track = id.split("/")[0] as Track;
-  if (!["css", "html", "js"].includes(track)) return null;
+  if (!VALID_TRACKS.includes(track)) return null;
   const lessons = await readTrack(track);
   return lessons.find((l) => l.id === id) ?? null;
+}
+
+export async function listAllLessons(): Promise<Lesson[]> {
+  const perTrack = await Promise.all(VALID_TRACKS.map((t) => readTrack(t)));
+  return perTrack.flat();
 }

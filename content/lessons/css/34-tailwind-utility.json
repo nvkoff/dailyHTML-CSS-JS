@@ -1,0 +1,71 @@
+{
+  "id": "css/tailwind-utility",
+  "track": "css",
+  "unit": "Ecosystem",
+  "order": 34,
+  "title": "Utility-first CSS (Tailwind)",
+  "description": "How atomic classes replace bespoke rules.",
+  "xp": 10,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "The core idea of utility-first CSS:",
+      "options": [
+        "One class per style — compose classes on markup",
+        "One giant global stylesheet",
+        "Inline styles everywhere",
+        "It replaces JavaScript"
+      ],
+      "answer": 0,
+      "explanation": "Compose primitives (flex, p-4, text-sm) instead of naming components."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Tailwind's `md:` prefix means:",
+      "options": [
+        "Apply on medium screens and above (min-width)",
+        "Modal display",
+        "Margin default",
+        "Merged"
+      ],
+      "answer": 0,
+      "explanation": "Mobile-first breakpoints: sm, md, lg, xl, 2xl."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Trade-off:",
+      "options": [
+        "Long class strings vs shorter CSS files & fewer naming decisions",
+        "No trade-off",
+        "Bigger builds",
+        "Only for prototypes"
+      ],
+      "answer": 0,
+      "explanation": "Nothing is free — utility classes trade markup verbosity for less CSS."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Dark mode in Tailwind (v4) is typically:",
+      "options": [
+        "`dark:` variant + configured strategy",
+        "Only via JS",
+        "Not supported",
+        "Always OS-driven"
+      ],
+      "answer": 0,
+      "explanation": "You choose the strategy (media, class, data-attribute)."
+    },
+    {
+      "type": "mcq",
+      "prompt": "@apply lets you:",
+      "options": [
+        "Extract utility combos into a real CSS rule when needed",
+        "Import files",
+        "Nothing",
+        "Force !important"
+      ],
+      "answer": 0,
+      "explanation": "Handy for repeated combos or component styles."
+    }
+  ]
+}

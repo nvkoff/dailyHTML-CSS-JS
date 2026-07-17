@@ -1,0 +1,65 @@
+{
+  "id": "react-native/flexbox",
+  "track": "react-native",
+  "section": "Basics",
+  "sectionOrder": 1,
+  "unit": "Styling",
+  "order": 4,
+  "title": "Flexbox in RN",
+  "description": "Layouts are 100% flexbox — with a few defaults flipped.",
+  "xp": 12,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "Default flexDirection in RN:",
+      "options": ["column", "row", "row-reverse", "grid"],
+      "answer": 0,
+      "explanation": "Web default is row; RN default is column."
+    },
+    {
+      "type": "mcq",
+      "prompt": "To fill available space, use:",
+      "options": [
+        "flex: 1",
+        "width: 100%",
+        "grow: 1",
+        "height: auto"
+      ],
+      "answer": 0,
+      "explanation": "flex: 1 is the RN idiom."
+    },
+    {
+      "type": "predict",
+      "prompt": "Which axis does justifyContent affect (column flex)?",
+      "language": "jsx",
+      "code": "<View style={{ flexDirection: 'column', justifyContent: 'space-between' }} />",
+      "options": ["Horizontal", "Vertical", "Both", "Neither"],
+      "answer": 1,
+      "explanation": "justifyContent = main axis; column = vertical."
+    },
+    {
+      "type": "mcq",
+      "prompt": "alignItems on flexDirection: row:",
+      "options": [
+        "Vertical alignment of items",
+        "Horizontal",
+        "Not applicable",
+        "Both"
+      ],
+      "answer": 0,
+      "explanation": "Cross-axis alignment."
+    },
+    {
+      "type": "mcq",
+      "prompt": "gap is:",
+      "options": [
+        "Supported in RN as a first-class flex prop",
+        "Web only",
+        "Requires plugin",
+        "Deprecated"
+      ],
+      "answer": 0,
+      "explanation": "Since RN 0.71 gap works natively."
+    }
+  ]
+}

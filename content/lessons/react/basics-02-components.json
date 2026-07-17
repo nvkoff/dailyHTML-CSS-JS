@@ -1,0 +1,79 @@
+{
+  "id": "react/components",
+  "track": "react",
+  "section": "Basics",
+  "sectionOrder": 1,
+  "unit": "Components",
+  "order": 2,
+  "title": "Components",
+  "description": "Function components, naming rules, and rendering.",
+  "xp": 12,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "React component names MUST start with:",
+      "options": [
+        "Lowercase letter",
+        "Capital letter",
+        "Underscore",
+        "Anything"
+      ],
+      "answer": 1,
+      "explanation": "Lowercase = DOM element (h1, div). Capital = user component."
+    },
+    {
+      "type": "predict",
+      "prompt": "How many times does the console log when App renders once?",
+      "language": "jsx",
+      "code": "function Row() { console.log('row'); return <div />; }\nfunction App() {\n  return <><Row /><Row /><Row /></>;\n}",
+      "options": ["0", "1", "2", "3"],
+      "answer": 3,
+      "explanation": "Each instance runs its function body."
+    },
+    {
+      "type": "mcq",
+      "prompt": "In modern React, a component is:",
+      "options": [
+        "A pure function of props and state",
+        "A class always",
+        "A DOM node",
+        "A string"
+      ],
+      "answer": 0,
+      "explanation": "Function components + hooks are the norm."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Should components have side effects during render?",
+      "options": [
+        "Yes, that's how you fetch",
+        "No — render should be pure. Side effects go in event handlers or effects",
+        "Only in production",
+        "Only in dev mode"
+      ],
+      "answer": 1,
+      "explanation": "Render must be pure. React may render multiple times without commit."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Why does StrictMode double-invoke components in dev?",
+      "options": [
+        "To surface impure render logic and effect bugs early",
+        "A bug",
+        "For animation testing",
+        "It doesn't"
+      ],
+      "answer": 0,
+      "explanation": "Only in dev. Production runs each render once."
+    },
+    {
+      "type": "predict",
+      "prompt": "Is this a valid component?",
+      "language": "jsx",
+      "code": "const Header = () => <h1>Hello</h1>;",
+      "options": ["Yes", "No — missing return", "No — arrow can't be a component", "No"],
+      "answer": 0,
+      "explanation": "Arrow with implicit return is fine."
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "id": "react-native/animation",
+  "track": "react-native",
+  "section": "Advanced",
+  "sectionOrder": 2,
+  "unit": "Motion",
+  "order": 15,
+  "title": "Animation",
+  "description": "Animated, Reanimated, layout animation.",
+  "xp": 12,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "Recommended modern animation lib:",
+      "options": [
+        "react-native-reanimated (runs on UI thread)",
+        "Animated only",
+        "GSAP",
+        "requestAnimationFrame in JS"
+      ],
+      "answer": 0,
+      "explanation": "Reanimated + shared values + worklets for buttery 60fps."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Why is running animation on JS thread bad?",
+      "options": [
+        "The bridge/render thread can lag if JS is busy — stutters",
+        "It never lags",
+        "JS is fastest",
+        "It's fine"
+      ],
+      "answer": 0,
+      "explanation": "That's why Reanimated worklets execute on the UI thread."
+    },
+    {
+      "type": "mcq",
+      "prompt": "For simple layout transitions:",
+      "options": [
+        "LayoutAnimation (built-in) or entering/exiting animations from Reanimated",
+        "Only manual keyframes",
+        "CSS animations",
+        "Nothing"
+      ],
+      "answer": 0,
+      "explanation": "One line to add smooth 'add/remove' transitions."
+    }
+  ]
+}

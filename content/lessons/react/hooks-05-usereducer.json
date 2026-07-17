@@ -1,0 +1,65 @@
+{
+  "id": "react/usereducer",
+  "track": "react",
+  "section": "Hooks",
+  "sectionOrder": 2,
+  "unit": "State",
+  "order": 13,
+  "title": "useReducer",
+  "description": "Scale up state with actions and reducers.",
+  "xp": 12,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "Prefer useReducer over useState when:",
+      "options": [
+        "Multiple pieces of state change together or complex transitions",
+        "Always",
+        "Never",
+        "Only in Redux apps"
+      ],
+      "answer": 0,
+      "explanation": "One clear reducer beats many tangled useStates."
+    },
+    {
+      "type": "predict",
+      "prompt": "What renders after dispatch?",
+      "language": "jsx",
+      "code": "function reducer(s, a) {\n  if (a.type === 'inc') return { n: s.n + 1 };\n  return s;\n}\nconst [s, dispatch] = useReducer(reducer, { n: 0 });\ndispatch({ type: 'inc' });",
+      "options": ["0", "1", "undefined", "Error"],
+      "answer": 1,
+      "explanation": "The reducer returns a new state object with n: 1."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Reducer function must be:",
+      "options": ["Pure — no side effects, returns new state", "Async", "Mutating", "In its own file"],
+      "answer": 0,
+      "explanation": "Pure reducer + action = predictable state."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Lazy init form:",
+      "options": [
+        "useReducer(reducer, initialArg, init)",
+        "useReducer(reducer, () => init())",
+        "You can't lazy init",
+        "useReducer(reducer, init())"
+      ],
+      "answer": 0,
+      "explanation": "Third arg is a function called with initialArg to build initial state."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Reducer + Context combo replaces:",
+      "options": [
+        "Small Redux setups for co-located state",
+        "React itself",
+        "useEffect",
+        "Server components"
+      ],
+      "answer": 0,
+      "explanation": "For medium apps this is often plenty — no Redux required."
+    }
+  ]
+}

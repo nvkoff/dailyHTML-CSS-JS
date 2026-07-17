@@ -8,6 +8,7 @@ export async function submitLessonResult(args: {
   correctCount: number;
   totalCount: number;
   xpEarned: number;
+  heartsSpent: number;
 }) {
   const { userId } = await auth();
   if (!userId) throw new Error("Not signed in");
@@ -17,6 +18,7 @@ export async function submitLessonResult(args: {
     correctCount: args.correctCount,
     totalCount: args.totalCount,
     xpEarned: args.xpEarned,
+    heartsSpent: args.heartsSpent,
   });
 }
 

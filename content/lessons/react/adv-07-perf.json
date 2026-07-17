@@ -1,0 +1,61 @@
+{
+  "id": "react/perf",
+  "track": "react",
+  "section": "Advanced",
+  "sectionOrder": 3,
+  "unit": "Performance",
+  "order": 21,
+  "title": "Performance",
+  "description": "React.memo, useTransition, keys, and the React Compiler.",
+  "xp": 12,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "React.memo:",
+      "options": [
+        "Skips re-render when props are shallow-equal to previous props",
+        "Memoizes state",
+        "Speeds up first render",
+        "Removes hooks"
+      ],
+      "answer": 0,
+      "explanation": "It's shallow — pass stable references (via useMemo/useCallback) or restructure."
+    },
+    {
+      "type": "mcq",
+      "prompt": "useTransition marks:",
+      "options": [
+        "A state update as non-urgent, so React can interrupt for higher-priority work",
+        "Nothing",
+        "Only navigation",
+        "Only routing"
+      ],
+      "answer": 0,
+      "explanation": "Great for filtering large lists while typing stays responsive."
+    },
+    {
+      "type": "mcq",
+      "prompt": "The React Compiler:",
+      "options": [
+        "Automatically memoizes based on data flow — reduces manual useMemo/useCallback",
+        "Removes hooks",
+        "Requires TypeScript",
+        "Does nothing"
+      ],
+      "answer": 0,
+      "explanation": "Rely on the compiler + write idiomatic code."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Biggest wins for perf are usually:",
+      "options": [
+        "Correct keys, smaller trees, lazy loading, and not fetching too much",
+        "Micro-memoization",
+        "Changing bundler",
+        "Removing StrictMode"
+      ],
+      "answer": 0,
+      "explanation": "Measure first (Profiler), optimize the hot path."
+    }
+  ]
+}

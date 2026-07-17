@@ -1,0 +1,49 @@
+{
+  "id": "react-native/safe-area",
+  "track": "react-native",
+  "section": "Basics",
+  "sectionOrder": 1,
+  "unit": "Layout",
+  "order": 9,
+  "title": "SafeAreaView",
+  "description": "Respect the notch, status bar, and home indicator.",
+  "xp": 10,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "SafeAreaView from react-native works on:",
+      "options": [
+        "iOS 11+ only",
+        "Android too",
+        "All platforms equally",
+        "None"
+      ],
+      "answer": 0,
+      "explanation": "For Android, use react-native-safe-area-context — the community package."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Recommended library for cross-platform safe areas:",
+      "options": [
+        "react-native-safe-area-context",
+        "None needed",
+        "react-native-notch",
+        "safearea-js"
+      ],
+      "answer": 0,
+      "explanation": "Gives useSafeAreaInsets() so you can pad manually."
+    },
+    {
+      "type": "mcq",
+      "prompt": "StatusBar component:",
+      "options": [
+        "Configures the OS status bar (style, color, hidden)",
+        "Fake UI",
+        "Only for iOS",
+        "Deprecated"
+      ],
+      "answer": 0,
+      "explanation": "Set 'light-content' vs 'dark-content' to match your header."
+    }
+  ]
+}

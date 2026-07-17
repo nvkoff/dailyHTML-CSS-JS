@@ -1,0 +1,82 @@
+{
+  "id": "css/transitions",
+  "track": "css",
+  "unit": "Motion",
+  "order": 22,
+  "title": "Transitions",
+  "description": "Smoothly animate CSS property changes.",
+  "xp": 10,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "Transitions animate:",
+      "options": [
+        "Every state change",
+        "Only changes to properties you name",
+        "Only color",
+        "Nothing without JS"
+      ],
+      "answer": 1,
+      "explanation": "You list the properties to transition (or use `all`)."
+    },
+    {
+      "type": "predict",
+      "prompt": "Which value animates?",
+      "language": "css",
+      "code": ".btn { transition: background 200ms; }\n.btn:hover { background: red; color: white; }",
+      "options": [
+        "background AND color",
+        "Only background",
+        "Only color",
+        "Neither"
+      ],
+      "answer": 1,
+      "explanation": "Only background is listed, so color changes instantly."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Default timing function is:",
+      "options": ["linear", "ease", "ease-in", "ease-out"],
+      "answer": 1,
+      "explanation": "ease is the default — starts slow, speeds up, slows down."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Can you transition from `display: none` to `display: block`?",
+      "options": [
+        "Yes, natively for years",
+        "Not directly — you need @starting-style + transition-behavior: allow-discrete (or fade opacity)",
+        "Only with keyframes",
+        "Never"
+      ],
+      "answer": 1,
+      "explanation": "Modern CSS finally allows this with allow-discrete + @starting-style."
+    },
+    {
+      "type": "mcq",
+      "prompt": "transition: all 200ms — problem?",
+      "options": [
+        "Fine",
+        "Can transition properties you didn't intend to (slower + surprises)",
+        "Illegal",
+        "Only works on hover"
+      ],
+      "answer": 1,
+      "explanation": "Name specific properties for predictable, performant transitions."
+    },
+    {
+      "type": "predict",
+      "prompt": "What does the shorthand set?",
+      "language": "css",
+      "code": ".b { transition: transform 300ms ease-out 100ms; }",
+      "options": [
+        "property, duration, easing, delay",
+        "duration, delay, property, easing",
+        "delay, duration, easing, property",
+        "Random order"
+      ],
+      "answer": 0,
+      "explanation": "Order: property, duration, timing-function, delay."
+    }
+  ]
+}

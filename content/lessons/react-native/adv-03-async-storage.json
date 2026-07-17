@@ -1,0 +1,61 @@
+{
+  "id": "react-native/async-storage",
+  "track": "react-native",
+  "section": "Advanced",
+  "sectionOrder": 2,
+  "unit": "Storage",
+  "order": 13,
+  "title": "AsyncStorage & MMKV",
+  "description": "Persist data across app launches.",
+  "xp": 10,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "AsyncStorage is:",
+      "options": [
+        "Key/value storage similar to localStorage — async",
+        "SQL database",
+        "In-memory only",
+        "Not available"
+      ],
+      "answer": 0,
+      "explanation": "@react-native-async-storage/async-storage (community package)."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Data type limits:",
+      "options": [
+        "Strings only — JSON.stringify complex data",
+        "Any type",
+        "Numbers only",
+        "Blobs"
+      ],
+      "answer": 0,
+      "explanation": "Same as localStorage."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Faster alternative:",
+      "options": [
+        "react-native-mmkv (sync, blazing fast)",
+        "IndexedDB",
+        "SQLite always",
+        "Nothing"
+      ],
+      "answer": 0,
+      "explanation": "Native, synchronous, memory-mapped storage."
+    },
+    {
+      "type": "mcq",
+      "prompt": "For secrets like tokens:",
+      "options": [
+        "expo-secure-store or react-native-keychain (encrypted)",
+        "AsyncStorage is fine",
+        "Nothing — write plaintext",
+        "Only during dev"
+      ],
+      "answer": 0,
+      "explanation": "AsyncStorage is not encrypted — use the secure equivalents for credentials."
+    }
+  ]
+}

@@ -1,6 +1,7 @@
 import { and, desc, eq, gte, sql } from "drizzle-orm";
 import { db } from "./client";
 import { users, userStats, lessonProgress, dailyActivity } from "./schema";
+import { computeCurrentHearts, spendFromState } from "@/lib/hearts";
 
 export async function ensureUser(userId: string) {
   await db.insert(users).values({ id: userId }).onConflictDoNothing();
@@ -139,8 +140,10 @@ export async function recordLessonComplete(args: {
   correctCount: number;
   totalCount: number;
   xpEarned: number;
+  heartsSpent: number;
 }) {
-  const { userId, lessonId, correctCount, totalCount, xpEarned } = args;
+  const { userId, lessonId, correctCount, totalCount, xpEarned, heartsSpent } =
+    args;
   await ensureUser(userId);
 
   // Preserve the user's best attempt on each field.
@@ -157,7 +160,32 @@ export async function recordLessonComplete(args: {
       },
     });
 
+  if (heartsSpent > 0) {
+    await spendHearts(userId, heartsSpent);
+  }
+
   return applyDayCompletion(userId, xpEarned);
+}
+
+async function spendHearts(userId: string, count: number) {
+  const current = await getStats(userId);
+  if (!current) return;
+  const state = computeCurrentHearts(
+    {
+      hearts: current.hearts,
+      heartsUpdatedAt: current.heartsUpdatedAt,
+    },
+    new Date(),
+  );
+  const next = spendFromState(state, count);
+  await db
+    .update(userStats)
+    .set({
+      hearts: next.hearts,
+      heartsUpdatedAt: next.anchoredAt,
+      updatedAt: new Date(),
+    })
+    .where(eq(userStats.userId, userId));
 }
 
 export async function recordPracticeResult(args: {

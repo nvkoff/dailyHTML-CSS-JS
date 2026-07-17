@@ -10,18 +10,41 @@ type ProgressRow = {
   totalCount: number;
 };
 
-const TRACK_META: Record<Track, { title: string; blurb: string }> = {
+const TRACK_META: Record<Track, { title: string; blurb: string; accent: string }> = {
   css: {
     title: "CSS",
-    blurb: "Selectors, box model, and flexbox — one lesson at a time.",
+    blurb: "Selectors, layout, animation, and the modern toolbox.",
+    accent: "from-sky-500/15 to-transparent",
   },
   html: {
     title: "HTML",
     blurb: "Elements, forms, semantics, and accessibility.",
+    accent: "from-orange-500/15 to-transparent",
   },
   js: {
     title: "JavaScript",
     blurb: "From variables to DOM, events, and promises.",
+    accent: "from-yellow-500/15 to-transparent",
+  },
+  ts: {
+    title: "TypeScript",
+    blurb: "Types, narrowing, generics, and the utility toolbox.",
+    accent: "from-blue-500/15 to-transparent",
+  },
+  react: {
+    title: "React",
+    blurb: "Components, hooks, effects, context — build UIs that hold up.",
+    accent: "from-cyan-500/15 to-transparent",
+  },
+  "react-native": {
+    title: "React Native",
+    blurb: "Cross-platform mobile — core components, styling, navigation.",
+    accent: "from-fuchsia-500/15 to-transparent",
+  },
+  redux: {
+    title: "Redux",
+    blurb: "Store, actions, reducers, and the modern Toolkit way.",
+    accent: "from-violet-500/15 to-transparent",
   },
 };
 
@@ -39,13 +62,51 @@ export function SkillTree({
   const progressById = new Map(progress.map((p) => [p.lessonId, p]));
   const meta = TRACK_META[track];
 
+  const totalLessons = sections.reduce(
+    (n, s) => n + s.units.reduce((m, u) => m + u.lessons.length, 0),
+    0,
+  );
+  const doneCount = sections.reduce(
+    (n, s) =>
+      n +
+      s.units.reduce(
+        (m, u) =>
+          m +
+          u.lessons.filter((l) => {
+            const p = progressById.get(l.id);
+            return p && p.correctCount / p.totalCount >= 0.8;
+          }).length,
+        0,
+      ),
+    0,
+  );
+  const pct = totalLessons === 0 ? 0 : Math.round((doneCount / totalLessons) * 100);
+
   return (
     <div className="mx-auto w-full max-w-2xl px-3 py-6 sm:px-4 sm:py-8">
-      <div className="mb-6 sm:mb-8">
-        <h1 className="text-xl font-semibold tracking-tight sm:text-2xl">
+      <div
+        className={cn(
+          "mb-6 rounded-xl border bg-gradient-to-br p-5 sm:mb-8 sm:p-6",
+          meta.accent,
+        )}
+      >
+        <h1 className="text-2xl font-semibold tracking-tight sm:text-3xl">
           {meta.title}
         </h1>
-        <p className="text-sm text-muted-foreground">{meta.blurb}</p>
+        <p className="mt-1 text-sm text-muted-foreground">{meta.blurb}</p>
+        {totalLessons > 0 && (
+          <div className="mt-4 flex items-center gap-3">
+            <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-muted">
+              <div
+                className="h-full bg-primary transition-all"
+                style={{ width: `${pct}%` }}
+              />
+            </div>
+            <span className="shrink-0 text-xs text-muted-foreground tabular-nums">
+              {doneCount}/{totalLessons} · {pct}%
+            </span>
+          </div>
+        )}
       </div>
 
       {allComplete && (

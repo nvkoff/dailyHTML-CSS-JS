@@ -1,0 +1,61 @@
+{
+  "id": "react/actions",
+  "track": "react",
+  "section": "Advanced",
+  "sectionOrder": 3,
+  "unit": "Server",
+  "order": 20,
+  "title": "Server Actions",
+  "description": "Callable server functions from the client.",
+  "xp": 12,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "A server action is:",
+      "options": [
+        "A function you call from the client that runs on the server",
+        "A test runner",
+        "A migration",
+        "Nothing"
+      ],
+      "answer": 0,
+      "explanation": "Bundlers generate a client stub that makes the network call."
+    },
+    {
+      "type": "mcq",
+      "prompt": "You mark a server action with:",
+      "options": [
+        "'use server' at the top of the file OR inside the function",
+        "@server",
+        "server()",
+        "Nothing"
+      ],
+      "answer": 0,
+      "explanation": "Directive tells the bundler this code stays on the server."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Actions integrate with forms via:",
+      "options": [
+        "<form action={fn}> — fn receives FormData",
+        "onSubmit only",
+        "action attribute is deprecated",
+        "You can't use forms with actions"
+      ],
+      "answer": 0,
+      "explanation": "Progressive enhancement — works without JS."
+    },
+    {
+      "type": "mcq",
+      "prompt": "useActionState replaces:",
+      "options": [
+        "Boilerplate loading/error state around actions (was useFormState)",
+        "useState",
+        "useReducer",
+        "Nothing"
+      ],
+      "answer": 0,
+      "explanation": "Provides state, dispatch action, and isPending."
+    }
+  ]
+}

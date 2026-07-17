@@ -1,0 +1,48 @@
+{
+  "id": "ts/template-literals",
+  "track": "ts",
+  "section": "Advanced",
+  "sectionOrder": 2,
+  "unit": "Type Programming",
+  "order": 12,
+  "title": "Template literal types",
+  "description": "String algebra at the type level.",
+  "xp": 12,
+  "questions": [
+    {
+      "type": "predict",
+      "prompt": "What's Btn?",
+      "language": "ts",
+      "code": "type Kind = 'primary' | 'secondary';\ntype Btn = `btn-${Kind}`;",
+      "options": [
+        "'btn-primary' | 'btn-secondary'",
+        "'btn-Kind'",
+        "string",
+        "never"
+      ],
+      "answer": 0,
+      "explanation": "Template unions distribute over member unions."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Builtin string manipulators:",
+      "options": [
+        "Uppercase, Lowercase, Capitalize, Uncapitalize",
+        "Trim, Reverse",
+        "Replace",
+        "None"
+      ],
+      "answer": 0,
+      "explanation": "TS ships these four."
+    },
+    {
+      "type": "predict",
+      "prompt": "What's Route?",
+      "language": "ts",
+      "code": "type Route = `/${string}`;\nconst r: Route = 'users';",
+      "options": ["Valid", "Type error — no leading /", "Any string", "never"],
+      "answer": 1,
+      "explanation": "Constraint enforces the / prefix."
+    }
+  ]
+}

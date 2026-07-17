@@ -1,0 +1,72 @@
+{
+  "id": "ts/arrays-tuples",
+  "track": "ts",
+  "section": "Basics",
+  "sectionOrder": 1,
+  "unit": "Types",
+  "order": 2,
+  "title": "Arrays & tuples",
+  "description": "Homogeneous arrays vs fixed-length tuples.",
+  "xp": 10,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "Array of strings:",
+      "options": ["string[]", "Array<string>", "Both work", "list<string>"],
+      "answer": 2,
+      "explanation": "string[] and Array<string> are equivalent."
+    },
+    {
+      "type": "predict",
+      "prompt": "What's the type of xs?",
+      "language": "ts",
+      "code": "const xs = [1, 'two'];",
+      "options": [
+        "(number | string)[]",
+        "number[]",
+        "string[]",
+        "unknown[]"
+      ],
+      "answer": 0,
+      "explanation": "TS widens to a union of what's inside."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Tuple with a number and string:",
+      "options": [
+        "[number, string]",
+        "(number, string)",
+        "tuple<number,string>",
+        "Array<number, string>"
+      ],
+      "answer": 0,
+      "explanation": "Bracket syntax, fixed order and length."
+    },
+    {
+      "type": "predict",
+      "prompt": "Type here?",
+      "language": "ts",
+      "code": "const pair = [1, 'a'] as const;",
+      "options": [
+        "readonly [1, 'a']",
+        "(number | string)[]",
+        "number[]",
+        "readonly (number | string)[]"
+      ],
+      "answer": 0,
+      "explanation": "as const gives narrow literal readonly tuples."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Rest tuple element:",
+      "options": [
+        "[string, ...number[]]",
+        "[string, number*]",
+        "[string, ...number]",
+        "Not supported"
+      ],
+      "answer": 0,
+      "explanation": "First is a string, then zero or more numbers."
+    }
+  ]
+}

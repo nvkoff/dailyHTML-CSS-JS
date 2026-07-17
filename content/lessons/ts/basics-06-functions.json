@@ -1,0 +1,70 @@
+{
+  "id": "ts/functions",
+  "track": "ts",
+  "section": "Basics",
+  "sectionOrder": 1,
+  "unit": "Functions",
+  "order": 6,
+  "title": "Function types",
+  "description": "Parameters, returns, and function type expressions.",
+  "xp": 12,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "Function type expression:",
+      "options": [
+        "(x: number) => string",
+        "function(x: number): string",
+        "func<number, string>",
+        "None"
+      ],
+      "answer": 0,
+      "explanation": "Arrow-style for describing a callable."
+    },
+    {
+      "type": "predict",
+      "prompt": "Return type inferred?",
+      "language": "ts",
+      "code": "function add(a: number, b: number) {\n  return a + b;\n}",
+      "options": ["any", "number", "unknown", "void"],
+      "answer": 1,
+      "explanation": "TS infers from the return statement."
+    },
+    {
+      "type": "mcq",
+      "prompt": "void vs undefined return:",
+      "options": [
+        "void = 'ignore my return'; undefined = explicit undefined return",
+        "Same thing",
+        "Only undefined works",
+        "Only void works"
+      ],
+      "answer": 0,
+      "explanation": "Callback types often use void to allow ignored returns."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Optional parameter:",
+      "options": [
+        "(x?: number) => …",
+        "(x: number | undefined) => …",
+        "(x = 0)",
+        "All of the above"
+      ],
+      "answer": 3,
+      "explanation": "All three are close, but ? and = have different call-site rules."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Rest params in a fn type:",
+      "options": [
+        "(x: number, ...rest: string[]) => void",
+        "(x, ...rest) => void",
+        "…string[] first",
+        "Not allowed"
+      ],
+      "answer": 0,
+      "explanation": "Rest params must be last."
+    }
+  ]
+}

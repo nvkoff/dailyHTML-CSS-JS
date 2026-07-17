@@ -1,0 +1,75 @@
+{
+  "id": "css/pseudo-elements",
+  "track": "css",
+  "unit": "Selectors",
+  "order": 29,
+  "title": "Pseudo-elements",
+  "description": "::before, ::after, ::first-letter, ::marker.",
+  "xp": 10,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "Difference between ::before and :hover?",
+      "options": [
+        "Pseudo-ELEMENTS create virtual DOM nodes; pseudo-CLASSES match a state",
+        "None",
+        "::before is deprecated",
+        ":hover creates nodes"
+      ],
+      "answer": 0,
+      "explanation": "Notice the double-colon convention for pseudo-elements."
+    },
+    {
+      "type": "predict",
+      "prompt": "What renders in the ::before?",
+      "language": "css",
+      "code": ".flag::before { content: '★ '; color: gold; }\n\n<span class='flag'>Featured</span>",
+      "options": ["Nothing", "★ Featured", "Featured ★", "gold Featured"],
+      "answer": 1,
+      "explanation": "::before adds content BEFORE the element's children."
+    },
+    {
+      "type": "mcq",
+      "prompt": "content: '' is required for ::before/::after to render because:",
+      "options": [
+        "Without content, the pseudo-element is not generated",
+        "It's a style hack",
+        "Optional syntax",
+        "It becomes invisible"
+      ],
+      "answer": 0,
+      "explanation": "No content property → no pseudo-element."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Which pseudo-element styles the bullet of a list item?",
+      "options": ["::marker", "::before", "::list", "::bullet"],
+      "answer": 0,
+      "explanation": "::marker targets the bullet or number."
+    },
+    {
+      "type": "mcq",
+      "prompt": "::placeholder styles:",
+      "options": [
+        "Input placeholder text",
+        "Empty divs",
+        "Loading spinners",
+        "Whitespace"
+      ],
+      "answer": 0,
+      "explanation": "Only certain props (color, font, opacity) are honored across browsers."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Can pseudo-elements be nested/interactive?",
+      "options": [
+        "They can't be selected, focused, or contain HTML — only content strings",
+        "They fully behave like real elements",
+        "They can be tab-focused",
+        "They accept event listeners"
+      ],
+      "answer": 0,
+      "explanation": "Purely presentational — good for icons, badges, decorative bars."
+    }
+  ]
+}

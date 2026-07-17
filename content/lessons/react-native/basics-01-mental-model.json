@@ -1,0 +1,73 @@
+{
+  "id": "react-native/mental-model",
+  "track": "react-native",
+  "section": "Basics",
+  "sectionOrder": 1,
+  "unit": "Intro",
+  "order": 1,
+  "title": "The RN mental model",
+  "description": "What is React Native, and what's different from web React?",
+  "xp": 12,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "React Native renders your components as:",
+      "options": [
+        "HTML elements",
+        "Native iOS/Android views",
+        "Web components",
+        "SVG"
+      ],
+      "answer": 1,
+      "explanation": "Your <View> becomes UIView on iOS and android.view.View on Android."
+    },
+    {
+      "type": "mcq",
+      "prompt": "You DON'T use these primitives in RN:",
+      "options": [
+        "<div>, <span>, <p>",
+        "<View>, <Text>",
+        "<FlatList>",
+        "<Pressable>"
+      ],
+      "answer": 0,
+      "explanation": "Import RN primitives from 'react-native'."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Text MUST live inside:",
+      "options": [
+        "<Text> component",
+        "<View> only",
+        "Anywhere",
+        "<Fragment>"
+      ],
+      "answer": 0,
+      "explanation": "RN throws if raw strings are direct children of <View>."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Styling in RN uses:",
+      "options": [
+        "CSS files",
+        "StyleSheet.create with JS objects (camelCase)",
+        "Inline HTML style",
+        "SCSS"
+      ],
+      "answer": 1,
+      "explanation": "Subset of CSS: no cascades, no selectors, no `%` widths cascade like web."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Flexbox in RN:",
+      "options": [
+        "Same as web with one default: flexDirection defaults to 'column'",
+        "Not available",
+        "Only row",
+        "Grid instead"
+      ],
+      "answer": 0,
+      "explanation": "Column-first because vertical is native for mobile UIs."
+    }
+  ]
+}

@@ -6,9 +6,18 @@ import { buildPracticeSet } from "@/lib/practice";
 import { PracticeRunner } from "@/components/lesson/practice-runner";
 import { Track } from "@/lib/content-types";
 
+const VALID: Track[] = [
+  "css",
+  "html",
+  "js",
+  "ts",
+  "react",
+  "react-native",
+  "redux",
+];
+
 function coerceTrack(t: string): Track | null {
-  if (t === "css" || t === "html" || t === "js") return t;
-  return null;
+  return (VALID as string[]).includes(t) ? (t as Track) : null;
 }
 
 export default async function PracticePage({

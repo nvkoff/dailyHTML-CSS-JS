@@ -1,0 +1,80 @@
+{
+  "id": "css/modern-features",
+  "track": "css",
+  "unit": "Modern CSS",
+  "order": 33,
+  "title": "Modern features",
+  "description": ":has(), :is(), :where(), nesting, cascade layers.",
+  "xp": 12,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": ":has() is often called:",
+      "options": [
+        "The parent selector",
+        "The child selector",
+        "The sibling selector",
+        "Fake"
+      ],
+      "answer": 0,
+      "explanation": "a:has(img) matches an <a> that contains an img — parent-style logic."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Difference between :is() and :where():",
+      "options": [
+        ":where() has ZERO specificity, :is() takes the highest specificity of its arg",
+        "They're identical",
+        ":where() is deprecated",
+        ":is() has zero specificity"
+      ],
+      "answer": 0,
+      "explanation": ":where() is a great tool to write helpful defaults without fighting the cascade."
+    },
+    {
+      "type": "predict",
+      "prompt": "How many elements does this match?",
+      "language": "css",
+      "code": ":is(h1, h2, h3) + p { margin-top: 0; }\n\n<h1></h1><p></p><h4></h4><p></p>",
+      "options": ["0", "1", "2", "3"],
+      "answer": 1,
+      "explanation": "Only the <p> right after <h1> matches (h4 is not in the :is() list)."
+    },
+    {
+      "type": "mcq",
+      "prompt": "CSS nesting inside a selector uses:",
+      "options": [
+        "& to refer to the parent selector",
+        "@parent",
+        "self",
+        "$"
+      ],
+      "answer": 0,
+      "explanation": ".card { &:hover { ... } } — Sass-like without the preprocessor."
+    },
+    {
+      "type": "mcq",
+      "prompt": "@layer lets you:",
+      "options": [
+        "Explicitly ORDER rule groups so cascade is predictable",
+        "Enable transparency",
+        "Compress CSS",
+        "Nothing"
+      ],
+      "answer": 0,
+      "explanation": "@layer base, components, utilities; then declare rules inside each."
+    },
+    {
+      "type": "mcq",
+      "prompt": "@property lets you:",
+      "options": [
+        "Register a custom property with a type, so it can be animated",
+        "Declare functions",
+        "Create pseudo-classes",
+        "Set media features"
+      ],
+      "answer": 0,
+      "explanation": "Otherwise CSS treats vars as strings and can't animate through them smoothly."
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "id": "ts/enums",
+  "track": "ts",
+  "section": "Basics",
+  "sectionOrder": 1,
+  "unit": "Types",
+  "order": 8,
+  "title": "Enums (and why to skip them)",
+  "description": "Enums exist — but literal unions are usually better.",
+  "xp": 10,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "Numeric enum default values:",
+      "options": ["Auto-increment from 0", "Random", "Strings", "Undefined"],
+      "answer": 0,
+      "explanation": "enum Dir { Up, Down } → Up=0, Down=1."
+    },
+    {
+      "type": "mcq",
+      "prompt": "String enum benefit:",
+      "options": [
+        "Debuggable values instead of magic numbers",
+        "Faster",
+        "Required",
+        "Fewer bugs always"
+      ],
+      "answer": 0,
+      "explanation": "Also survives JSON serialization better."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Modern alternative to enum:",
+      "options": [
+        "Literal union: type Dir = 'up' | 'down'",
+        "class Dir",
+        "Symbols",
+        "Nothing"
+      ],
+      "answer": 0,
+      "explanation": "No runtime cost, plays nicer with narrowing and JSON."
+    },
+    {
+      "type": "mcq",
+      "prompt": "const enum:",
+      "options": [
+        "Inlined at build time — no runtime object",
+        "Slower",
+        "For classes",
+        "Not real"
+      ],
+      "answer": 0,
+      "explanation": "But isolatedModules bans them; use `as const` object patterns instead."
+    }
+  ]
+}

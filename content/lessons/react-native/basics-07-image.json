@@ -1,0 +1,61 @@
+{
+  "id": "react-native/image",
+  "track": "react-native",
+  "section": "Basics",
+  "sectionOrder": 1,
+  "unit": "Media",
+  "order": 7,
+  "title": "Images",
+  "description": "Local assets, remote URLs, sizing.",
+  "xp": 10,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "Local image asset:",
+      "options": [
+        "<Image source={require('./logo.png')} />",
+        "<Image src='./logo.png' />",
+        "<Image href='./logo.png' />",
+        "<img src='./logo.png' />"
+      ],
+      "answer": 0,
+      "explanation": "require lets the bundler resolve @2x/@3x variants."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Remote image:",
+      "options": [
+        "<Image source={{ uri: 'https://…' }} style={{ width, height }} />",
+        "src='https://…'",
+        "URI is not supported",
+        "Automatic"
+      ],
+      "answer": 0,
+      "explanation": "Remote images REQUIRE explicit width/height."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Fit an image inside a fixed box:",
+      "options": [
+        "resizeMode: 'contain' / 'cover' / 'stretch'",
+        "object-fit",
+        "fill",
+        "Not possible"
+      ],
+      "answer": 0,
+      "explanation": "resizeMode is the RN prop."
+    },
+    {
+      "type": "mcq",
+      "prompt": "For fast, cached images at scale:",
+      "options": [
+        "expo-image or FastImage",
+        "Native <Image> is always fastest",
+        "SVG only",
+        "N/A"
+      ],
+      "answer": 0,
+      "explanation": "Third-party libs offer better caching and disk management."
+    }
+  ]
+}

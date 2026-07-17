@@ -1,0 +1,75 @@
+{
+  "id": "css/custom-properties",
+  "track": "css",
+  "unit": "Modern CSS",
+  "order": 26,
+  "title": "Custom properties (CSS vars)",
+  "description": "Design tokens, cascading, and dynamic theming.",
+  "xp": 12,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "Syntax to declare a custom property:",
+      "options": [
+        "$brand: #f60;",
+        "--brand: #f60;",
+        "@brand: #f60;",
+        "var brand = #f60;"
+      ],
+      "answer": 1,
+      "explanation": "Two dashes prefix. Then use with var(--brand)."
+    },
+    {
+      "type": "mcq",
+      "prompt": "var(--brand, tomato) means:",
+      "options": [
+        "Use --brand only",
+        "Use --brand or the fallback tomato",
+        "Comment",
+        "Invalid"
+      ],
+      "answer": 1,
+      "explanation": "Second arg is the fallback if --brand is undefined."
+    },
+    {
+      "type": "predict",
+      "prompt": "What color is .btn?",
+      "language": "css",
+      "code": ":root { --c: red; }\n.card { --c: blue; }\n.card .btn { color: var(--c); }",
+      "options": ["red", "blue", "inherit", "unset"],
+      "answer": 1,
+      "explanation": "Custom props cascade — the closer definition on .card overrides :root."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Can you change custom properties at runtime?",
+      "options": [
+        "No",
+        "Yes — element.style.setProperty('--c', 'green')",
+        "Only via a preprocessor",
+        "Only in dark mode"
+      ],
+      "answer": 1,
+      "explanation": "Fully dynamic — perfect for themes, sliders, and effects."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Best place to declare app-wide design tokens:",
+      "options": [":root", "body", "html + body", "*"],
+      "answer": 0,
+      "explanation": ":root has slightly higher specificity than html and is idiomatic for tokens."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Difference from Sass variables:",
+      "options": [
+        "None",
+        "CSS vars exist at runtime and cascade; Sass vars are compiled away",
+        "Sass is faster at runtime",
+        "CSS vars can't be nested"
+      ],
+      "answer": 1,
+      "explanation": "Real cascading, real dynamism — that's the whole point."
+    }
+  ]
+}

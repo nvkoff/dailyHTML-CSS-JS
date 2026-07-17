@@ -1,0 +1,70 @@
+{
+  "id": "react-native/stylesheet",
+  "track": "react-native",
+  "section": "Basics",
+  "sectionOrder": 1,
+  "unit": "Styling",
+  "order": 3,
+  "title": "StyleSheet",
+  "description": "The idiomatic way to style RN components.",
+  "xp": 10,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "Why StyleSheet.create over plain objects?",
+      "options": [
+        "Freezes styles, references become IDs — nicer perf and validation",
+        "Nothing",
+        "It's required",
+        "For dark mode only"
+      ],
+      "answer": 0,
+      "explanation": "Not required, but idiomatic and slightly faster."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Style properties use:",
+      "options": [
+        "camelCase (backgroundColor, fontSize)",
+        "kebab-case",
+        "snake_case",
+        "Any"
+      ],
+      "answer": 0,
+      "explanation": "JS object keys — camelCase."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Merging styles:",
+      "options": [
+        "style={[base, isActive && active]}",
+        "className='base active'",
+        "style + className",
+        "Not possible"
+      ],
+      "answer": 0,
+      "explanation": "Array style prop merges left-to-right; falsy values are ignored."
+    },
+    {
+      "type": "predict",
+      "prompt": "Which color wins?",
+      "language": "jsx",
+      "code": "<View style={[{ backgroundColor: 'red' }, { backgroundColor: 'blue' }]} />",
+      "options": ["red", "blue", "purple", "invalid"],
+      "answer": 1,
+      "explanation": "Later entries win."
+    },
+    {
+      "type": "mcq",
+      "prompt": "There's no CSS units — sizes are:",
+      "options": [
+        "Density-independent pixels (numbers) or percentages for some props",
+        "px only",
+        "em only",
+        "rem"
+      ],
+      "answer": 0,
+      "explanation": "Numbers = DIPs. RN handles device scale factor."
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "id": "react/suspense",
+  "track": "react",
+  "section": "Advanced",
+  "sectionOrder": 3,
+  "unit": "Concurrency",
+  "order": 16,
+  "title": "Suspense",
+  "description": "Fallbacks for async UI without loading spaghetti.",
+  "xp": 12,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "Suspense catches:",
+      "options": [
+        "Any promise thrown by a component / use()",
+        "JS errors only",
+        "Network errors",
+        "Nothing"
+      ],
+      "answer": 0,
+      "explanation": "Show fallback UI until the promise resolves."
+    },
+    {
+      "type": "predict",
+      "prompt": "What renders while data loads?",
+      "language": "jsx",
+      "code": "<Suspense fallback={<Spinner />}><UserCard /></Suspense>",
+      "options": [
+        "Nothing",
+        "<Spinner />",
+        "Error",
+        "<UserCard /> immediately"
+      ],
+      "answer": 1,
+      "explanation": "Fallback renders while any child suspends."
+    },
+    {
+      "type": "mcq",
+      "prompt": "The React 19 `use(promise)` hook:",
+      "options": [
+        "Reads a promise's value in a Suspense-friendly way",
+        "Just calls .then()",
+        "Runs an effect",
+        "Doesn't exist"
+      ],
+      "answer": 0,
+      "explanation": "Suspends until resolved; renders when the value is ready."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Suspense integrates with:",
+      "options": [
+        "Streaming SSR, lazy(), and data libraries that support it",
+        "Only client rendering",
+        "Only class components",
+        "Only in Next.js"
+      ],
+      "answer": 0,
+      "explanation": "The whole pipeline (server + client) uses Suspense for progressive UI."
+    }
+  ]
+}

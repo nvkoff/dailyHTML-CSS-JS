@@ -1,0 +1,86 @@
+{
+  "id": "react/props",
+  "track": "react",
+  "section": "Basics",
+  "sectionOrder": 1,
+  "unit": "Components",
+  "order": 3,
+  "title": "Props",
+  "description": "Passing data down, defaults, and children.",
+  "xp": 12,
+  "questions": [
+    {
+      "type": "predict",
+      "prompt": "What renders?",
+      "language": "jsx",
+      "code": "function Hi({ name }) { return <p>Hi {name}</p>; }\nreturn <Hi name='Ada' />;",
+      "options": ["<p>Hi</p>", "<p>Hi Ada</p>", "<p>Hi undefined</p>", "Error"],
+      "answer": 1,
+      "explanation": "Destructure props to grab named values."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Should you mutate props?",
+      "options": [
+        "Never — props are read-only from the child's POV",
+        "Yes",
+        "Only for objects",
+        "Only via useState"
+      ],
+      "answer": 0,
+      "explanation": "React re-renders when the PARENT changes them."
+    },
+    {
+      "type": "predict",
+      "prompt": "What does this component render?",
+      "language": "jsx",
+      "code": "function Card({ title, children }) {\n  return <section><h2>{title}</h2>{children}</section>;\n}\n// <Card title='Hi'><p>Body</p></Card>",
+      "options": [
+        "Just title",
+        "title + <p>Body</p>",
+        "Only <p>Body</p>",
+        "Error"
+      ],
+      "answer": 1,
+      "explanation": "children is the special prop for JSX passed between tags."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Default value syntax:",
+      "options": [
+        "function Hi({ name = 'friend' }) { ... }",
+        "defaultProps={{ name: 'friend' }}",
+        "propTypes.name = 'friend'",
+        "React.defaults(...)"
+      ],
+      "answer": 0,
+      "explanation": "Modern React: destructure with defaults. (Class defaultProps is legacy.)"
+    },
+    {
+      "type": "mcq",
+      "prompt": "Passing all props to a child:",
+      "options": [
+        "<Child {...props} />",
+        "<Child props={props} />",
+        "<Child :props />",
+        "Not possible"
+      ],
+      "answer": 0,
+      "explanation": "Spread — but be careful about leaking props to DOM elements."
+    },
+    {
+      "type": "predict",
+      "prompt": "What happens?",
+      "language": "jsx",
+      "code": "function Btn({ ...rest }) { return <button {...rest} />; }\n// <Btn onClick={fn} disabled />",
+      "options": [
+        "Both onClick and disabled reach the button",
+        "Nothing",
+        "Only onClick",
+        "Error"
+      ],
+      "answer": 0,
+      "explanation": "Spread forwards everything. Handy for custom wrappers."
+    }
+  ]
+}

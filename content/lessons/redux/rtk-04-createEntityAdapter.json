@@ -1,0 +1,49 @@
+{
+  "id": "redux/createEntityAdapter",
+  "track": "redux",
+  "section": "Redux Toolkit",
+  "sectionOrder": 2,
+  "unit": "Toolkit",
+  "order": 11,
+  "title": "createEntityAdapter",
+  "description": "Normalized entity state made easy.",
+  "xp": 10,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "Normalized state means:",
+      "options": [
+        "{ ids: [], entities: {} } lookup — no nested duplicates",
+        "Flat array",
+        "Nested tree",
+        "Immutable Map"
+      ],
+      "answer": 0,
+      "explanation": "Perfect for CRUD collections."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Adapter methods include:",
+      "options": [
+        "addOne, updateOne, upsertMany, removeOne — mutations on the normalized shape",
+        "reducers only",
+        "Class methods",
+        "None"
+      ],
+      "answer": 0,
+      "explanation": "Built-in reducer helpers you compose in your slice."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Adapter selectors give you:",
+      "options": [
+        "selectAll, selectById, selectIds, selectTotal",
+        "Only selectAll",
+        "None",
+        "Random"
+      ],
+      "answer": 0,
+      "explanation": "Efficient reads across the normalized store."
+    }
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "id": "react/usememo-usecallback",
+  "track": "react",
+  "section": "Hooks",
+  "sectionOrder": 2,
+  "unit": "Effects",
+  "order": 10,
+  "title": "useMemo & useCallback",
+  "description": "Memoize computations and stable callbacks.",
+  "xp": 12,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "useMemo memoizes:",
+      "options": [
+        "The RESULT of a computation",
+        "The function itself",
+        "A component tree",
+        "State"
+      ],
+      "answer": 0,
+      "explanation": "useMemo(() => calc(), [deps]) — recompute only when deps change."
+    },
+    {
+      "type": "mcq",
+      "prompt": "useCallback memoizes:",
+      "options": [
+        "The FUNCTION reference across renders",
+        "The result",
+        "State",
+        "Effects"
+      ],
+      "answer": 0,
+      "explanation": "useCallback(fn, deps) ≡ useMemo(() => fn, deps)."
+    },
+    {
+      "type": "mcq",
+      "prompt": "When is memoization actually helpful?",
+      "options": [
+        "Only for expensive computations OR when the reference is a dep of a memoized child",
+        "Always — memoize everything",
+        "Never",
+        "Only for lists"
+      ],
+      "answer": 0,
+      "explanation": "Overuse adds noise. React Compiler / 'React 19' auto-memoization changes the balance."
+    },
+    {
+      "type": "predict",
+      "prompt": "When does the callback change?",
+      "language": "jsx",
+      "code": "const fn = useCallback(() => count + 1, [count]);",
+      "options": [
+        "Never",
+        "Only when count changes",
+        "Every render",
+        "Only on mount"
+      ],
+      "answer": 1,
+      "explanation": "Same function ref until count changes."
+    },
+    {
+      "type": "mcq",
+      "prompt": "useMemo with an empty deps array:",
+      "options": [
+        "Locks the value forever — behaves like useRef for pure computations",
+        "Runs every render",
+        "Illegal",
+        "Same as useState"
+      ],
+      "answer": 0,
+      "explanation": "Careful: your captured closure values also freeze."
+    }
+  ]
+}

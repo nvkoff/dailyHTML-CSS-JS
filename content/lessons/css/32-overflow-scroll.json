@@ -1,0 +1,83 @@
+{
+  "id": "css/overflow-scroll",
+  "track": "css",
+  "unit": "Layout",
+  "order": 32,
+  "title": "Overflow & scrolling",
+  "description": "Contain content, hide overflow, or make it scrollable.",
+  "xp": 10,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "overflow: hidden does what?",
+      "options": [
+        "Clips content that exceeds the box",
+        "Removes the content",
+        "Makes it scrollable",
+        "Removes padding"
+      ],
+      "answer": 0,
+      "explanation": "The overflowing bits are visually hidden — but still in the DOM."
+    },
+    {
+      "type": "mcq",
+      "prompt": "overflow: auto vs overflow: scroll:",
+      "options": [
+        "auto only shows scrollbars when needed; scroll always shows them",
+        "They're the same",
+        "scroll only works on x",
+        "auto is deprecated"
+      ],
+      "answer": 0,
+      "explanation": "auto = conditional scrollbars. scroll = always visible."
+    },
+    {
+      "type": "mcq",
+      "prompt": "overflow-clip vs overflow-hidden — key difference:",
+      "options": [
+        "clip is like hidden but does NOT create a scroll container / painting context",
+        "They're identical",
+        "clip enables scroll",
+        "clip is deprecated"
+      ],
+      "answer": 0,
+      "explanation": "Use overflow-clip when you just want to visually cut without side effects."
+    },
+    {
+      "type": "mcq",
+      "prompt": "overscroll-behavior: contain prevents:",
+      "options": [
+        "Scroll chaining to the parent (rubber-banding to page)",
+        "Scrolling entirely",
+        "Zoom",
+        "Middle click"
+      ],
+      "answer": 0,
+      "explanation": "Great for modal bodies so scroll doesn't leak to the page."
+    },
+    {
+      "type": "mcq",
+      "prompt": "scroll-behavior: smooth on the root:",
+      "options": [
+        "Smoothly animates anchor jumps and JS scrolls",
+        "Turns off scroll",
+        "Enables snap",
+        "Speeds up scroll"
+      ],
+      "answer": 0,
+      "explanation": "Cheap way to make anchor links feel modern."
+    },
+    {
+      "type": "mcq",
+      "prompt": "scroll-snap-type on a scroll container:",
+      "options": [
+        "Turns children into snappable stops",
+        "Fixes scrollbars",
+        "Locks scroll",
+        "Only for carousels via JS"
+      ],
+      "answer": 0,
+      "explanation": "Add scroll-snap-align: start to each child for carousels."
+    }
+  ]
+}

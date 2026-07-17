@@ -1,0 +1,66 @@
+{
+  "id": "css/accessibility",
+  "track": "css",
+  "unit": "Modern CSS",
+  "order": 35,
+  "title": "Accessible CSS",
+  "description": "Focus rings, contrast, and screen-reader-only text.",
+  "xp": 10,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "Never do this:",
+      "options": [
+        "outline: none without a replacement :focus-visible style",
+        "Add hover styles",
+        "Use flexbox",
+        "Use rem units"
+      ],
+      "answer": 0,
+      "explanation": "Removing focus styles is a huge accessibility regression."
+    },
+    {
+      "type": "mcq",
+      "prompt": ":focus-visible vs :focus:",
+      "options": [
+        ":focus-visible only shows when the browser thinks a visible ring is helpful (e.g. keyboard)",
+        "They're identical",
+        ":focus-visible is deprecated",
+        ":focus-visible only applies to buttons"
+      ],
+      "answer": 0,
+      "explanation": "Perfect for suppressing rings on mouse clicks but keeping them for tabbing."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Visually-hidden text (for screen readers) uses:",
+      "options": [
+        "display: none (removes it)",
+        ".sr-only pattern: position absolute, 1px, clip",
+        "visibility: hidden",
+        "opacity: 0"
+      ],
+      "answer": 1,
+      "explanation": "display: none and visibility: hidden also hide from AT. Use the clip pattern."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Reduce motion for animation-sensitive users with:",
+      "options": [
+        "@media (prefers-reduced-motion: reduce) { * { animation: none } }",
+        "!important on everything",
+        "Delete animations",
+        "Not possible"
+      ],
+      "answer": 0,
+      "explanation": "A blanket rule inside prefers-reduced-motion is a common safety net."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Text size that respects user preferences uses:",
+      "options": ["px only", "rem or em", "vh", "cm"],
+      "answer": 1,
+      "explanation": "px ignores the user's browser font-size setting."
+    }
+  ]
+}

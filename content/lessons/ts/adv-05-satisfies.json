@@ -1,0 +1,46 @@
+{
+  "id": "ts/satisfies",
+  "track": "ts",
+  "section": "Advanced",
+  "sectionOrder": 2,
+  "unit": "Operators",
+  "order": 13,
+  "title": "The satisfies operator",
+  "description": "Type-check without widening.",
+  "xp": 12,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "Difference between `: T` and `satisfies T`:",
+      "options": [
+        "`: T` widens the value's type to T; satisfies checks compat but KEEPS the narrow inferred type",
+        "Nothing",
+        "One is deprecated",
+        "satisfies is runtime"
+      ],
+      "answer": 0,
+      "explanation": "satisfies gets you validation without losing literal precision."
+    },
+    {
+      "type": "predict",
+      "prompt": "Type of pallet.brand?",
+      "language": "ts",
+      "code": "const pallet = {\n  brand: 'red',\n  bg: 'blue'\n} satisfies Record<string, string>;",
+      "options": ["string", "'red'", "any", "never"],
+      "answer": 1,
+      "explanation": "satisfies keeps the literal 'red' — the annotation just verifies shape."
+    },
+    {
+      "type": "mcq",
+      "prompt": "When to prefer satisfies:",
+      "options": [
+        "Config objects where you want static keys AND validation",
+        "Never",
+        "Anywhere",
+        "Only in tests"
+      ],
+      "answer": 0,
+      "explanation": "Config, routes, style token maps."
+    }
+  ]
+}

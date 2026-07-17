@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { auth } from "@clerk/nextjs/server";
+import { Shuffle } from "lucide-react";
 import { listLessonsBySection, listLessons } from "@/lib/content";
 import { getAllProgress } from "@/db/queries";
 import { SkillTree } from "@/components/skill-tree";
@@ -11,11 +12,25 @@ type SearchParams = Promise<{ track?: string }>;
 const TRACKS: { id: Track; label: string }[] = [
   { id: "css", label: "CSS" },
   { id: "html", label: "HTML" },
-  { id: "js", label: "JavaScript" },
+  { id: "js", label: "JS" },
+  { id: "ts", label: "TS" },
+  { id: "react", label: "React" },
+  { id: "react-native", label: "RN" },
+  { id: "redux", label: "Redux" },
+];
+
+const ALL_TRACKS: Track[] = [
+  "css",
+  "html",
+  "js",
+  "ts",
+  "react",
+  "react-native",
+  "redux",
 ];
 
 function coerceTrack(t?: string): Track {
-  if (t === "html" || t === "js") return t;
+  if (t && (ALL_TRACKS as string[]).includes(t)) return t as Track;
   return "css";
 }
 
@@ -44,8 +59,8 @@ export default async function LearnPage({
 
   return (
     <div>
-      <nav className="border-b">
-        <div className="mx-auto flex w-full max-w-2xl items-center gap-0.5 overflow-x-auto px-3 sm:gap-1 sm:px-4">
+      <nav className="sticky top-14 z-[5] border-b bg-background/85 backdrop-blur">
+        <div className="mx-auto flex w-full max-w-3xl items-center gap-0.5 overflow-x-auto px-3 sm:gap-1 sm:px-4">
           {TRACKS.map((t) => {
             const isActive = track === t.id;
             return (
@@ -66,6 +81,13 @@ export default async function LearnPage({
               </Link>
             );
           })}
+          <Link
+            href="/learn/revision"
+            className="ml-auto inline-flex shrink-0 items-center gap-1.5 rounded-full border border-primary/40 bg-primary/5 px-3 py-1 text-xs font-medium text-primary transition-colors hover:bg-primary/10"
+          >
+            <Shuffle className="h-3.5 w-3.5" />
+            Revision
+          </Link>
         </div>
       </nav>
 

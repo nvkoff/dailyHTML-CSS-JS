@@ -1,5 +1,5 @@
 import { Question, Track } from "./content-types";
-import { getLesson, listLessons } from "./content";
+import { getLesson, listAllLessons, listLessons } from "./content";
 
 export type PracticeQuestion = Question & { lessonId: string };
 
@@ -29,5 +29,18 @@ export async function buildPracticeSet(
     }
   }
 
+  return shuffle(pool).slice(0, Math.min(count, pool.length));
+}
+
+export async function buildRevisionSet(count = 10): Promise<PracticeQuestion[]> {
+  const lessons = await listAllLessons();
+  const pool: PracticeQuestion[] = [];
+  for (const lesson of lessons) {
+    for (const q of lesson.questions) {
+      if (q.type === "mcq" || q.type === "predict") {
+        pool.push({ ...q, lessonId: lesson.id });
+      }
+    }
+  }
   return shuffle(pool).slice(0, Math.min(count, pool.length));
 }

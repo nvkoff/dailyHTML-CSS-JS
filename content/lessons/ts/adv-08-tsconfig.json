@@ -1,0 +1,61 @@
+{
+  "id": "ts/tsconfig",
+  "track": "ts",
+  "section": "Advanced",
+  "sectionOrder": 2,
+  "unit": "Config",
+  "order": 16,
+  "title": "tsconfig essentials",
+  "description": "strict, target, moduleResolution.",
+  "xp": 10,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "strict: true enables:",
+      "options": [
+        "A family of strict checks (noImplicitAny, strictNullChecks, etc.)",
+        "Runtime checks",
+        "Only strictNullChecks",
+        "Slow compilation"
+      ],
+      "answer": 0,
+      "explanation": "Turn it on. Fight-of-the-year against subtle bugs."
+    },
+    {
+      "type": "mcq",
+      "prompt": "moduleResolution 'bundler':",
+      "options": [
+        "Matches how Vite/webpack/Next resolve — supports package.json 'exports' etc.",
+        "Node classic",
+        "Broken",
+        "Only for CommonJS"
+      ],
+      "answer": 0,
+      "explanation": "Modern default for app codebases."
+    },
+    {
+      "type": "mcq",
+      "prompt": "noUncheckedIndexedAccess:",
+      "options": [
+        "arr[i] is T | undefined — safer, more accurate",
+        "Speed",
+        "Nothing",
+        "Deprecated"
+      ],
+      "answer": 0,
+      "explanation": "Sane default. Force explicit undefined handling."
+    },
+    {
+      "type": "mcq",
+      "prompt": "target vs lib:",
+      "options": [
+        "target = JS syntax level emitted; lib = which built-in APIs are typed",
+        "Same thing",
+        "Only lib matters",
+        "target sets Node version"
+      ],
+      "answer": 0,
+      "explanation": "Set both — you can target ES2022 syntax but include the DOM lib."
+    }
+  ]
+}

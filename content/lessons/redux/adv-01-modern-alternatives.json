@@ -1,0 +1,61 @@
+{
+  "id": "redux/modern-alternatives",
+  "track": "redux",
+  "section": "Ecosystem",
+  "sectionOrder": 4,
+  "unit": "Comparisons",
+  "order": 14,
+  "title": "Do you still need Redux?",
+  "description": "Redux vs Zustand, Jotai, and React state.",
+  "xp": 10,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "Redux is best when:",
+      "options": [
+        "Large app, complex flows, cross-team, time-travel debugging matters",
+        "Any project",
+        "Small components",
+        "Never"
+      ],
+      "answer": 0,
+      "explanation": "For simple apps, useState + context often suffice."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Zustand differs by:",
+      "options": [
+        "Minimal API, hook-based, no context provider needed",
+        "Requires TS",
+        "Is a database",
+        "Only React Native"
+      ],
+      "answer": 0,
+      "explanation": "Popular Redux alternative for lighter apps."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Jotai / Recoil model:",
+      "options": [
+        "Atomic state — small independent units that compose",
+        "Global tree only",
+        "Server-first",
+        "Reducer-only"
+      ],
+      "answer": 0,
+      "explanation": "Different mental model — fine-grained reactivity."
+    },
+    {
+      "type": "mcq",
+      "prompt": "For SERVER state (data fetching), consider:",
+      "options": [
+        "TanStack Query or RTK Query — dedicated caching libs",
+        "Redux vanilla",
+        "useState",
+        "Only refs"
+      ],
+      "answer": 0,
+      "explanation": "Separate server state from client state."
+    }
+  ]
+}

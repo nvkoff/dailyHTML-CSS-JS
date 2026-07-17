@@ -1,0 +1,75 @@
+{
+  "id": "react-native/lists",
+  "track": "react-native",
+  "section": "Basics",
+  "sectionOrder": 1,
+  "unit": "Lists",
+  "order": 6,
+  "title": "FlatList & SectionList",
+  "description": "Virtualized lists — never .map() large data.",
+  "xp": 12,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "Why FlatList instead of View + .map()?",
+      "options": [
+        "FlatList virtualizes — only renders items on screen",
+        "Same thing",
+        "FlatList is slower",
+        "Only for images"
+      ],
+      "answer": 0,
+      "explanation": "Critical for long lists — memory and scroll performance."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Required props:",
+      "options": [
+        "data + renderItem",
+        "children only",
+        "items + template",
+        "list + node"
+      ],
+      "answer": 0,
+      "explanation": "keyExtractor is strongly recommended too."
+    },
+    {
+      "type": "predict",
+      "prompt": "What does renderItem receive?",
+      "language": "jsx",
+      "code": "<FlatList data={arr} renderItem={({ item, index }) => <Text>{item.name}</Text>} />",
+      "options": [
+        "{ item, index, separators }",
+        "item only",
+        "index only",
+        "nothing"
+      ],
+      "answer": 0,
+      "explanation": "Info object, not a raw item."
+    },
+    {
+      "type": "mcq",
+      "prompt": "keyExtractor:",
+      "options": [
+        "Function returning a stable string ID per item",
+        "Optional decoration",
+        "For header only",
+        "Not used"
+      ],
+      "answer": 0,
+      "explanation": "Without one, RN uses index which breaks reorders/removals."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Modern alternative to FlatList for perf:",
+      "options": [
+        "FlashList (shopify/flash-list) — recycler-based",
+        "ScrollView",
+        "SectionList only",
+        "Nothing"
+      ],
+      "answer": 0,
+      "explanation": "FlashList often outperforms FlatList on large or heterogeneous lists."
+    }
+  ]
+}

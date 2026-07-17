@@ -1,0 +1,46 @@
+{
+  "id": "ts/guards",
+  "track": "ts",
+  "section": "Advanced",
+  "sectionOrder": 2,
+  "unit": "Narrowing",
+  "order": 14,
+  "title": "Type guards",
+  "description": "User-defined predicates and assertions.",
+  "xp": 12,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "User-defined guard signature:",
+      "options": [
+        "function isX(v: unknown): v is X",
+        "function isX(v: unknown): boolean",
+        "function isX(v: X): X",
+        "type X(v)"
+      ],
+      "answer": 0,
+      "explanation": "The `is X` predicate tells TS to narrow on true."
+    },
+    {
+      "type": "predict",
+      "prompt": "What's x after the guard?",
+      "language": "ts",
+      "code": "function isStr(x: unknown): x is string { return typeof x === 'string' }\nfunction f(x: unknown) {\n  if (isStr(x)) {\n    // x here?\n  }\n}",
+      "options": ["unknown", "string", "any", "never"],
+      "answer": 1,
+      "explanation": "isStr narrows to string in the true branch."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Assertion function:",
+      "options": [
+        "function assert(cond: unknown): asserts cond — narrows AFTER the call",
+        "function assert(v): boolean",
+        "assert!(v)",
+        "Not a thing"
+      ],
+      "answer": 0,
+      "explanation": "Great for invariants — after assertUser(x), x is User for the rest of the block."
+    }
+  ]
+}

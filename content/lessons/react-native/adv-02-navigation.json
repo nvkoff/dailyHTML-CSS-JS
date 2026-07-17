@@ -1,0 +1,61 @@
+{
+  "id": "react-native/navigation",
+  "track": "react-native",
+  "section": "Advanced",
+  "sectionOrder": 2,
+  "unit": "Navigation",
+  "order": 12,
+  "title": "Navigation",
+  "description": "Stack, tab, and drawer navigators.",
+  "xp": 12,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "Community standard router:",
+      "options": [
+        "React Navigation (@react-navigation/*)",
+        "React Router",
+        "Next Navigation",
+        "None"
+      ],
+      "answer": 0,
+      "explanation": "Or expo-router (built on top of React Navigation)."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Modern file-based routing on RN comes from:",
+      "options": [
+        "expo-router",
+        "next-router",
+        "Nothing yet",
+        "vue-router"
+      ],
+      "answer": 0,
+      "explanation": "Route from the /app directory just like Next.js App Router."
+    },
+    {
+      "type": "mcq",
+      "prompt": "In React Navigation, useNavigation gives you:",
+      "options": [
+        "The navigation object — navigate, goBack, push, etc.",
+        "The route object",
+        "State only",
+        "Nothing"
+      ],
+      "answer": 0,
+      "explanation": "useRoute gives params/name of current screen."
+    },
+    {
+      "type": "mcq",
+      "prompt": "For tab bars:",
+      "options": [
+        "createBottomTabNavigator or expo-router (tabs) group",
+        "manual only",
+        "not supported",
+        "Only iOS"
+      ],
+      "answer": 0,
+      "explanation": "Idiomatic for bottom nav."
+    }
+  ]
+}

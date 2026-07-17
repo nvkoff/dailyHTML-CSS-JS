@@ -1,0 +1,61 @@
+{
+  "id": "redux/query-basics",
+  "track": "redux",
+  "section": "RTK Query",
+  "sectionOrder": 3,
+  "unit": "Data fetching",
+  "order": 12,
+  "title": "RTK Query basics",
+  "description": "Fetch, cache, and invalidate — no thunks.",
+  "xp": 14,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "RTK Query is:",
+      "options": [
+        "A data fetching + caching layer built on Redux Toolkit",
+        "A GraphQL client",
+        "A router",
+        "A form library"
+      ],
+      "answer": 0,
+      "explanation": "Similar in spirit to React Query — inside Redux."
+    },
+    {
+      "type": "mcq",
+      "prompt": "You define endpoints in:",
+      "options": [
+        "createApi({ endpoints: (builder) => ({ getX: builder.query(...) }) })",
+        "Actions",
+        "Reducers",
+        "Middleware"
+      ],
+      "answer": 0,
+      "explanation": "Endpoints generate hooks like useGetXQuery."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Auto-generated hook:",
+      "options": [
+        "useGetUsersQuery — returns { data, error, isLoading, refetch }",
+        "getUsers()",
+        "useState()",
+        "None"
+      ],
+      "answer": 0,
+      "explanation": "Same shape for every query."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Deduplication:",
+      "options": [
+        "Multiple components requesting the same query share ONE network call",
+        "Every hook fires its own request",
+        "Random",
+        "Not supported"
+      ],
+      "answer": 0,
+      "explanation": "Cache is keyed by endpoint + args."
+    }
+  ]
+}

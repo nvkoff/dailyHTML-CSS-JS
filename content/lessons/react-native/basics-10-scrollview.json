@@ -1,0 +1,61 @@
+{
+  "id": "react-native/scrollview",
+  "track": "react-native",
+  "section": "Basics",
+  "sectionOrder": 1,
+  "unit": "Layout",
+  "order": 10,
+  "title": "ScrollView vs FlatList",
+  "description": "When to use which.",
+  "xp": 10,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "Use ScrollView when:",
+      "options": [
+        "Small, bounded content — mixed sections that don't need virtualization",
+        "Any list",
+        "Long feeds",
+        "Never"
+      ],
+      "answer": 0,
+      "explanation": "Long lists in ScrollView will render every item — kills memory."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Nested vertical ScrollViews:",
+      "options": [
+        "Ok, but bad UX — avoid",
+        "Not allowed",
+        "Increases perf",
+        "Required for headers"
+      ],
+      "answer": 0,
+      "explanation": "Users get confused which one scrolls. Prefer one scroll container."
+    },
+    {
+      "type": "mcq",
+      "prompt": "contentContainerStyle vs style:",
+      "options": [
+        "style is the outer box; contentContainerStyle wraps the inner content — put padding here",
+        "Same thing",
+        "One is deprecated",
+        "Nothing"
+      ],
+      "answer": 0,
+      "explanation": "Common gotcha: padding on style clips the scroll area."
+    },
+    {
+      "type": "mcq",
+      "prompt": "showsVerticalScrollIndicator={false}:",
+      "options": [
+        "Hides the scrollbar",
+        "Disables scroll",
+        "Speeds up rendering",
+        "No effect"
+      ],
+      "answer": 0,
+      "explanation": "Nice for carousel-like UIs."
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "id": "ts/mapped-conditional",
+  "track": "ts",
+  "section": "Advanced",
+  "sectionOrder": 2,
+  "unit": "Type Programming",
+  "order": 11,
+  "title": "Mapped & conditional types",
+  "description": "Transform types programmatically.",
+  "xp": 12,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "Mapped type example:",
+      "options": [
+        "type Ro<T> = { readonly [K in keyof T]: T[K] }",
+        "type Ro<T> = readonly T",
+        "readonly<T>",
+        "Not a real feature"
+      ],
+      "answer": 0,
+      "explanation": "That's how Readonly<T> is defined."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Conditional type syntax:",
+      "options": [
+        "T extends U ? X : Y",
+        "if T is U then X else Y",
+        "T ? U : X",
+        "conditional<T, U>"
+      ],
+      "answer": 0,
+      "explanation": "Compile-time ternary based on assignability."
+    },
+    {
+      "type": "predict",
+      "prompt": "Result?",
+      "language": "ts",
+      "code": "type NonNull<T> = T extends null | undefined ? never : T;\ntype X = NonNull<string | null>;",
+      "options": ["string | null", "string", "never", "unknown"],
+      "answer": 1,
+      "explanation": "Distributes over the union: string stays, null becomes never (which is erased in unions)."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Key remapping in a mapped type:",
+      "options": [
+        "as clause: { [K in keyof T as `on${K & string}`]: T[K] }",
+        "= clause",
+        "for clause",
+        "Not supported"
+      ],
+      "answer": 0,
+      "explanation": "Great for template-literal-driven renames."
+    }
+  ]
+}

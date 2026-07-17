@@ -1,0 +1,94 @@
+{
+  "id": "css/positioning",
+  "track": "css",
+  "unit": "Positioning",
+  "order": 19,
+  "title": "Positioning",
+  "description": "static, relative, absolute, fixed, sticky.",
+  "xp": 12,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "The default position value for elements is:",
+      "options": ["relative", "static", "absolute", "auto"],
+      "answer": 1,
+      "explanation": "Everything is `position: static` until you say otherwise."
+    },
+    {
+      "type": "mcq",
+      "prompt": "position: absolute positions relative to:",
+      "options": [
+        "The viewport",
+        "The nearest positioned ancestor (not static)",
+        "The parent always",
+        "The body"
+      ],
+      "answer": 1,
+      "explanation": "Absolute elements climb up until they find a non-static ancestor."
+    },
+    {
+      "type": "predict",
+      "prompt": "Where does the child render?",
+      "language": "css",
+      "code": ".p { position: relative; }\n.c { position: absolute; top: 0; right: 0; }",
+      "options": [
+        "Top-right of viewport",
+        "Top-right of .p",
+        "Top-left of .p",
+        "Nowhere"
+      ],
+      "answer": 1,
+      "explanation": ".p is a positioning context — .c anchors to it."
+    },
+    {
+      "type": "mcq",
+      "prompt": "position: fixed anchors to:",
+      "options": [
+        "Parent element",
+        "The viewport (unless a transformed ancestor)",
+        "The body",
+        "The nearest scroll container"
+      ],
+      "answer": 1,
+      "explanation": "Fixed = viewport. A transformed/perspective ancestor can capture it though."
+    },
+    {
+      "type": "mcq",
+      "prompt": "position: sticky behaves as:",
+      "options": [
+        "Absolute always",
+        "Relative until a scroll threshold, then fixed within its container",
+        "Fixed to viewport",
+        "Nothing without JS"
+      ],
+      "answer": 1,
+      "explanation": "Sticky flips to fixed once the scroll position passes the threshold you set (e.g. top: 0)."
+    },
+    {
+      "type": "predict",
+      "prompt": "What does `top: 20px` do here?",
+      "language": "css",
+      "code": ".x { position: relative; top: 20px; }",
+      "options": [
+        "Nothing",
+        "Shifts the element 20px DOWN from its normal spot",
+        "Anchors to top of viewport",
+        "Removes it from flow"
+      ],
+      "answer": 1,
+      "explanation": "For relative, offsets shift the element but its space is preserved."
+    },
+    {
+      "type": "mcq",
+      "prompt": "An absolutely positioned element:",
+      "options": [
+        "Still occupies its space in normal flow",
+        "Is removed from flow — surrounding content collapses",
+        "Always creates a new stacking context",
+        "Cannot use z-index"
+      ],
+      "answer": 1,
+      "explanation": "Absolute/fixed are out of flow; other content ignores their space."
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "id": "react-native/debugging",
+  "track": "react-native",
+  "section": "Advanced",
+  "sectionOrder": 2,
+  "unit": "Dev experience",
+  "order": 17,
+  "title": "Debugging",
+  "description": "Dev menu, React DevTools, Flipper alternatives.",
+  "xp": 10,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "Open the dev menu:",
+      "options": [
+        "Shake device or Cmd+D (iOS sim) / Cmd+M (Android emu)",
+        "Right-click",
+        "Long-press home",
+        "Not possible"
+      ],
+      "answer": 0,
+      "explanation": "Menu: reload, toggle perf monitor, remote debug, etc."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Recommended profiler/inspector today:",
+      "options": [
+        "React DevTools (works with RN)",
+        "Only browser tools",
+        "Nothing",
+        "Charles proxy"
+      ],
+      "answer": 0,
+      "explanation": "Also the new native debugger and the RN CLI tooling."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Flipper status:",
+      "options": [
+        "Deprecated as default; community continues plugins, new alternatives emerging",
+        "Still default",
+        "Never existed",
+        "Only iOS"
+      ],
+      "answer": 0,
+      "explanation": "RN has moved on to newer debugging tooling."
+    }
+  ]
+}

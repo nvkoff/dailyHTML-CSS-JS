@@ -1,0 +1,79 @@
+{
+  "id": "css/grid-areas",
+  "track": "css",
+  "unit": "Grid",
+  "order": 18,
+  "title": "Grid areas & placement",
+  "description": "Place items explicitly with lines, spans, and named areas.",
+  "xp": 12,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "grid-column: 1 / 3 means:",
+      "options": [
+        "Column 1, width of 3 tracks",
+        "From line 1 to line 3 (spans 2 columns)",
+        "Columns 1 through 3 (spans 3)",
+        "First column of row 3"
+      ],
+      "answer": 1,
+      "explanation": "Lines number the edges: `1 / 3` covers two columns between line 1 and 3."
+    },
+    {
+      "type": "mcq",
+      "prompt": "What does grid-column: span 2 do?",
+      "options": [
+        "Places item at column 2",
+        "Item spans 2 column tracks from its auto position",
+        "Spans 2 rows",
+        "Nothing"
+      ],
+      "answer": 1,
+      "explanation": "The `span` keyword tells the item to occupy N tracks."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Which property lets you refer to areas by NAME?",
+      "options": [
+        "grid-template-areas",
+        "grid-names",
+        "areas",
+        "grid-region"
+      ],
+      "answer": 0,
+      "explanation": "grid-template-areas assigns strings; items use grid-area: <name>."
+    },
+    {
+      "type": "predict",
+      "prompt": "How many rows does the grid define?",
+      "language": "css",
+      "code": ".g {\n  display: grid;\n  grid-template-areas:\n    'nav nav'\n    'side main'\n    'foot foot';\n}",
+      "options": ["1", "2", "3", "4"],
+      "answer": 2,
+      "explanation": "Each string in grid-template-areas is one row."
+    },
+    {
+      "type": "mcq",
+      "prompt": "A . (period) inside grid-template-areas means:",
+      "options": ["A named area", "An empty cell", "Padding", "Not allowed"],
+      "answer": 1,
+      "explanation": "A dot marks an empty (unnamed) cell in the template."
+    },
+    {
+      "type": "predict",
+      "prompt": "grid-row: 1 / span 2 — how many rows does it cover?",
+      "language": "css",
+      "code": ".item { grid-row: 1 / span 2; }",
+      "options": ["1", "2", "3", "Depends"],
+      "answer": 1,
+      "explanation": "Starts at row line 1, spans 2 rows."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Which places an item at the last column edge, regardless of count?",
+      "options": ["-1", "end", "auto", "final"],
+      "answer": 0,
+      "explanation": "Negative line numbers count from the end. -1 = last line."
+    }
+  ]
+}

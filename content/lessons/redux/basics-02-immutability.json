@@ -1,0 +1,63 @@
+{
+  "id": "redux/immutability",
+  "track": "redux",
+  "section": "Basics",
+  "sectionOrder": 1,
+  "unit": "Concepts",
+  "order": 2,
+  "title": "Immutability",
+  "description": "Why Redux insists on new references.",
+  "xp": 10,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "Redux detects change by:",
+      "options": [
+        "Reference equality (===)",
+        "Deep equality",
+        "Hashing",
+        "Version numbers"
+      ],
+      "answer": 0,
+      "explanation": "Same reference = no change = no subscriber notified."
+    },
+    {
+      "type": "predict",
+      "prompt": "Does this trigger a re-render?",
+      "language": "js",
+      "code": "state.todos.push(newTodo);\nreturn state;",
+      "options": [
+        "Yes",
+        "No — same array reference",
+        "Only sometimes",
+        "Throws"
+      ],
+      "answer": 1,
+      "explanation": "Return { ...state, todos: [...state.todos, newTodo] }."
+    },
+    {
+      "type": "mcq",
+      "prompt": "RTK uses Immer to:",
+      "options": [
+        "Let you WRITE mutable-looking code that produces immutable updates under the hood",
+        "Bypass React",
+        "Speed up rendering",
+        "Nothing"
+      ],
+      "answer": 0,
+      "explanation": "Inside RTK reducers you can `state.todos.push(t)` safely."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Preferred update for objects (vanilla):",
+      "options": [
+        "return { ...state, user: { ...state.user, name } }",
+        "Object.assign(state, { user: { name } })",
+        "state.user.name = name",
+        "delete state.user"
+      ],
+      "answer": 0,
+      "explanation": "Every ancestor along the changed path must be a new reference."
+    }
+  ]
+}

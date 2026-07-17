@@ -1,0 +1,49 @@
+{
+  "id": "react-native/platform",
+  "track": "react-native",
+  "section": "Advanced",
+  "sectionOrder": 2,
+  "unit": "Platform",
+  "order": 11,
+  "title": "Platform-specific code",
+  "description": "Ship one bundle, adapt to iOS vs Android.",
+  "xp": 10,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "Runtime check:",
+      "options": [
+        "Platform.OS === 'ios'",
+        "isIOS()",
+        "window.iOS",
+        "navigator.platform"
+      ],
+      "answer": 0,
+      "explanation": "Also Platform.select({ ios: ..., android: ..., default: ... })"
+    },
+    {
+      "type": "mcq",
+      "prompt": "File-level split:",
+      "options": [
+        "Component.ios.tsx + Component.android.tsx — bundler picks one",
+        "You have to write two apps",
+        "Not supported",
+        "Only Expo"
+      ],
+      "answer": 0,
+      "explanation": "Metro resolves the platform-specific file automatically."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Common platform difference:",
+      "options": [
+        "Elevation (shadow) uses `elevation` on Android, `shadow*` on iOS",
+        "Nothing differs",
+        "Colors",
+        "Fonts always match"
+      ],
+      "answer": 0,
+      "explanation": "Set both for cross-platform depth."
+    }
+  ]
+}

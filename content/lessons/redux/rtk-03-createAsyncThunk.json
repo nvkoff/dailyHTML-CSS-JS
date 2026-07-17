@@ -1,0 +1,49 @@
+{
+  "id": "redux/createAsyncThunk",
+  "track": "redux",
+  "section": "Redux Toolkit",
+  "sectionOrder": 2,
+  "unit": "Toolkit",
+  "order": 10,
+  "title": "createAsyncThunk",
+  "description": "The blessed pattern for async logic.",
+  "xp": 12,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "createAsyncThunk generates:",
+      "options": [
+        "pending / fulfilled / rejected actions around your async fn",
+        "Only one action",
+        "A React component",
+        "A middleware"
+      ],
+      "answer": 0,
+      "explanation": "Handle them in extraReducers to update state."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Access these actions in a slice:",
+      "options": [
+        "extraReducers builder callback — .addCase(fetchUser.fulfilled, …)",
+        "reducers only",
+        "connect()",
+        "middleware"
+      ],
+      "answer": 0,
+      "explanation": "extraReducers is for actions NOT defined by the slice itself."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Payload creator can:",
+      "options": [
+        "Return a value (fulfilled) OR throw / rejectWithValue (rejected)",
+        "Only return synchronously",
+        "Only dispatch",
+        "Nothing"
+      ],
+      "answer": 0,
+      "explanation": "rejectWithValue lets you attach a payload to the rejection."
+    }
+  ]
+}

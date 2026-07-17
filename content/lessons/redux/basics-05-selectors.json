@@ -1,0 +1,51 @@
+{
+  "id": "redux/selectors",
+  "track": "redux",
+  "section": "Basics",
+  "sectionOrder": 1,
+  "unit": "Selectors",
+  "order": 5,
+  "title": "Selectors",
+  "description": "Reading state without leaking shape.",
+  "xp": 10,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "A selector is:",
+      "options": [
+        "A function that reads a slice of state",
+        "A CSS rule",
+        "A hook",
+        "An action"
+      ],
+      "answer": 0,
+      "explanation": "Centralizes access — refactor state shape without touching consumers."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Memoized selectors (reselect / createSelector):",
+      "options": [
+        "Recompute only when input slices change — great for derived data",
+        "Cache the whole store",
+        "Are async",
+        "Deprecated"
+      ],
+      "answer": 0,
+      "explanation": "Prevents re-computation and unnecessary re-renders."
+    },
+    {
+      "type": "predict",
+      "prompt": "Does this trigger re-render every time?",
+      "language": "js",
+      "code": "const items = useSelector(s => s.todos.filter(t => t.done));",
+      "options": [
+        "No",
+        "YES — filter returns a new array every time",
+        "Only if action fires",
+        "Depends"
+      ],
+      "answer": 1,
+      "explanation": "Wrap with createSelector or add shallowEqual as the 2nd arg."
+    }
+  ]
+}

@@ -1,13 +1,23 @@
 import { z } from "zod";
 
-export const trackSchema = z.enum(["css", "html", "js"]);
+export const trackSchema = z.enum([
+  "css",
+  "html",
+  "js",
+  "react",
+  "react-native",
+  "ts",
+  "redux",
+]);
 export type Track = z.infer<typeof trackSchema>;
+
+const languageEnum = z.enum(["css", "html", "js", "ts", "tsx", "jsx"]);
 
 const mcqQuestion = z.object({
   type: z.literal("mcq"),
   prompt: z.string(),
   code: z.string().optional(),
-  language: z.enum(["css", "html", "js"]).optional(),
+  language: languageEnum.optional(),
   options: z.array(z.string()).min(2),
   answer: z.number().int().nonnegative(),
   explanation: z.string().optional(),
@@ -17,7 +27,7 @@ const predictQuestion = z.object({
   type: z.literal("predict"),
   prompt: z.string(),
   code: z.string(),
-  language: z.enum(["css", "html", "js"]),
+  language: languageEnum,
   options: z.array(z.string()).min(2),
   answer: z.number().int().nonnegative(),
   explanation: z.string().optional(),
@@ -26,7 +36,7 @@ const predictQuestion = z.object({
 const fixBugQuestion = z.object({
   type: z.literal("fix-bug"),
   prompt: z.string(),
-  language: z.enum(["css", "html", "js"]),
+  language: languageEnum,
   broken: z.string(),
   mustInclude: z.array(z.string()).default([]),
   mustNotInclude: z.array(z.string()).default([]),

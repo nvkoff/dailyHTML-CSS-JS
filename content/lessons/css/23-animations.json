@@ -1,0 +1,80 @@
+{
+  "id": "css/animations",
+  "track": "css",
+  "unit": "Motion",
+  "order": 23,
+  "title": "Keyframe animations",
+  "description": "@keyframes + animation property for looping motion.",
+  "xp": 10,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "@keyframes defines:",
+      "options": [
+        "A CSS variable",
+        "A named animation with waypoints",
+        "A mixin",
+        "A selector group"
+      ],
+      "answer": 1,
+      "explanation": "@keyframes name { 0% {...} 100% {...} }."
+    },
+    {
+      "type": "predict",
+      "prompt": "How long does one cycle run?",
+      "language": "css",
+      "code": "@keyframes pulse { 0% {opacity: 1} 50% {opacity: 0.5} 100% {opacity: 1} }\n.dot { animation: pulse 1s infinite; }",
+      "options": ["500ms", "1s", "2s", "Infinite"],
+      "answer": 1,
+      "explanation": "1s per iteration, repeating forever."
+    },
+    {
+      "type": "mcq",
+      "prompt": "animation-fill-mode: forwards means:",
+      "options": [
+        "Keeps the final keyframe styles after the animation ends",
+        "Plays in reverse",
+        "Restarts",
+        "Loops backward"
+      ],
+      "answer": 0,
+      "explanation": "Otherwise the element snaps back to its pre-animation state."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Difference between transition and animation?",
+      "options": [
+        "Transitions run between two states (usually on state change). Animations run on a schedule with multiple keyframes",
+        "They're the same",
+        "Animation is deprecated",
+        "Transitions loop, animations don't"
+      ],
+      "answer": 0,
+      "explanation": "Transitions = A→B on change. Animations = defined timeline with @keyframes."
+    },
+    {
+      "type": "mcq",
+      "prompt": "How to pause an animation on hover?",
+      "options": [
+        "animation-play-state: paused",
+        "animation-pause: true",
+        "pause: on",
+        "You can't"
+      ],
+      "answer": 0,
+      "explanation": ".el:hover { animation-play-state: paused; }"
+    },
+    {
+      "type": "mcq",
+      "prompt": "prefers-reduced-motion should be respected because:",
+      "options": [
+        "Some users get motion sickness/dizziness from animation",
+        "It saves battery",
+        "It's faster",
+        "Style"
+      ],
+      "answer": 0,
+      "explanation": "Wrap heavy motion in @media (prefers-reduced-motion: no-preference) to be a good citizen."
+    }
+  ]
+}

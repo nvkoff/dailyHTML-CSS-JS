@@ -1,0 +1,68 @@
+{
+  "id": "css/gradients",
+  "track": "css",
+  "unit": "Design tokens",
+  "order": 31,
+  "title": "Gradients",
+  "description": "linear, radial, conic gradients as backgrounds.",
+  "xp": 10,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "Gradients are technically:",
+      "options": [
+        "Colors",
+        "IMAGES (background-image)",
+        "Filters",
+        "Their own property"
+      ],
+      "answer": 1,
+      "explanation": "That's why you use them with background-image or as `background:`."
+    },
+    {
+      "type": "predict",
+      "prompt": "Which direction does this gradient run?",
+      "language": "css",
+      "code": ".x { background: linear-gradient(90deg, red, blue); }",
+      "options": ["Top to bottom", "Bottom to top", "Left to right", "Diagonal"],
+      "answer": 2,
+      "explanation": "0deg = up, 90deg = right, 180deg = down. Or use `to right`."
+    },
+    {
+      "type": "mcq",
+      "prompt": "conic-gradient is useful for:",
+      "options": [
+        "Progress rings, pie charts, hue wheels",
+        "Full-page hero backgrounds only",
+        "Nothing new",
+        "Only text"
+      ],
+      "answer": 0,
+      "explanation": "Rotates colors around a center point."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Color stops with percentages:",
+      "options": [
+        "Let you place color transitions precisely",
+        "Are not supported",
+        "Only work in HSL",
+        "Are aliases for keyframes"
+      ],
+      "answer": 0,
+      "explanation": "linear-gradient(red 0%, red 50%, blue 50%, blue 100%) → hard stripe."
+    },
+    {
+      "type": "mcq",
+      "prompt": "background: linear-gradient(red, red), url(img.jpg);",
+      "options": [
+        "The gradient overlays the image (comma-separated backgrounds stack)",
+        "Illegal syntax",
+        "Only shows image",
+        "Only shows gradient"
+      ],
+      "answer": 0,
+      "explanation": "Multiple backgrounds paint from first (top) to last (bottom)."
+    }
+  ]
+}

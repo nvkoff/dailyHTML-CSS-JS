@@ -1,0 +1,49 @@
+{
+  "id": "redux/typescript",
+  "track": "redux",
+  "section": "Ecosystem",
+  "sectionOrder": 4,
+  "unit": "Typing",
+  "order": 15,
+  "title": "Redux + TypeScript",
+  "description": "Typed hooks, RootState, and AppDispatch.",
+  "xp": 10,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "Idiomatic root types:",
+      "options": [
+        "type RootState = ReturnType<typeof store.getState>",
+        "type RootState = Store",
+        "type RootState = any",
+        "type RootState = object"
+      ],
+      "answer": 0,
+      "explanation": "Pull the state type off the store — updates automatically."
+    },
+    {
+      "type": "mcq",
+      "prompt": "AppDispatch type:",
+      "options": [
+        "type AppDispatch = typeof store.dispatch",
+        "type AppDispatch = () => void",
+        "type AppDispatch = any",
+        "type AppDispatch = string"
+      ],
+      "answer": 0,
+      "explanation": "Carries thunk return types through dispatch."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Typed hooks:",
+      "options": [
+        "Create useAppDispatch and useAppSelector wrappers — avoid retyping RootState everywhere",
+        "Not possible",
+        "Slower",
+        "Optional but discouraged"
+      ],
+      "answer": 0,
+      "explanation": "Standard Redux TS recipe."
+    }
+  ]
+}

@@ -2,7 +2,16 @@
 
 import { useEffect, useState, useTransition } from "react";
 import Link from "next/link";
-import { CheckCircle2, XCircle, ArrowLeft, Flame, Zap, Skull, RotateCcw } from "lucide-react";
+import {
+  CheckCircle2,
+  XCircle,
+  ArrowLeft,
+  Flame,
+  Zap,
+  Skull,
+  RotateCcw,
+  Heart,
+} from "lucide-react";
 import { useRouter } from "next/navigation";
 import { Lesson, Question, gradeQuestion } from "@/lib/content-types";
 import { Button } from "@/components/ui/button";
@@ -12,15 +21,24 @@ import { submitLessonResult } from "@/lib/actions";
 import { cn } from "@/lib/utils";
 
 type Phase = "answering" | "checked" | "done";
+type DoneReason = "finished" | "no-hearts";
 
 const PASS_THRESHOLD = 0.8;
 
-export function LessonRunner({ lesson }: { lesson: Lesson }) {
+export function LessonRunner({
+  lesson,
+  startingHearts,
+}: {
+  lesson: Lesson;
+  startingHearts: number;
+}) {
   const [index, setIndex] = useState(0);
   const [answer, setAnswer] = useState<Answer>(null);
   const [phase, setPhase] = useState<Phase>("answering");
   const [correctCount, setCorrectCount] = useState(0);
   const [wasCorrect, setWasCorrect] = useState<boolean | null>(null);
+  const [heartsLeft, setHeartsLeft] = useState(startingHearts);
+  const [doneReason, setDoneReason] = useState<DoneReason>("finished");
   const [summary, setSummary] = useState<{ newStreak: number; totalXp: number } | null>(null);
   const [saving, startTransition] = useTransition();
   const router = useRouter();
@@ -35,11 +53,44 @@ export function LessonRunner({ lesson }: { lesson: Lesson }) {
     else setAnswer(null);
   }, [index, question]);
 
+  function submit(reason: DoneReason, finalCorrect: number, finalHearts: number) {
+    const passed = finalCorrect / total >= PASS_THRESHOLD && reason === "finished";
+    const xp = passed ? Math.round((finalCorrect / total) * lesson.xp) : 0;
+    const heartsSpent = Math.max(0, startingHearts - finalHearts);
+    setDoneReason(reason);
+    startTransition(async () => {
+      try {
+        const result = await submitLessonResult({
+          lessonId: lesson.id,
+          correctCount: finalCorrect,
+          totalCount: total,
+          xpEarned: xp,
+          heartsSpent,
+        });
+        setSummary(result);
+      } catch {
+        setSummary({ newStreak: 0, totalXp: 0 });
+      }
+      setPhase("done");
+    });
+  }
+
   function handleCheck() {
     const correct = gradeQuestion(question, answer);
     setWasCorrect(correct);
-    if (correct) setCorrectCount((n) => n + 1);
+    let nextCorrect = correctCount;
+    let nextHearts = heartsLeft;
+    if (correct) {
+      nextCorrect = correctCount + 1;
+      setCorrectCount(nextCorrect);
+    } else {
+      nextHearts = Math.max(0, heartsLeft - 1);
+      setHeartsLeft(nextHearts);
+    }
     setPhase("checked");
+    if (nextHearts <= 0 && !correct) {
+      submit("no-hearts", nextCorrect, 0);
+    }
   }
 
   function handleNext() {
@@ -49,22 +100,7 @@ export function LessonRunner({ lesson }: { lesson: Lesson }) {
       setWasCorrect(null);
       setPhase("answering");
     } else {
-      const passed = correctCount / total >= PASS_THRESHOLD;
-      const xp = passed ? Math.round((correctCount / total) * lesson.xp) : 0;
-      startTransition(async () => {
-        try {
-          const result = await submitLessonResult({
-            lessonId: lesson.id,
-            correctCount,
-            totalCount: total,
-            xpEarned: xp,
-          });
-          setSummary(result);
-        } catch {
-          setSummary({ newStreak: 0, totalXp: 0 });
-        }
-        setPhase("done");
-      });
+      submit("finished", correctCount, heartsLeft);
     }
   }
 
@@ -73,8 +109,10 @@ export function LessonRunner({ lesson }: { lesson: Lesson }) {
     setAnswer(null);
     setWasCorrect(null);
     setCorrectCount(0);
+    setHeartsLeft(startingHearts);
     setSummary(null);
     setPhase("answering");
+    setDoneReason("finished");
     router.refresh();
   }
 
@@ -84,20 +122,34 @@ export function LessonRunner({ lesson }: { lesson: Lesson }) {
   }
 
   if (phase === "done") {
-    const passed = correctCount / total >= PASS_THRESHOLD;
+    const passed =
+      doneReason === "finished" && correctCount / total >= PASS_THRESHOLD;
     if (!passed) {
       const needed = Math.ceil(total * PASS_THRESHOLD);
+      const noHearts = doneReason === "no-hearts";
       return (
         <div className="mx-auto flex w-full max-w-xl flex-col items-center justify-center gap-6 px-4 py-16 text-center sm:py-20">
           <div className="rounded-full bg-destructive/10 p-4">
-            <Skull className="h-12 w-12 text-destructive" />
+            {noHearts ? (
+              <Heart className="h-12 w-12 text-destructive" />
+            ) : (
+              <Skull className="h-12 w-12 text-destructive" />
+            )}
           </div>
           <div className="space-y-1">
-            <h1 className="text-2xl font-semibold">Defeat</h1>
+            <h1 className="text-2xl font-semibold">
+              {noHearts ? "Out of hearts" : "Defeat"}
+            </h1>
             <p className="text-muted-foreground">
-              {correctCount}/{total} correct — you need at least {needed}/{total} (80%) to pass.
+              {noHearts
+                ? `${correctCount}/${total} correct — you ran out of hearts.`
+                : `${correctCount}/${total} correct — you need at least ${needed}/${total} (80%) to pass.`}
             </p>
-            <p className="text-sm text-muted-foreground">No XP earned.</p>
+            <p className="text-sm text-muted-foreground">
+              {noHearts
+                ? "One heart refills every hour."
+                : "No XP earned."}
+            </p>
           </div>
           <div className="flex w-full flex-col gap-2 sm:flex-row">
             <Button asChild variant="outline" size="lg" className="flex-1">
@@ -155,6 +207,19 @@ export function LessonRunner({ lesson }: { lesson: Lesson }) {
         </Button>
         <div className="flex-1">
           <Progress value={progressPct} />
+        </div>
+        <div
+          className="flex shrink-0 items-center gap-1 tabular-nums text-rose-500"
+          aria-label={`${heartsLeft} hearts left`}
+          title={`${heartsLeft} hearts left`}
+        >
+          <Heart
+            className={cn(
+              "h-4 w-4",
+              heartsLeft > 0 ? "fill-rose-500" : "opacity-30",
+            )}
+          />
+          <span className="text-xs font-medium">{heartsLeft}</span>
         </div>
         <span className="text-xs text-muted-foreground tabular-nums">
           {index + 1} / {total}

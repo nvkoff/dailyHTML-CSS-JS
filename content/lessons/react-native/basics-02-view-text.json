@@ -1,0 +1,58 @@
+{
+  "id": "react-native/view-text",
+  "track": "react-native",
+  "section": "Basics",
+  "sectionOrder": 1,
+  "unit": "Core Components",
+  "order": 2,
+  "title": "View & Text",
+  "description": "The building blocks of every RN screen.",
+  "xp": 10,
+  "questions": [
+    {
+      "type": "predict",
+      "prompt": "Does this render?",
+      "language": "jsx",
+      "code": "<View>Hello</View>",
+      "options": [
+        "Yes",
+        "No — raw string outside a <Text>",
+        "Yes but no styling",
+        "Silently ignored"
+      ],
+      "answer": 1,
+      "explanation": "Wrap with <Text>Hello</Text>."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Text inherits font styles down through nested <Text>:",
+      "options": ["Yes, that's a special exception", "No", "Only iOS", "Only Android"],
+      "answer": 0,
+      "explanation": "Unlike other components, Text follows CSS-like font inheritance."
+    },
+    {
+      "type": "mcq",
+      "prompt": "For pressable text (like a link):",
+      "options": [
+        "<Text onPress={fn}>",
+        "<a>",
+        "<button>",
+        "<TouchableText>"
+      ],
+      "answer": 0,
+      "explanation": "Text supports onPress natively."
+    },
+    {
+      "type": "mcq",
+      "prompt": "numberOfLines={2} on <Text> does:",
+      "options": [
+        "Truncates after 2 lines with ellipsis",
+        "Adds line breaks",
+        "Sets height",
+        "Nothing"
+      ],
+      "answer": 0,
+      "explanation": "Combine with ellipsizeMode for tail/middle truncation."
+    }
+  ]
+}

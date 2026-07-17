@@ -1,0 +1,68 @@
+{
+  "id": "css/container-queries",
+  "track": "css",
+  "unit": "Responsive",
+  "order": 28,
+  "title": "Container queries",
+  "description": "Adapt to a parent's size, not the viewport.",
+  "xp": 12,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "container-type: inline-size on a parent enables:",
+      "options": [
+        "Its children to query the parent's width",
+        "Grid layout",
+        "Aspect ratios",
+        "Media queries"
+      ],
+      "answer": 0,
+      "explanation": "Marks the element as a query container."
+    },
+    {
+      "type": "predict",
+      "prompt": "When does this rule apply?",
+      "language": "css",
+      "code": ".wrap { container-type: inline-size; }\n@container (min-width: 400px) {\n  .card { display: grid; }\n}",
+      "options": [
+        "When viewport ≥ 400px",
+        "When the .wrap container is ≥ 400px wide",
+        "Always",
+        "Never"
+      ],
+      "answer": 1,
+      "explanation": "That's the whole point — the CONTAINER determines it, not the viewport."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Why do container queries matter?",
+      "options": [
+        "Reusable components can adapt to their slot",
+        "They replace flexbox",
+        "They speed up rendering",
+        "They enable dark mode"
+      ],
+      "answer": 0,
+      "explanation": "The same card can look wide in a hero and narrow in a sidebar without global media queries."
+    },
+    {
+      "type": "mcq",
+      "prompt": "container-name lets you:",
+      "options": [
+        "Name the container so children can target a specific ancestor",
+        "Alias colors",
+        "Set an ID",
+        "It doesn't exist"
+      ],
+      "answer": 0,
+      "explanation": "@container my-card (min-width: 400px) { ... }"
+    },
+    {
+      "type": "mcq",
+      "prompt": "Container query units include:",
+      "options": ["cqw, cqh, cqi, cqb", "vw, vh", "em, rem", "px only"],
+      "answer": 0,
+      "explanation": "1cqw = 1% of the container's inline size — great for fluid children."
+    }
+  ]
+}

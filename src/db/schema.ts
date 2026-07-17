@@ -19,6 +19,9 @@ export const userStats = pgTable("user_stats", {
   xp: integer("xp").notNull().default(0),
   streak: integer("streak").notNull().default(0),
   hearts: integer("hearts").notNull().default(5),
+  heartsUpdatedAt: timestamp("hearts_updated_at", { withTimezone: true })
+    .defaultNow()
+    .notNull(),
   freezes: integer("freezes").notNull().default(0),
   lastActiveDate: date("last_active_date"),
   updatedAt: timestamp("updated_at", { withTimezone: true }).defaultNow().notNull(),

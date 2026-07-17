@@ -1,0 +1,75 @@
+{
+  "id": "redux/core-concepts",
+  "track": "redux",
+  "section": "Basics",
+  "sectionOrder": 1,
+  "unit": "Concepts",
+  "order": 1,
+  "title": "Core concepts",
+  "description": "Store, action, reducer, dispatch.",
+  "xp": 12,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "The Redux store is:",
+      "options": [
+        "A single object holding the app state — updated via dispatch(action)",
+        "A database",
+        "A React component",
+        "A hook"
+      ],
+      "answer": 0,
+      "explanation": "One tree, one source of truth."
+    },
+    {
+      "type": "mcq",
+      "prompt": "An action is:",
+      "options": [
+        "A plain object describing WHAT happened — typically with a type field",
+        "A function that mutates state",
+        "A component method",
+        "A HTTP request"
+      ],
+      "answer": 0,
+      "explanation": "{ type: 'ADD_TODO', payload: '…' }"
+    },
+    {
+      "type": "mcq",
+      "prompt": "A reducer must be:",
+      "options": [
+        "A PURE function (state, action) => newState — no mutations",
+        "Async",
+        "Class-based",
+        "Middleware"
+      ],
+      "answer": 0,
+      "explanation": "Same input, same output. No side effects."
+    },
+    {
+      "type": "predict",
+      "prompt": "Which is WRONG?",
+      "language": "js",
+      "code": "function reducer(state, action) {\n  state.count = state.count + 1;\n  return state;\n}",
+      "options": [
+        "Correct",
+        "Mutates state — returns same reference, no re-render",
+        "Missing async",
+        "Missing type field"
+      ],
+      "answer": 1,
+      "explanation": "Return a NEW object: return { ...state, count: state.count + 1 }"
+    },
+    {
+      "type": "mcq",
+      "prompt": "Dispatch is:",
+      "options": [
+        "The function that sends actions to the store",
+        "A reducer",
+        "A selector",
+        "A middleware"
+      ],
+      "answer": 0,
+      "explanation": "store.dispatch({ type: '…' })"
+    }
+  ]
+}

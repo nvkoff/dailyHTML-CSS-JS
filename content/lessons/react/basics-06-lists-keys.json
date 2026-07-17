@@ -1,0 +1,75 @@
+{
+  "id": "react/lists-keys",
+  "track": "react",
+  "section": "Basics",
+  "sectionOrder": 1,
+  "unit": "Lists",
+  "order": 6,
+  "title": "Lists & keys",
+  "description": "Rendering arrays and why keys matter.",
+  "xp": 12,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "React uses key to:",
+      "options": [
+        "Uniquely identify list items across renders for efficient diffing",
+        "Style the list",
+        "Sort the list",
+        "Nothing"
+      ],
+      "answer": 0,
+      "explanation": "Without stable keys, React may unmount/remount items on reorder."
+    },
+    {
+      "type": "predict",
+      "prompt": "What warning appears?",
+      "language": "jsx",
+      "code": "items.map(x => <li>{x.name}</li>)",
+      "options": [
+        "None",
+        "'Each child in a list should have a unique key prop'",
+        "'Missing return'",
+        "'undefined'"
+      ],
+      "answer": 1,
+      "explanation": "Add key={x.id} or another stable identifier."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Using array index as key is bad when:",
+      "options": [
+        "The list can reorder, insert, or delete — state gets stuck on the wrong item",
+        "Always",
+        "Never bad",
+        "Only for numbers"
+      ],
+      "answer": 0,
+      "explanation": "Index is fine for static, append-only lists — otherwise use stable ids."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Key must be:",
+      "options": [
+        "Globally unique",
+        "Unique among siblings",
+        "A number",
+        "A UUID"
+      ],
+      "answer": 1,
+      "explanation": "Siblings only. Different lists can reuse the same keys."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Key is:",
+      "options": [
+        "A regular prop the child receives",
+        "Consumed by React, NOT forwarded to the child",
+        "Optional and ignored",
+        "Only for TypeScript"
+      ],
+      "answer": 1,
+      "explanation": "If you need it, pass it under a different prop name."
+    }
+  ]
+}

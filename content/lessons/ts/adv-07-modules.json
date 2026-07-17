@@ -1,0 +1,49 @@
+{
+  "id": "ts/modules",
+  "track": "ts",
+  "section": "Advanced",
+  "sectionOrder": 2,
+  "unit": "Modules",
+  "order": 15,
+  "title": "Modules & imports",
+  "description": "esm, type-only imports, and augmentation.",
+  "xp": 10,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "Type-only import:",
+      "options": [
+        "import type { User } from './user' — erased at build",
+        "import always brings runtime",
+        "type-only is deprecated",
+        "type<User>"
+      ],
+      "answer": 0,
+      "explanation": "Avoids circular runtime imports and keeps bundles lean."
+    },
+    {
+      "type": "mcq",
+      "prompt": "verbatimModuleSyntax:",
+      "options": [
+        "Enforces that non-type imports actually stay at runtime — better ESM interop",
+        "Removes types",
+        "Random",
+        "Deprecated"
+      ],
+      "answer": 0,
+      "explanation": "Preferred over the older 'importsNotUsedAsValues' family."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Module augmentation:",
+      "options": [
+        "declare module 'lib' { … } to add types to existing packages",
+        "Editing node_modules directly",
+        "Not possible",
+        "Only for CSS"
+      ],
+      "answer": 0,
+      "explanation": "Common for extending Express Request, Zod schemas, i18n dicts."
+    }
+  ]
+}

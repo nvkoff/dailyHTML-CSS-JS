@@ -1,0 +1,75 @@
+{
+  "id": "ts/utility-types",
+  "track": "ts",
+  "section": "Advanced",
+  "sectionOrder": 2,
+  "unit": "Utility Types",
+  "order": 9,
+  "title": "Utility types",
+  "description": "Partial, Required, Pick, Omit, Record.",
+  "xp": 12,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "Partial<T>:",
+      "options": [
+        "Every prop of T becomes optional",
+        "Removes props",
+        "Adds readonly",
+        "Freezes T"
+      ],
+      "answer": 0,
+      "explanation": "Handy for update payloads."
+    },
+    {
+      "type": "predict",
+      "prompt": "What's PickedT?",
+      "language": "ts",
+      "code": "type T = { a: string; b: number; c: boolean };\ntype PickedT = Pick<T, 'a' | 'b'>;",
+      "options": [
+        "{ a: string; b: number; c: boolean }",
+        "{ a: string; b: number }",
+        "{ a: string }",
+        "{}"
+      ],
+      "answer": 1,
+      "explanation": "Pick keeps only the listed keys."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Omit<T, K>:",
+      "options": [
+        "Removes keys K from T",
+        "Adds keys K",
+        "Same as Pick",
+        "Deprecated"
+      ],
+      "answer": 0,
+      "explanation": "Complement of Pick."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Record<K, V>:",
+      "options": [
+        "Object type with keys K and values V",
+        "Array of V",
+        "Map class",
+        "Class shape"
+      ],
+      "answer": 0,
+      "explanation": "Record<'a' | 'b', number> = { a: number; b: number }"
+    },
+    {
+      "type": "mcq",
+      "prompt": "Required<T>:",
+      "options": [
+        "Makes optional props required",
+        "Reverse of Partial",
+        "Both of the above",
+        "Neither"
+      ],
+      "answer": 2,
+      "explanation": "Handy after you've validated all fields exist."
+    }
+  ]
+}

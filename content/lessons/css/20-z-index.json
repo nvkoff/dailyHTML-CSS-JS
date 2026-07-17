@@ -1,0 +1,80 @@
+{
+  "id": "css/z-index",
+  "track": "css",
+  "unit": "Positioning",
+  "order": 20,
+  "title": "Stacking & z-index",
+  "description": "How stacking contexts and z-index really decide who sits on top.",
+  "xp": 10,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "z-index applies only when:",
+      "options": [
+        "The element is a flex/grid child, OR positioned (not static)",
+        "Any element",
+        "Only absolute or fixed",
+        "Only when opacity < 1"
+      ],
+      "answer": 0,
+      "explanation": "z-index works on positioned elements AND flex/grid items."
+    },
+    {
+      "type": "mcq",
+      "prompt": "What creates a new STACKING CONTEXT?",
+      "options": [
+        "position: relative alone",
+        "opacity < 1, transform, filter, isolation: isolate, etc.",
+        "display: block",
+        "z-index: 0 without positioning"
+      ],
+      "answer": 1,
+      "explanation": "Lots of things: opacity<1, transform, filter, will-change, isolation, positioned + z-index, etc."
+    },
+    {
+      "type": "predict",
+      "prompt": "Which is on top?",
+      "language": "css",
+      "code": ".a { position: relative; z-index: 5; }\n.b { position: relative; z-index: 10; }\n\n<div class='a'>A</div>\n<div class='b'>B</div>",
+      "options": ["A", "B", "Tie", "Neither"],
+      "answer": 1,
+      "explanation": "Higher z-index wins within the same stacking context."
+    },
+    {
+      "type": "mcq",
+      "prompt": "A high z-index inside a low-parent stacking context can:",
+      "options": [
+        "Escape and beat outer siblings",
+        "Only compete inside its own context",
+        "Always win",
+        "Force reflow"
+      ],
+      "answer": 1,
+      "explanation": "Children can't outrank a sibling of their PARENT stacking context."
+    },
+    {
+      "type": "mcq",
+      "prompt": "What is isolation: isolate used for?",
+      "options": [
+        "Creates a fresh stacking context without other side effects",
+        "Isolates the element from the DOM",
+        "Removes z-index",
+        "Deprecated"
+      ],
+      "answer": 0,
+      "explanation": "Handy to trap z-index without adding transform or opacity."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Default z-index (auto):",
+      "options": [
+        "0",
+        "auto — participates in parent context, no new context",
+        "-1",
+        "10"
+      ],
+      "answer": 1,
+      "explanation": "auto ≠ 0. It means \"no new context, treat as 0 for ordering.\""
+    }
+  ]
+}

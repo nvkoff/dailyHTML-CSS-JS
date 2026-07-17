@@ -1,0 +1,62 @@
+{
+  "id": "ts/primitives",
+  "track": "ts",
+  "section": "Basics",
+  "sectionOrder": 1,
+  "unit": "Types",
+  "order": 1,
+  "title": "Primitives & annotations",
+  "description": "string, number, boolean, and how annotations look.",
+  "xp": 10,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "Type annotation syntax:",
+      "options": [
+        "let name: string = 'Ada';",
+        "let name = string:'Ada';",
+        "let name<string> = 'Ada';",
+        "let string name = 'Ada';"
+      ],
+      "answer": 0,
+      "explanation": "colon + type after the identifier."
+    },
+    {
+      "type": "predict",
+      "prompt": "What does TS infer for x?",
+      "language": "ts",
+      "code": "const x = 42;",
+      "options": ["number", "42 (literal type)", "string", "any"],
+      "answer": 1,
+      "explanation": "const gives a literal type; let would widen to number."
+    },
+    {
+      "type": "mcq",
+      "prompt": "any vs unknown:",
+      "options": [
+        "any disables all checks; unknown forces you to narrow before use",
+        "Same thing",
+        "unknown is deprecated",
+        "any is safer"
+      ],
+      "answer": 0,
+      "explanation": "Prefer unknown at boundaries — safer default."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Which is NOT a primitive type?",
+      "options": ["string", "number", "object", "boolean"],
+      "answer": 2,
+      "explanation": "Objects and arrays are not primitives (bigint and symbol are)."
+    },
+    {
+      "type": "predict",
+      "prompt": "Does this compile?",
+      "language": "ts",
+      "code": "let a: number = 1;\na = '2';",
+      "options": ["Yes", "No — string not assignable to number", "Only in strict", "Warns"],
+      "answer": 1,
+      "explanation": "Type mismatch at assignment."
+    }
+  ]
+}

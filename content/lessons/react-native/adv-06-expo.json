@@ -1,0 +1,61 @@
+{
+  "id": "react-native/expo",
+  "track": "react-native",
+  "section": "Advanced",
+  "sectionOrder": 2,
+  "unit": "Ecosystem",
+  "order": 16,
+  "title": "Expo vs bare RN",
+  "description": "Toolchains and trade-offs.",
+  "xp": 10,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "Expo is:",
+      "options": [
+        "A managed toolchain + native modules on top of React Native",
+        "A different framework",
+        "Only for prototypes",
+        "Deprecated"
+      ],
+      "answer": 0,
+      "explanation": "Expo Modules are usable in bare RN apps too."
+    },
+    {
+      "type": "mcq",
+      "prompt": "EAS Build:",
+      "options": [
+        "Cloud service to compile iOS/Android binaries without a local Mac/Android setup",
+        "In-browser bundler",
+        "Deprecated",
+        "Only for tests"
+      ],
+      "answer": 0,
+      "explanation": "Great if you don't want to maintain Xcode/Gradle."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Over-the-air updates via:",
+      "options": [
+        "EAS Update — ship JS/asset changes without an app store submission",
+        "Not possible",
+        "npm",
+        "Native module"
+      ],
+      "answer": 0,
+      "explanation": "Great for hotfixes; native changes still require store release."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Bare workflow:",
+      "options": [
+        "You own the ios/ and android/ folders — full flexibility",
+        "You can't customize native",
+        "It's the same as Expo Go",
+        "Deprecated"
+      ],
+      "answer": 0,
+      "explanation": "Prebuild with `expo prebuild` gives you a bare workflow that still uses Expo Modules."
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "id": "ts/unions",
+  "track": "ts",
+  "section": "Basics",
+  "sectionOrder": 1,
+  "unit": "Types",
+  "order": 3,
+  "title": "Union & literal types",
+  "description": "This-or-that types.",
+  "xp": 10,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "Union type:",
+      "options": ["string | number", "string & number", "string, number", "Union<string, number>"],
+      "answer": 0,
+      "explanation": "Pipe is 'or'; ampersand is intersection ('and')."
+    },
+    {
+      "type": "predict",
+      "prompt": "What can you safely call on x without narrowing?",
+      "language": "ts",
+      "code": "function f(x: string | number) {\n  // ?\n}",
+      "options": [
+        "x.toUpperCase()",
+        "x.toFixed()",
+        "x.toString() — shared by both",
+        "Nothing"
+      ],
+      "answer": 2,
+      "explanation": "Only members present on ALL union members are safe."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Literal union types are perfect for:",
+      "options": [
+        "Enum-like discriminated values: 'idle' | 'loading' | 'done'",
+        "Arrays",
+        "Classes",
+        "Numbers only"
+      ],
+      "answer": 0,
+      "explanation": "Great for state machines, log levels, sizes."
+    },
+    {
+      "type": "predict",
+      "prompt": "What's the type?",
+      "language": "ts",
+      "code": "type Dir = 'up' | 'down' | 'left' | 'right';\nconst d: Dir = 'up';",
+      "options": ["string", "Dir", "'up'", "Both Dir and 'up'"],
+      "answer": 3,
+      "explanation": "It's a Dir (narrowed to 'up' by inference)."
+    }
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "id": "css/grid-intro",
+  "track": "css",
+  "unit": "Grid",
+  "order": 17,
+  "title": "The grid container",
+  "description": "display: grid gives you 2D layout in rows and columns.",
+  "xp": 12,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "How do you make a container use CSS Grid?",
+      "options": ["display: grid", "layout: grid", "grid: on", "position: grid"],
+      "answer": 0,
+      "explanation": "display: grid turns direct children into grid items."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Which property defines the column tracks?",
+      "options": ["grid-columns", "grid-template-columns", "columns", "grid-cols"],
+      "answer": 1,
+      "explanation": "grid-template-columns defines column tracks; grid-template-rows defines rows."
+    },
+    {
+      "type": "predict",
+      "prompt": "How many columns does the grid have?",
+      "language": "css",
+      "code": ".grid {\n  display: grid;\n  grid-template-columns: 1fr 2fr 1fr;\n}",
+      "options": ["1", "2", "3", "It depends on content"],
+      "answer": 2,
+      "explanation": "Three track values → three columns. fr distributes free space."
+    },
+    {
+      "type": "mcq",
+      "prompt": "What does 1fr mean?",
+      "options": [
+        "1 fixed pixel",
+        "1 fraction of the leftover free space",
+        "1 rem",
+        "One full row"
+      ],
+      "answer": 1,
+      "explanation": "fr = fraction of available free space in the grid container."
+    },
+    {
+      "type": "predict",
+      "prompt": "Shortest way to get 4 equal columns?",
+      "language": "css",
+      "code": ".grid {\n  display: grid;\n  grid-template-columns: repeat(4, 1fr);\n}",
+      "options": ["Wrong", "4 equal columns", "1 column", "Auto sized"],
+      "answer": 1,
+      "explanation": "repeat(N, size) is shorthand for repeating track patterns."
+    },
+    {
+      "type": "mcq",
+      "prompt": "gap: 16px on a grid does what?",
+      "options": [
+        "Adds space between rows AND columns",
+        "Adds outer padding",
+        "Only affects rows",
+        "Only affects columns"
+      ],
+      "answer": 0,
+      "explanation": "gap shorthand sets row-gap and column-gap."
+    },
+    {
+      "type": "fix-bug",
+      "prompt": "Make .cards a 3-column grid with 12px gaps.",
+      "language": "css",
+      "broken": ".cards {\n  /* need display, columns, and gap */\n}",
+      "mustInclude": ["display", "grid", "grid-template-columns", "gap"],
+      "explanation": "display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;"
+    }
+  ]
+}

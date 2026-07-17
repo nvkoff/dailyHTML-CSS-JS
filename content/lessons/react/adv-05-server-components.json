@@ -1,0 +1,61 @@
+{
+  "id": "react/server-components",
+  "track": "react",
+  "section": "Advanced",
+  "sectionOrder": 3,
+  "unit": "Server",
+  "order": 19,
+  "title": "Server Components",
+  "description": "Async components that render on the server.",
+  "xp": 12,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "Server Components CAN:",
+      "options": [
+        "Fetch data directly, be async, and NOT ship JS to the client",
+        "Use useState",
+        "Use useEffect",
+        "Attach event handlers"
+      ],
+      "answer": 0,
+      "explanation": "They render only on the server; interactive parts become Client Components."
+    },
+    {
+      "type": "mcq",
+      "prompt": "You mark a Client Component with:",
+      "options": [
+        "'use client' at the top of the file",
+        "'client()' wrapper",
+        "@client decorator",
+        "You don't need to"
+      ],
+      "answer": 0,
+      "explanation": "Everything else is a Server Component by default in RSC frameworks."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Server Components can:",
+      "options": [
+        "Import and render Client Components",
+        "Only render other Server Components",
+        "Only render HTML strings",
+        "Nothing"
+      ],
+      "answer": 0,
+      "explanation": "But NOT the reverse: Client Components can't import Server Components."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Async Server Components let you:",
+      "options": [
+        "await data directly in the component",
+        "Nothing new",
+        "Break rules of hooks",
+        "Access window"
+      ],
+      "answer": 0,
+      "explanation": "No more useEffect + setState dance for initial data."
+    }
+  ]
+}

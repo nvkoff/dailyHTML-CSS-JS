@@ -1,0 +1,75 @@
+{
+  "id": "ts/interfaces-types",
+  "track": "ts",
+  "section": "Basics",
+  "sectionOrder": 1,
+  "unit": "Object shapes",
+  "order": 5,
+  "title": "interface vs type",
+  "description": "Two ways to describe object shapes.",
+  "xp": 12,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "Which can be REOPENED / merged?",
+      "options": [
+        "interface (declaration merging)",
+        "type",
+        "Both",
+        "Neither"
+      ],
+      "answer": 0,
+      "explanation": "Interfaces merge with the same name. Types don't."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Which can represent primitives or unions?",
+      "options": [
+        "type",
+        "interface",
+        "Both",
+        "Neither"
+      ],
+      "answer": 0,
+      "explanation": "type X = 'a' | 'b' — interfaces can't do that."
+    },
+    {
+      "type": "predict",
+      "prompt": "Is this valid?",
+      "language": "ts",
+      "code": "interface User { name: string }\ninterface User { age: number }",
+      "options": [
+        "Yes — merged: { name; age }",
+        "Duplicate error",
+        "Only first wins",
+        "Only second wins"
+      ],
+      "answer": 0,
+      "explanation": "Merging can be useful (module augmentation), risky in app code."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Extending:",
+      "options": [
+        "interface B extends A vs type B = A & { … }",
+        "Only extends works",
+        "Only & works",
+        "Neither"
+      ],
+      "answer": 0,
+      "explanation": "Both compose — different syntax."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Recommendation:",
+      "options": [
+        "Use type by default; reach for interface when you need declaration merging or clean OO extension",
+        "Interface always",
+        "Type always",
+        "Depends on the file"
+      ],
+      "answer": 0,
+      "explanation": "Community leans on type for flexibility; interface for library shapes."
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "id": "redux/middleware",
+  "track": "redux",
+  "section": "Basics",
+  "sectionOrder": 1,
+  "unit": "Middleware",
+  "order": 6,
+  "title": "Middleware",
+  "description": "Intercept actions before they reach reducers.",
+  "xp": 10,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "Middleware sits between:",
+      "options": [
+        "dispatch(action) and the reducer",
+        "The store and the DB",
+        "React and the DOM",
+        "Nothing"
+      ],
+      "answer": 0,
+      "explanation": "Chain: dispatch → middleware1 → middleware2 → reducer"
+    },
+    {
+      "type": "mcq",
+      "prompt": "redux-thunk enables:",
+      "options": [
+        "Dispatching FUNCTIONS instead of plain actions — for async logic",
+        "Type safety",
+        "Time travel",
+        "Nothing"
+      ],
+      "answer": 0,
+      "explanation": "dispatch(async (dispatch, getState) => { … })"
+    },
+    {
+      "type": "mcq",
+      "prompt": "Modern go-to for complex async / cancellation:",
+      "options": [
+        "redux-saga (generator-based) OR RTK Query for data fetching",
+        "Only thunk",
+        "None available",
+        "GraphQL"
+      ],
+      "answer": 0,
+      "explanation": "Sagas for orchestration, RTK Query for data fetching."
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "id": "redux/query-tags",
+  "track": "redux",
+  "section": "RTK Query",
+  "sectionOrder": 3,
+  "unit": "Data fetching",
+  "order": 13,
+  "title": "Tags & invalidation",
+  "description": "Refetch after mutations, safely.",
+  "xp": 12,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "providesTags on a query does what?",
+      "options": [
+        "Labels the cached data so mutations can invalidate it",
+        "Nothing",
+        "Adds a header",
+        "Renames endpoints"
+      ],
+      "answer": 0,
+      "explanation": "e.g. providesTags: [{ type: 'Todo', id: 'LIST' }]"
+    },
+    {
+      "type": "mcq",
+      "prompt": "invalidatesTags on a mutation:",
+      "options": [
+        "Marks tagged caches stale so RTK Query refetches",
+        "Deletes the store",
+        "Only logs",
+        "Nothing"
+      ],
+      "answer": 0,
+      "explanation": "Elegant sync pattern without manual dispatches."
+    },
+    {
+      "type": "mcq",
+      "prompt": "For optimistic updates:",
+      "options": [
+        "onQueryStarted + updateQueryData",
+        "Redo the store",
+        "Only refetch",
+        "Not supported"
+      ],
+      "answer": 0,
+      "explanation": "Update the cache immediately, roll back on error."
+    }
+  ]
+}

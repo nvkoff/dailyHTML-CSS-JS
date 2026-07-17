@@ -1,0 +1,89 @@
+{
+  "id": "react/useeffect",
+  "track": "react",
+  "section": "Hooks",
+  "sectionOrder": 2,
+  "unit": "Effects",
+  "order": 9,
+  "title": "useEffect",
+  "description": "Side effects, cleanup, and the dependency array.",
+  "xp": 14,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "useEffect runs:",
+      "options": [
+        "During render",
+        "After React commits changes to the DOM",
+        "Before render",
+        "Only in production"
+      ],
+      "answer": 1,
+      "explanation": "That's why you can safely use the DOM in effects."
+    },
+    {
+      "type": "predict",
+      "prompt": "How often does the effect run?",
+      "language": "jsx",
+      "code": "useEffect(() => { console.log('run'); }, []);",
+      "options": [
+        "Every render",
+        "Once on mount (StrictMode dev: twice)",
+        "Never",
+        "Only on unmount"
+      ],
+      "answer": 1,
+      "explanation": "Empty deps = mount only. StrictMode double-invokes in dev to check cleanup."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Cleanup function runs when:",
+      "options": [
+        "The component unmounts OR before the next effect run",
+        "Only on unmount",
+        "Never",
+        "On every render"
+      ],
+      "answer": 0,
+      "explanation": "Cleanup lets you cancel subscriptions/timers cleanly."
+    },
+    {
+      "type": "predict",
+      "prompt": "What's the bug?",
+      "language": "jsx",
+      "code": "useEffect(() => {\n  fetch('/api').then(r => r.json()).then(setData);\n});",
+      "options": [
+        "None",
+        "Missing dep array — refetches on every render",
+        "fetch is deprecated",
+        "setData throws"
+      ],
+      "answer": 1,
+      "explanation": "Add [] (or actual deps). Otherwise it's an infinite loop with each state update."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Which is a bad use of useEffect?",
+      "options": [
+        "Deriving state from props — do it in render instead",
+        "Fetching",
+        "Subscribing",
+        "DOM measurements"
+      ],
+      "answer": 0,
+      "explanation": "Don't sync state to props with effects; compute in render."
+    },
+    {
+      "type": "mcq",
+      "prompt": "For measurements before paint, prefer:",
+      "options": [
+        "useEffect",
+        "useLayoutEffect",
+        "useMemo",
+        "useTransition"
+      ],
+      "answer": 1,
+      "explanation": "useLayoutEffect runs synchronously after DOM changes, before paint."
+    }
+  ]
+}

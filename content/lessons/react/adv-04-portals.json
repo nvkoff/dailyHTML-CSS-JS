@@ -1,0 +1,49 @@
+{
+  "id": "react/portals",
+  "track": "react",
+  "section": "Advanced",
+  "sectionOrder": 3,
+  "unit": "Rendering",
+  "order": 18,
+  "title": "Portals",
+  "description": "Render into a DOM node outside the parent's tree.",
+  "xp": 10,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "createPortal renders children:",
+      "options": [
+        "Into a DOM node you pass — while preserving the React parent tree",
+        "Into the root only",
+        "Into the head",
+        "Nowhere"
+      ],
+      "answer": 0,
+      "explanation": "Perfect for modals/tooltips that must escape overflow: hidden ancestors."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Events from portal children:",
+      "options": [
+        "Bubble through the REACT tree, not the DOM tree",
+        "Don't bubble",
+        "Only bubble to document",
+        "Never fire"
+      ],
+      "answer": 0,
+      "explanation": "Follow React's virtual tree — click still bubbles to parent handlers."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Use portals for:",
+      "options": [
+        "Modals, tooltips, toasts, floating menus",
+        "Every component",
+        "Only server rendering",
+        "Async state"
+      ],
+      "answer": 0,
+      "explanation": "Anything that must escape stacking context / overflow constraints."
+    }
+  ]
+}

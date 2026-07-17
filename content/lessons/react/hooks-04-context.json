@@ -1,0 +1,75 @@
+{
+  "id": "react/context",
+  "track": "react",
+  "section": "Hooks",
+  "sectionOrder": 2,
+  "unit": "Context",
+  "order": 12,
+  "title": "Context",
+  "description": "Skip props with useContext — and its trade-offs.",
+  "xp": 12,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "Context is best for:",
+      "options": [
+        "Values needed by many components at different depths (theme, user, i18n)",
+        "All state",
+        "Frequently changing UI state",
+        "Nothing"
+      ],
+      "answer": 0,
+      "explanation": "Rarely-changing global-ish values are the sweet spot."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Downside of putting everything in one context:",
+      "options": [
+        "Every consumer re-renders when ANY part of the value changes",
+        "It's illegal",
+        "It's faster",
+        "Nothing"
+      ],
+      "answer": 0,
+      "explanation": "Split contexts by change frequency."
+    },
+    {
+      "type": "mcq",
+      "prompt": "In React 19, providers:",
+      "options": [
+        "<Context.Provider value=... > OR <Context value=... > directly",
+        "Only Context.Provider",
+        "Are deprecated",
+        "Don't need value"
+      ],
+      "answer": 0,
+      "explanation": "React 19 allows using the Context object directly as the provider."
+    },
+    {
+      "type": "predict",
+      "prompt": "Consuming context:",
+      "language": "jsx",
+      "code": "const theme = useContext(ThemeCtx);",
+      "options": [
+        "Reads the CURRENT value from the nearest provider above",
+        "Reads only initial value",
+        "Reads asynchronously",
+        "Returns a Promise"
+      ],
+      "answer": 0,
+      "explanation": "Component subscribes and re-renders when the provider's value changes."
+    },
+    {
+      "type": "mcq",
+      "prompt": "React 19 also introduces:",
+      "options": [
+        "use(context) — a hook that works in more places, including conditionally",
+        "useCtx",
+        "useContextStore",
+        "Nothing new"
+      ],
+      "answer": 0,
+      "explanation": "use() reads a context or a Promise; can be called inside conditions/loops."
+    }
+  ]
+}

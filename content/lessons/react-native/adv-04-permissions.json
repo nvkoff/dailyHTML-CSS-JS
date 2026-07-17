@@ -1,0 +1,49 @@
+{
+  "id": "react-native/permissions",
+  "track": "react-native",
+  "section": "Advanced",
+  "sectionOrder": 2,
+  "unit": "Native",
+  "order": 14,
+  "title": "Permissions",
+  "description": "Camera, location, notifications — ask nicely.",
+  "xp": 10,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "Where do you declare permissions?",
+      "options": [
+        "Info.plist (iOS) + AndroidManifest.xml — OR expo config plugins",
+        "In your React code only",
+        "package.json",
+        "Automatic"
+      ],
+      "answer": 0,
+      "explanation": "Missing declarations = App Store rejection or Android crashes."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Runtime prompts:",
+      "options": [
+        "Ask right before the feature is used — with context",
+        "At app launch always",
+        "Never ask",
+        "During install"
+      ],
+      "answer": 0,
+      "explanation": "Also handle 'denied' with a helpful screen linking to settings."
+    },
+    {
+      "type": "mcq",
+      "prompt": "iOS permission strings must:",
+      "options": [
+        "Explain WHY you need the data (Apple review checks this)",
+        "Be short",
+        "Not exist",
+        "Only be in English"
+      ],
+      "answer": 0,
+      "explanation": "Vague strings cause rejection."
+    }
+  ]
+}

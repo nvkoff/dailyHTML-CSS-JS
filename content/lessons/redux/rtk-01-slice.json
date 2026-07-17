@@ -1,0 +1,63 @@
+{
+  "id": "redux/slice",
+  "track": "redux",
+  "section": "Redux Toolkit",
+  "sectionOrder": 2,
+  "unit": "Toolkit",
+  "order": 8,
+  "title": "createSlice",
+  "description": "The RTK way to write reducers.",
+  "xp": 14,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "createSlice generates:",
+      "options": [
+        "Action creators AND a reducer from a single config object",
+        "Only the reducer",
+        "Only action creators",
+        "Selectors only"
+      ],
+      "answer": 0,
+      "explanation": "One place for a feature's state logic."
+    },
+    {
+      "type": "predict",
+      "prompt": "Is this OK inside a slice's reducer?",
+      "language": "js",
+      "code": "increment(state) {\n  state.value += 1;\n}",
+      "options": [
+        "No — mutation",
+        "Yes — Immer produces immutable updates from mutable-looking code",
+        "Only if you return",
+        "Only in tests"
+      ],
+      "answer": 1,
+      "explanation": "createSlice reducers run inside an Immer producer."
+    },
+    {
+      "type": "mcq",
+      "prompt": "The generated action's type name is:",
+      "options": [
+        "sliceName/reducerName (e.g., 'counter/increment')",
+        "SCREAMING_SNAKE always",
+        "Random",
+        "Optional"
+      ],
+      "answer": 0,
+      "explanation": "Automatic namespacing across slices."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Export from a slice:",
+      "options": [
+        "slice.actions, slice.reducer, and optionally selectors",
+        "Only reducer",
+        "Only actions",
+        "Nothing"
+      ],
+      "answer": 0,
+      "explanation": "Wire the reducer into configureStore, use actions in components."
+    }
+  ]
+}

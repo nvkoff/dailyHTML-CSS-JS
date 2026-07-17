@@ -1,0 +1,49 @@
+{
+  "id": "redux/devtools",
+  "track": "redux",
+  "section": "Basics",
+  "sectionOrder": 1,
+  "unit": "Tooling",
+  "order": 7,
+  "title": "Redux DevTools",
+  "description": "Time-travel debugging.",
+  "xp": 8,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "Redux DevTools lets you:",
+      "options": [
+        "Inspect state, replay actions, and time-travel between states",
+        "Only inspect state",
+        "Add middleware",
+        "Nothing"
+      ],
+      "answer": 0,
+      "explanation": "Powered by the browser extension + a redux enhancer."
+    },
+    {
+      "type": "mcq",
+      "prompt": "In RTK, DevTools are:",
+      "options": [
+        "Enabled by default in development",
+        "Off by default",
+        "Not supported",
+        "Only in production"
+      ],
+      "answer": 0,
+      "explanation": "configureStore wires it up for you."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Why not enable DevTools in production?",
+      "options": [
+        "Exposes state, adds overhead",
+        "It's illegal",
+        "It's the same as dev",
+        "No reason"
+      ],
+      "answer": 0,
+      "explanation": "Sensitive state visible in the panel."
+    }
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "id": "react-native/textinput",
+  "track": "react-native",
+  "section": "Basics",
+  "sectionOrder": 1,
+  "unit": "Forms",
+  "order": 8,
+  "title": "TextInput",
+  "description": "Inputs and the keyboard.",
+  "xp": 10,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "Controlled TextInput:",
+      "options": [
+        "value + onChangeText",
+        "value + onChange only",
+        "defaultValue",
+        "input"
+      ],
+      "answer": 0,
+      "explanation": "onChangeText gives you the raw string."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Numeric keyboard:",
+      "options": [
+        "keyboardType='numeric'",
+        "type='number'",
+        "inputMode='num'",
+        "keyType"
+      ],
+      "answer": 0,
+      "explanation": "Also 'email-address', 'phone-pad', etc."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Multi-line:",
+      "options": [
+        "multiline={true}",
+        "type='textarea'",
+        "rows={4}",
+        "as='textarea'"
+      ],
+      "answer": 0,
+      "explanation": "Then set height/style."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Dismiss the keyboard on tap outside:",
+      "options": [
+        "Wrap with Keyboard.dismiss() in a Pressable / TouchableWithoutFeedback",
+        "Automatic",
+        "Not possible",
+        "keyboardHide()"
+      ],
+      "answer": 0,
+      "explanation": "Common pattern for forms — otherwise the keyboard sticks around."
+    },
+    {
+      "type": "mcq",
+      "prompt": "For form layout that avoids being covered by keyboard:",
+      "options": [
+        "KeyboardAvoidingView",
+        "SafeAreaView only",
+        "AutoResize",
+        "Nothing needed"
+      ],
+      "answer": 0,
+      "explanation": "Pushes content up when the keyboard opens."
+    }
+  ]
+}

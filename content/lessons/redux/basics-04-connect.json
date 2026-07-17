@@ -1,0 +1,49 @@
+{
+  "id": "redux/connect",
+  "track": "redux",
+  "section": "Basics",
+  "sectionOrder": 1,
+  "unit": "React bindings",
+  "order": 4,
+  "title": "Legacy connect()",
+  "description": "The pre-hooks API you'll still see.",
+  "xp": 10,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "connect(mapStateToProps, mapDispatchToProps)(Component):",
+      "options": [
+        "HOC that injects state + dispatchers as props",
+        "Deprecated",
+        "Only for classes",
+        "Alias for useSelector"
+      ],
+      "answer": 0,
+      "explanation": "Prefer hooks in new code, but you'll see connect in legacy codebases."
+    },
+    {
+      "type": "mcq",
+      "prompt": "mapStateToProps signature:",
+      "options": [
+        "(state, ownProps?) => ({ prop1: state.x })",
+        "(dispatch) => …",
+        "(props) => …",
+        "() => state"
+      ],
+      "answer": 0,
+      "explanation": "Maps state → props for the wrapped component."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Passing an object to mapDispatchToProps:",
+      "options": [
+        "connect(mapState, { addTodo, removeTodo }) — wraps each in dispatch(actionCreator(...args))",
+        "Only functions are allowed",
+        "Same as passing null",
+        "Illegal"
+      ],
+      "answer": 0,
+      "explanation": "Shortcut for the common case."
+    }
+  ]
+}

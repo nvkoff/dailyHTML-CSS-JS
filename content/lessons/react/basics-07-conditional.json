@@ -1,0 +1,77 @@
+{
+  "id": "react/conditional",
+  "track": "react",
+  "section": "Basics",
+  "sectionOrder": 1,
+  "unit": "Rendering",
+  "order": 7,
+  "title": "Conditional rendering",
+  "description": "&&, ternary, and returning early.",
+  "xp": 10,
+  "questions": [
+    {
+      "type": "predict",
+      "prompt": "What renders when count is 0?",
+      "language": "jsx",
+      "code": "return <div>{count && <Cart />}</div>",
+      "options": [
+        "Empty div",
+        "0 shows up in the div",
+        "<Cart />",
+        "Error"
+      ],
+      "answer": 1,
+      "explanation": "0 is truthy for JSX rendering. Use count > 0 && ... to be safe."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Ternary for either/or:",
+      "options": [
+        "{isOpen ? <Open /> : <Closed />}",
+        "{isOpen == true && <Open /> || <Closed />}",
+        "{if (isOpen) <Open /> else <Closed />}",
+        "Ternary can't be used"
+      ],
+      "answer": 0,
+      "explanation": "Ternary is the cleanest either/or in JSX."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Early return pattern:",
+      "options": [
+        "if (!user) return null; then render normally",
+        "Not allowed",
+        "return undefined only",
+        "return '';"
+      ],
+      "answer": 0,
+      "explanation": "Common way to guard components on missing data."
+    },
+    {
+      "type": "predict",
+      "prompt": "What renders?",
+      "language": "jsx",
+      "code": "return items.length > 0\n  ? <List items={items} />\n  : <p>No items</p>;",
+      "options": [
+        "Always <List>",
+        "<List> if items exist, else <p>No items</p>",
+        "Always <p>No items</p>",
+        "Both"
+      ],
+      "answer": 1,
+      "explanation": "Classic pattern for empty states."
+    },
+    {
+      "type": "mcq",
+      "prompt": "For complex logic, prefer:",
+      "options": [
+        "Nested ternaries",
+        "Extract helper components or use early returns",
+        "One giant JSX expression",
+        "Store JSX in strings"
+      ],
+      "answer": 1,
+      "explanation": "Readable > clever. Extract when JSX branches get long."
+    }
+  ]
+}

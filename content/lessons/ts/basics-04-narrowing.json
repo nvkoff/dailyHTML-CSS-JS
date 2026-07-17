@@ -1,0 +1,55 @@
+{
+  "id": "ts/narrowing",
+  "track": "ts",
+  "section": "Basics",
+  "sectionOrder": 1,
+  "unit": "Narrowing",
+  "order": 4,
+  "title": "Narrowing",
+  "description": "typeof, in, and control flow analysis.",
+  "xp": 12,
+  "questions": [
+    {
+      "type": "predict",
+      "prompt": "What's x's type inside the block?",
+      "language": "ts",
+      "code": "function f(x: string | number) {\n  if (typeof x === 'string') {\n    // ?\n  }\n}",
+      "options": ["string | number", "string", "number", "unknown"],
+      "answer": 1,
+      "explanation": "typeof narrows the union to string."
+    },
+    {
+      "type": "mcq",
+      "prompt": "The 'in' operator narrows by:",
+      "options": [
+        "Checking presence of a property key",
+        "Iterating",
+        "Casting",
+        "Nothing"
+      ],
+      "answer": 0,
+      "explanation": "if ('side' in obj) — TS narrows to the branch that has 'side'."
+    },
+    {
+      "type": "predict",
+      "prompt": "What logs?",
+      "language": "ts",
+      "code": "function f(x: number | null) {\n  if (!x) return;\n  console.log(x.toFixed(2));\n}\nf(0);",
+      "options": ["'0.00'", "Nothing", "Throws", "'null'"],
+      "answer": 1,
+      "explanation": "0 is falsy — the guard returns before the log. Classic bug."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Discriminated union pattern:",
+      "options": [
+        "Each variant has a common 'kind' literal — switch on it",
+        "Use any and hope",
+        "Union of classes",
+        "It's not a real pattern"
+      ],
+      "answer": 0,
+      "explanation": "type Shape = { kind: 'square', size: number } | { kind: 'circle', r: number }"
+    }
+  ]
+}

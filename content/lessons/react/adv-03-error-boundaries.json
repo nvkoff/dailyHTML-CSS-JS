@@ -1,0 +1,61 @@
+{
+  "id": "react/error-boundaries",
+  "track": "react",
+  "section": "Advanced",
+  "sectionOrder": 3,
+  "unit": "Errors",
+  "order": 17,
+  "title": "Error boundaries",
+  "description": "Catch render errors and show fallback UI.",
+  "xp": 10,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "Error boundaries catch errors in:",
+      "options": [
+        "Render, lifecycle, and constructors of the tree below",
+        "Event handlers (use try/catch there)",
+        "Setup files",
+        "Nothing"
+      ],
+      "answer": 0,
+      "explanation": "Event handlers still need normal try/catch."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Error boundary components must be:",
+      "options": [
+        "Class components with componentDidCatch OR getDerivedStateFromError",
+        "Function components with try/catch",
+        "Any function",
+        "Server components"
+      ],
+      "answer": 0,
+      "explanation": "Function-component error boundaries don't exist yet. Wrap with react-error-boundary or a class."
+    },
+    {
+      "type": "mcq",
+      "prompt": "In Next.js, error.tsx acts as:",
+      "options": [
+        "An error boundary for the route",
+        "A test file",
+        "A global CSS file",
+        "Not real"
+      ],
+      "answer": 0,
+      "explanation": "Route-level error UI without needing your own class boundary."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Error boundaries should be:",
+      "options": [
+        "Placed strategically (per route/section) to isolate failures",
+        "Only at the app root",
+        "Around every component",
+        "Not used"
+      ],
+      "answer": 0,
+      "explanation": "Balance blast radius: enough to isolate, not so many that logs get noisy."
+    }
+  ]
+}

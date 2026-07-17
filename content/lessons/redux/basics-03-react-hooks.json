@@ -1,0 +1,61 @@
+{
+  "id": "redux/react-hooks",
+  "track": "redux",
+  "section": "Basics",
+  "sectionOrder": 1,
+  "unit": "React bindings",
+  "order": 3,
+  "title": "useSelector & useDispatch",
+  "description": "Connect Redux to React with hooks.",
+  "xp": 12,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "useSelector reads:",
+      "options": [
+        "A slice of state via a selector function",
+        "The entire state always",
+        "The store object",
+        "Actions"
+      ],
+      "answer": 0,
+      "explanation": "const count = useSelector(s => s.counter.value)"
+    },
+    {
+      "type": "mcq",
+      "prompt": "Component re-renders when:",
+      "options": [
+        "The selector's return value changes by reference (===)",
+        "The whole state changes",
+        "Any action fires",
+        "Only manually"
+      ],
+      "answer": 0,
+      "explanation": "Non-primitive returns need shallowEqual or memoized selectors to skip renders."
+    },
+    {
+      "type": "mcq",
+      "prompt": "useDispatch:",
+      "options": [
+        "Returns the store's dispatch — call it with actions",
+        "Returns state",
+        "Sends an HTTP request",
+        "Nothing"
+      ],
+      "answer": 0,
+      "explanation": "const dispatch = useDispatch(); dispatch({ type: … })"
+    },
+    {
+      "type": "mcq",
+      "prompt": "The <Provider store={store}> wrapper:",
+      "options": [
+        "Makes the store available via context to hooks",
+        "Fetches data",
+        "Optional",
+        "Only for class components"
+      ],
+      "answer": 0,
+      "explanation": "Wrap your app root."
+    }
+  ]
+}

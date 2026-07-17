@@ -1,0 +1,75 @@
+{
+  "id": "react/custom-hooks",
+  "track": "react",
+  "section": "Hooks",
+  "sectionOrder": 2,
+  "unit": "Custom",
+  "order": 14,
+  "title": "Custom hooks",
+  "description": "Extract stateful logic into reusable functions.",
+  "xp": 12,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "A custom hook must:",
+      "options": [
+        "Be a function whose name starts with 'use'",
+        "Be a class",
+        "Live in a specific folder",
+        "Return JSX"
+      ],
+      "answer": 0,
+      "explanation": "Convention that also enables the linter's hook rules."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Rules of hooks:",
+      "options": [
+        "Only call at the top level; only inside React functions or other hooks",
+        "Anywhere",
+        "Only in event handlers",
+        "Only in useEffect"
+      ],
+      "answer": 0,
+      "explanation": "No conditional / loop calls — order matters for React's tracking."
+    },
+    {
+      "type": "predict",
+      "prompt": "Does this hook share state between components?",
+      "language": "jsx",
+      "code": "function useCounter() {\n  const [n, setN] = useState(0);\n  return { n, inc: () => setN(x => x + 1) };\n}",
+      "options": [
+        "Yes",
+        "No — each caller gets its OWN state instance",
+        "Only on mount",
+        "Only across siblings"
+      ],
+      "answer": 1,
+      "explanation": "Hooks are call-site local. Share via context or a store."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Custom hooks return:",
+      "options": [
+        "Anything you want (object, array, tuple)",
+        "Only JSX",
+        "Only functions",
+        "Only state"
+      ],
+      "answer": 0,
+      "explanation": "By convention, mirror useState's [value, setter] when it fits."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Which is NOT a good custom hook?",
+      "options": [
+        "useDebouncedValue",
+        "useLocalStorage",
+        "useTitle",
+        "useHtmlString — returning JSX-shaped strings"
+      ],
+      "answer": 3,
+      "explanation": "Return plain data or functions. Rendering belongs in components."
+    }
+  ]
+}

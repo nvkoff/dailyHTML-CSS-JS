@@ -1,0 +1,70 @@
+{
+  "id": "css/typography",
+  "track": "css",
+  "unit": "Design tokens",
+  "order": 25,
+  "title": "Typography",
+  "description": "Font sizing, line-height, and readable text.",
+  "xp": 10,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "Recommended body line-height for readability is roughly:",
+      "options": ["1", "1.2", "1.5–1.7", "3"],
+      "answer": 2,
+      "explanation": "1.5-1.7 is the sweet spot for paragraphs. Headings can be tighter."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Unit that respects user font-size preferences:",
+      "options": ["px", "rem", "vw only", "cm"],
+      "answer": 1,
+      "explanation": "rem = root em. If the user boosts their default size, everything scales."
+    },
+    {
+      "type": "predict",
+      "prompt": "What's the computed font-size on .child?",
+      "language": "css",
+      "code": ".parent { font-size: 20px; }\n.child { font-size: 0.5em; }",
+      "options": ["10px", "20px", "0.5px", "16px"],
+      "answer": 0,
+      "explanation": "em is relative to the parent's font-size: 0.5 * 20 = 10px."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Which pair produces a fluid font size?",
+      "options": [
+        "font-size: 18px",
+        "font-size: clamp(1rem, 2vw, 1.5rem)",
+        "font-size: 100%",
+        "font-size: inherit"
+      ],
+      "answer": 1,
+      "explanation": "clamp(min, ideal, max) makes text scale within safe bounds."
+    },
+    {
+      "type": "mcq",
+      "prompt": "System font stack starts with:",
+      "options": [
+        "-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif",
+        "Arial",
+        "Comic Sans",
+        "Roboto only"
+      ],
+      "answer": 0,
+      "explanation": "System stacks let each OS pick its native UI font — fast and familiar."
+    },
+    {
+      "type": "mcq",
+      "prompt": "font-display: swap tells the browser to:",
+      "options": [
+        "Wait for the custom font to load",
+        "Show fallback text immediately, swap when the font arrives",
+        "Never swap",
+        "Only load on hover"
+      ],
+      "answer": 1,
+      "explanation": "swap prevents invisible text (FOIT) while custom fonts load."
+    }
+  ]
+}

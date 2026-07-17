@@ -1,0 +1,49 @@
+{
+  "id": "redux/configure-store",
+  "track": "redux",
+  "section": "Redux Toolkit",
+  "sectionOrder": 2,
+  "unit": "Toolkit",
+  "order": 9,
+  "title": "configureStore",
+  "description": "Store setup made sane.",
+  "xp": 10,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "configureStore vs vanilla createStore:",
+      "options": [
+        "Applies good defaults: DevTools, thunk, and useful runtime checks",
+        "Faster",
+        "Same thing",
+        "Deprecated"
+      ],
+      "answer": 0,
+      "explanation": "Use configureStore. Avoid the manual boilerplate."
+    },
+    {
+      "type": "mcq",
+      "prompt": "The reducer field accepts:",
+      "options": [
+        "A single reducer OR an object map (auto-combined)",
+        "Only combineReducers()",
+        "Only classes",
+        "Nothing"
+      ],
+      "answer": 0,
+      "explanation": "{ counter: counterReducer, todos: todosReducer } — no combineReducers needed."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Adding middleware:",
+      "options": [
+        "middleware: (getDefault) => getDefault().concat(myMw)",
+        "middleware: [myMw]",
+        "middleware: myMw",
+        "Only via createStore"
+      ],
+      "answer": 0,
+      "explanation": "Keeps the default middleware (thunk, immutability check) and adds yours."
+    }
+  ]
+}

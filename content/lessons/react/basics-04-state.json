@@ -1,0 +1,81 @@
+{
+  "id": "react/state",
+  "track": "react",
+  "section": "Basics",
+  "sectionOrder": 1,
+  "unit": "State",
+  "order": 4,
+  "title": "useState",
+  "description": "Local state, updater functions, and immutability.",
+  "xp": 14,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "useState returns:",
+      "options": [
+        "A single value",
+        "[value, setter]",
+        "{ value, set }",
+        "A promise"
+      ],
+      "answer": 1,
+      "explanation": "Array destructuring: const [count, setCount] = useState(0)."
+    },
+    {
+      "type": "predict",
+      "prompt": "After 3 clicks, what is count?",
+      "language": "jsx",
+      "code": "const [count, setCount] = useState(0);\nfunction click() {\n  setCount(count + 1);\n  setCount(count + 1);\n  setCount(count + 1);\n}",
+      "options": ["1", "2", "3", "6"],
+      "answer": 0,
+      "explanation": "All three read the same stale count. Use the updater form to increment reliably."
+    },
+    {
+      "type": "predict",
+      "prompt": "Now what?",
+      "language": "jsx",
+      "code": "const [count, setCount] = useState(0);\nfunction click() {\n  setCount(c => c + 1);\n  setCount(c => c + 1);\n  setCount(c => c + 1);\n}",
+      "options": ["1", "2", "3", "6"],
+      "answer": 2,
+      "explanation": "Updater form uses the latest queued value each time — +3 per click."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Objects in state should be updated by:",
+      "options": [
+        "Mutating and calling setter",
+        "Creating a NEW object (spread) and calling setter",
+        "Any object works",
+        "Only useReducer"
+      ],
+      "answer": 1,
+      "explanation": "React compares by reference. Mutation → no re-render."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Passing a function to useState:",
+      "options": [
+        "Lazy initializer — runs once on mount",
+        "Ignored",
+        "Runs every render",
+        "Throws"
+      ],
+      "answer": 0,
+      "explanation": "useState(() => heavyCompute()) avoids re-running the initializer."
+    },
+    {
+      "type": "predict",
+      "prompt": "When does state update take effect?",
+      "language": "jsx",
+      "code": "function handle() {\n  setCount(1);\n  console.log(count);\n}",
+      "options": [
+        "Prints 1",
+        "Prints current (pre-update) value — state is batched, updated next render",
+        "Prints undefined",
+        "Throws"
+      ],
+      "answer": 1,
+      "explanation": "Set doesn't mutate the current variable — the next render sees the new value."
+    }
+  ]
+}

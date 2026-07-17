@@ -1,0 +1,70 @@
+{
+  "id": "react/useref",
+  "track": "react",
+  "section": "Hooks",
+  "sectionOrder": 2,
+  "unit": "Refs",
+  "order": 11,
+  "title": "useRef",
+  "description": "DOM refs and mutable values that survive renders.",
+  "xp": 12,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "useRef gives you:",
+      "options": [
+        "A mutable .current — mutating it doesn't trigger re-render",
+        "State",
+        "A DOM node only",
+        "A promise"
+      ],
+      "answer": 0,
+      "explanation": "For values that persist without causing renders (timers, prev value, DOM)."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Attaching a ref to a DOM element:",
+      "options": [
+        "<input ref={inputRef} />",
+        "<input onRef={inputRef} />",
+        "<input :ref={inputRef} />",
+        "Not possible"
+      ],
+      "answer": 0,
+      "explanation": "React will assign the DOM node to inputRef.current after commit."
+    },
+    {
+      "type": "predict",
+      "prompt": "Does the UI update?",
+      "language": "jsx",
+      "code": "const r = useRef(0);\nfunction click() { r.current++; }",
+      "options": ["Yes", "No — mutating a ref doesn't re-render", "Once", "Error"],
+      "answer": 1,
+      "explanation": "Use state if you need to render. Refs are silent."
+    },
+    {
+      "type": "mcq",
+      "prompt": "When to use useRef instead of useState:",
+      "options": [
+        "Value used only in handlers/effects, not in JSX",
+        "Always",
+        "Never",
+        "For strings"
+      ],
+      "answer": 0,
+      "explanation": "Refs skip renders and are perfect for latest-value tracking."
+    },
+    {
+      "type": "mcq",
+      "prompt": "React 19 forwarding ref:",
+      "options": [
+        "ref is now a normal prop for function components — no forwardRef needed",
+        "Still requires forwardRef",
+        "Refs are deprecated",
+        "Only class components can hold refs"
+      ],
+      "answer": 0,
+      "explanation": "Modern React lets you accept `ref` directly."
+    }
+  ]
+}

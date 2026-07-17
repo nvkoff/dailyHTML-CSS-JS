@@ -1,0 +1,98 @@
+{
+  "id": "react/jsx",
+  "track": "react",
+  "section": "Basics",
+  "sectionOrder": 1,
+  "unit": "JSX",
+  "order": 1,
+  "title": "JSX fundamentals",
+  "description": "What JSX compiles to and its gotchas.",
+  "xp": 12,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "JSX compiles to:",
+      "options": [
+        "HTML strings",
+        "React.createElement calls (or jsx() with the new transform)",
+        "Web components",
+        "Nothing — browsers run it directly"
+      ],
+      "answer": 1,
+      "explanation": "JSX is syntactic sugar. Browsers never see JSX — bundlers transform it."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Why do we write className instead of class?",
+      "options": [
+        "class is a reserved word in JavaScript",
+        "React doesn't support class",
+        "It's shorter",
+        "It's for styling only"
+      ],
+      "answer": 0,
+      "explanation": "class collides with the ES class keyword, so JSX renamed it."
+    },
+    {
+      "type": "predict",
+      "prompt": "Does this render?",
+      "language": "jsx",
+      "code": "function App() {\n  return (\n    <h1>Hi</h1>\n    <p>There</p>\n  );\n}",
+      "options": [
+        "Yes, both",
+        "No — a component must return a single root (use fragment or wrapper)",
+        "Only <h1>",
+        "Only <p>"
+      ],
+      "answer": 1,
+      "explanation": "Wrap in <>...</> or a div."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Fragment shortcut:",
+      "options": ["<React.Fragment>", "<>...</>", "<Frag>", "All of the above"],
+      "answer": 3,
+      "explanation": "Both work. Use <> when you don't need to pass a key."
+    },
+    {
+      "type": "predict",
+      "prompt": "Which of these will render?",
+      "language": "jsx",
+      "code": "{false && <p>Hi</p>}",
+      "options": [
+        "Renders 'false'",
+        "Renders <p>Hi</p>",
+        "Renders nothing",
+        "Throws"
+      ],
+      "answer": 2,
+      "explanation": "false, null, and undefined render as nothing in JSX."
+    },
+    {
+      "type": "predict",
+      "prompt": "What renders?",
+      "language": "jsx",
+      "code": "const count = 0;\nreturn <div>{count && <Cart />}</div>;",
+      "options": [
+        "<Cart />",
+        "0 shows in the div — classic gotcha",
+        "Nothing",
+        "Error"
+      ],
+      "answer": 1,
+      "explanation": "0 is falsy but JSX renders it as literal 0. Use {count > 0 && ...} instead."
+    },
+    {
+      "type": "mcq",
+      "prompt": "JSX expressions belong in:",
+      "options": [
+        "{ curly braces }",
+        "( parens )",
+        "[ brackets ]",
+        "backticks"
+      ],
+      "answer": 0,
+      "explanation": "Anything in {} is a JS expression evaluated at render."
+    }
+  ]
+}

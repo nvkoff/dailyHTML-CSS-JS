@@ -1,0 +1,70 @@
+{
+  "id": "css/colors",
+  "track": "css",
+  "unit": "Design tokens",
+  "order": 24,
+  "title": "Colors",
+  "description": "hex, rgb, hsl, oklch, and alpha.",
+  "xp": 10,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "Which color notation lets you tweak lightness intuitively?",
+      "options": ["#ffcc00", "rgb(255, 204, 0)", "hsl(48 100% 50%)", "yellow"],
+      "answer": 2,
+      "explanation": "HSL exposes hue, saturation, lightness — easy to tweak by hand."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Modern CSS color that better matches human perception:",
+      "options": ["oklch()", "cmyk()", "yiq()", "pantone()"],
+      "answer": 0,
+      "explanation": "oklch() (and lab, oklab) are perceptually uniform — great for palettes."
+    },
+    {
+      "type": "predict",
+      "prompt": "Alpha of this color?",
+      "language": "css",
+      "code": ".x { color: rgb(0 0 0 / 0.5); }",
+      "options": ["0", "0.5", "1", "50"],
+      "answer": 1,
+      "explanation": "Modern rgb() syntax uses `/` for alpha."
+    },
+    {
+      "type": "mcq",
+      "prompt": "currentColor keyword refers to:",
+      "options": [
+        "The element's `color` value",
+        "The background",
+        "The primary theme color",
+        "The parent's background"
+      ],
+      "answer": 0,
+      "explanation": "Handy for icon fills that follow text color."
+    },
+    {
+      "type": "mcq",
+      "prompt": "color-scheme: light dark tells the browser:",
+      "options": [
+        "Support both — use dark form controls in dark mode",
+        "Only render in dark mode",
+        "Nothing",
+        "Force light mode"
+      ],
+      "answer": 0,
+      "explanation": "Enables native dark scrollbars/form controls to follow OS preference."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Best practice for color contrast on text:",
+      "options": [
+        "Whatever looks nice",
+        "Aim for WCAG AA contrast (4.5:1 for body text)",
+        "Always black on white",
+        "Only test in dark mode"
+      ],
+      "answer": 1,
+      "explanation": "Contrast is accessibility, not just taste."
+    }
+  ]
+}

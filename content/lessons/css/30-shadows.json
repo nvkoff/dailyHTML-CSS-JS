@@ -1,0 +1,68 @@
+{
+  "id": "css/shadows",
+  "track": "css",
+  "unit": "Design tokens",
+  "order": 30,
+  "title": "Shadows",
+  "description": "box-shadow, text-shadow, and layered depth.",
+  "xp": 10,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "box-shadow order:",
+      "options": [
+        "offset-x offset-y blur spread color",
+        "color offset-x offset-y",
+        "blur color size",
+        "Any order works"
+      ],
+      "answer": 0,
+      "explanation": "x-offset, y-offset, blur, spread, color (color and spread are optional)."
+    },
+    {
+      "type": "predict",
+      "prompt": "Is this shadow inside or outside the box?",
+      "language": "css",
+      "code": ".x { box-shadow: inset 0 0 10px black; }",
+      "options": ["Inside", "Outside", "Both", "Neither"],
+      "answer": 0,
+      "explanation": "The `inset` keyword paints the shadow inside the element."
+    },
+    {
+      "type": "mcq",
+      "prompt": "For realistic depth, LAYER multiple shadows because:",
+      "options": [
+        "A single shadow reads flat; multi-layer mimics ambient + directional light",
+        "Only one shadow is legal",
+        "It's just style",
+        "For performance"
+      ],
+      "answer": 0,
+      "explanation": "Real design systems (Tailwind, Material) use stacked shadows."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Which is cheapest (no repaint on scroll):",
+      "options": [
+        "box-shadow on a fixed positioned bar",
+        "filter: drop-shadow",
+        "Neither is cheap; prefer solid backgrounds if perf matters",
+        "Both are free"
+      ],
+      "answer": 2,
+      "explanation": "Large blurred shadows are pricey to paint. Optimize hot paths."
+    },
+    {
+      "type": "mcq",
+      "prompt": "filter: drop-shadow vs box-shadow — key difference:",
+      "options": [
+        "drop-shadow follows the alpha shape of the element (non-rectangular)",
+        "box-shadow is faster always",
+        "drop-shadow is deprecated",
+        "They're the same"
+      ],
+      "answer": 0,
+      "explanation": "Great for irregular shapes like SVG icons or clipped elements."
+    }
+  ]
+}

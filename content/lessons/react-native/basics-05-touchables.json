@@ -1,0 +1,75 @@
+{
+  "id": "react-native/touchables",
+  "track": "react-native",
+  "section": "Basics",
+  "sectionOrder": 1,
+  "unit": "Interaction",
+  "order": 5,
+  "title": "Pressable & touchables",
+  "description": "Making things tappable.",
+  "xp": 10,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "Preferred modern touchable:",
+      "options": [
+        "Pressable — replaces TouchableOpacity/Highlight for most cases",
+        "onClick",
+        "TouchableWithoutFeedback",
+        "onTap"
+      ],
+      "answer": 0,
+      "explanation": "Pressable is flexible and gives you press states."
+    },
+    {
+      "type": "predict",
+      "prompt": "What does the style function receive?",
+      "language": "jsx",
+      "code": "<Pressable style={({ pressed }) => ({ opacity: pressed ? 0.6 : 1 })} />",
+      "options": [
+        "{ pressed: boolean }",
+        "just theme",
+        "event object",
+        "nothing"
+      ],
+      "answer": 0,
+      "explanation": "Also focused/hovered depending on platform."
+    },
+    {
+      "type": "mcq",
+      "prompt": "TouchableOpacity vs Pressable:",
+      "options": [
+        "Touchable* is the older API; Pressable is more flexible",
+        "Same thing",
+        "Only one works",
+        "TouchableOpacity is web-only"
+      ],
+      "answer": 0,
+      "explanation": "You'll still see legacy code use TouchableOpacity."
+    },
+    {
+      "type": "mcq",
+      "prompt": "For long press:",
+      "options": [
+        "onLongPress prop",
+        "onPressHold",
+        "Custom gesture only",
+        "Not supported"
+      ],
+      "answer": 0,
+      "explanation": "Delayed press event."
+    },
+    {
+      "type": "mcq",
+      "prompt": "hitSlop:",
+      "options": [
+        "Expands the touchable area beyond visual bounds",
+        "Shrinks it",
+        "Sets border",
+        "Nothing"
+      ],
+      "answer": 0,
+      "explanation": "Essential for small icon buttons to be tappable."
+    }
+  ]
+}

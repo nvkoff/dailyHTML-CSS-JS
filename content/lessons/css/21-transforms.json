@@ -1,0 +1,76 @@
+{
+  "id": "css/transforms",
+  "track": "css",
+  "unit": "Motion",
+  "order": 21,
+  "title": "Transforms",
+  "description": "translate, scale, rotate — cheap, GPU-friendly motion.",
+  "xp": 10,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "Which transform is cheapest to animate (avoids layout)?",
+      "options": ["margin", "top / left", "translate", "width"],
+      "answer": 2,
+      "explanation": "translate is composited — no layout or paint on most browsers."
+    },
+    {
+      "type": "predict",
+      "prompt": "Where is the element visually?",
+      "language": "css",
+      "code": ".x { transform: translateX(50%); }",
+      "options": [
+        "50% of viewport",
+        "50% of its OWN width to the right",
+        "Doesn't move",
+        "50% of parent width"
+      ],
+      "answer": 1,
+      "explanation": "Percentages in transform are relative to the element itself."
+    },
+    {
+      "type": "mcq",
+      "prompt": "transform-origin sets:",
+      "options": [
+        "The anchor point for rotation/scale (default: center)",
+        "Where the element sits",
+        "The z-index",
+        "The parent origin"
+      ],
+      "answer": 0,
+      "explanation": "Default is 50% 50% (center). Change it to rotate around a corner, etc."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Which chains rotation THEN scale (order matters)?",
+      "options": [
+        "transform: rotate(45deg) scale(2)",
+        "transform: scale(2) rotate(45deg)",
+        "transform: scale(2), rotate(45deg)",
+        "Both are identical"
+      ],
+      "answer": 0,
+      "explanation": "Order is left-to-right. Different order = different visual result."
+    },
+    {
+      "type": "mcq",
+      "prompt": "For 3D perspective, you set:",
+      "options": [
+        "perspective on the PARENT",
+        "perspective on the child",
+        "z-index",
+        "It's not possible"
+      ],
+      "answer": 0,
+      "explanation": "Perspective on the parent gives depth; alternatively perspective(N) inline in the transform."
+    },
+    {
+      "type": "fix-bug",
+      "prompt": "Center this absolutely-positioned box with transform.",
+      "language": "css",
+      "broken": ".box {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  /* need to center it visually */\n}",
+      "mustInclude": ["transform", "translate", "-50%"],
+      "explanation": "transform: translate(-50%, -50%) pulls back by half its own size."
+    }
+  ]
+}

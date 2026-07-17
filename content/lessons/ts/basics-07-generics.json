@@ -1,0 +1,58 @@
+{
+  "id": "ts/generics",
+  "track": "ts",
+  "section": "Basics",
+  "sectionOrder": 1,
+  "unit": "Generics",
+  "order": 7,
+  "title": "Generics",
+  "description": "Type parameters — reusable and precise.",
+  "xp": 14,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "Generic identity function:",
+      "options": [
+        "function id<T>(x: T): T { return x }",
+        "function id(x: any): any { return x }",
+        "function id<T>(x: T): any { return x }",
+        "function id<T>(x): T { return x }"
+      ],
+      "answer": 0,
+      "explanation": "T flows in and out — the caller gets back its own type."
+    },
+    {
+      "type": "predict",
+      "prompt": "What's the inferred return?",
+      "language": "ts",
+      "code": "function first<T>(arr: T[]): T | undefined { return arr[0]; }\nconst x = first([1, 2, 3]);",
+      "options": ["number", "number | undefined", "any", "unknown"],
+      "answer": 1,
+      "explanation": "T is inferred as number; return keeps the '| undefined'."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Generic constraint:",
+      "options": [
+        "function len<T extends { length: number }>(x: T): number",
+        "T where has length",
+        "T:length",
+        "T implements length"
+      ],
+      "answer": 0,
+      "explanation": "extends means 'must be assignable to'."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Default type parameter:",
+      "options": [
+        "function build<T = string>(x?: T): T[] { … }",
+        "function build<T := string>",
+        "function build<T | string>",
+        "Not possible"
+      ],
+      "answer": 0,
+      "explanation": "Defaults when the caller doesn't supply T."
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "id": "ts/keyof-typeof",
+  "track": "ts",
+  "section": "Advanced",
+  "sectionOrder": 2,
+  "unit": "Operators",
+  "order": 10,
+  "title": "keyof & typeof",
+  "description": "Move between values and types.",
+  "xp": 12,
+  "questions": [
+    {
+      "type": "predict",
+      "prompt": "What's Keys?",
+      "language": "ts",
+      "code": "type T = { a: string; b: number };\ntype Keys = keyof T;",
+      "options": ["string", "'a' | 'b'", "'a'", "any"],
+      "answer": 1,
+      "explanation": "keyof T is the union of its property keys."
+    },
+    {
+      "type": "predict",
+      "prompt": "Type of Cfg?",
+      "language": "ts",
+      "code": "const cfg = { host: 'x', port: 80 };\ntype Cfg = typeof cfg;",
+      "options": [
+        "{ host: string; port: number }",
+        "{ host: 'x'; port: 80 }",
+        "any",
+        "unknown"
+      ],
+      "answer": 0,
+      "explanation": "typeof value → its inferred type. Use `as const` to keep literals."
+    },
+    {
+      "type": "mcq",
+      "prompt": "get<T, K extends keyof T>(o: T, k: K): T[K] — this is:",
+      "options": [
+        "The idiomatic typed property getter",
+        "Runtime code only",
+        "Broken",
+        "Deprecated"
+      ],
+      "answer": 0,
+      "explanation": "Indexed access T[K] flows the right property type back."
+    }
+  ]
+}

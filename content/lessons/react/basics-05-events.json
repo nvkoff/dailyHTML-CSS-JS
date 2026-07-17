@@ -1,0 +1,89 @@
+{
+  "id": "react/events",
+  "track": "react",
+  "section": "Basics",
+  "sectionOrder": 1,
+  "unit": "Events",
+  "order": 5,
+  "title": "Handling events",
+  "description": "onClick, onChange, and the synthetic event.",
+  "xp": 12,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "React event names use:",
+      "options": [
+        "camelCase (onClick, onChange)",
+        "lowercase (onclick)",
+        "snake_case (on_click)",
+        "kebab-case"
+      ],
+      "answer": 0,
+      "explanation": "Different from HTML — onClick, not onclick."
+    },
+    {
+      "type": "predict",
+      "prompt": "Which fires the handler on render (bug)?",
+      "language": "jsx",
+      "code": "<button onClick={say('hi')}>Go</button>",
+      "options": [
+        "Only on click",
+        "On every render — say is CALLED immediately",
+        "Never",
+        "Fires once"
+      ],
+      "answer": 1,
+      "explanation": "Wrap in an arrow: onClick={() => say('hi')} — or pass the reference."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Prevent default form submit:",
+      "options": [
+        "return false",
+        "e.preventDefault()",
+        "e.stop()",
+        "onSubmit={null}"
+      ],
+      "answer": 1,
+      "explanation": "return false doesn't cancel React events."
+    },
+    {
+      "type": "mcq",
+      "prompt": "React's synthetic event vs native:",
+      "options": [
+        "Cross-browser normalized wrapper; e.nativeEvent gives you the raw event",
+        "React uses only native events",
+        "Deprecated",
+        "Only for touch"
+      ],
+      "answer": 0,
+      "explanation": "You almost never need nativeEvent — the wrapper mirrors it."
+    },
+    {
+      "type": "predict",
+      "prompt": "Which is called when you type into the input?",
+      "language": "jsx",
+      "code": "<input onChange={e => setValue(e.target.value)} />",
+      "options": [
+        "Once when done typing",
+        "On every keystroke",
+        "On blur only",
+        "Never"
+      ],
+      "answer": 1,
+      "explanation": "React's onChange behaves like native input event — fires per keystroke."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Passing arguments to a handler:",
+      "options": [
+        "onClick={handle(id)} — buggy",
+        "onClick={() => handle(id)} — correct",
+        "onClick=handle(id)",
+        "Both work"
+      ],
+      "answer": 1,
+      "explanation": "Wrap in arrow. Otherwise you call the fn during render."
+    }
+  ]
+}

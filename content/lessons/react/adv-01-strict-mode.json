@@ -1,0 +1,58 @@
+{
+  "id": "react/strict-mode",
+  "track": "react",
+  "section": "Advanced",
+  "sectionOrder": 3,
+  "unit": "Runtime",
+  "order": 15,
+  "title": "StrictMode & double invocation",
+  "description": "Why your effects fire twice — and why that's helpful.",
+  "xp": 10,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "StrictMode double invokes in DEV to:",
+      "options": [
+        "Slow you down",
+        "Expose impure render / missing cleanup bugs",
+        "Test concurrent features",
+        "Nothing — it's a bug"
+      ],
+      "answer": 1,
+      "explanation": "Production runs render once. Dev double-invocation is a diagnostic."
+    },
+    {
+      "type": "predict",
+      "prompt": "How many times does console log in dev with StrictMode?",
+      "language": "jsx",
+      "code": "useEffect(() => console.log('mount'), []);",
+      "options": ["1", "2", "3", "0"],
+      "answer": 1,
+      "explanation": "Mount → unmount → mount again, logs twice in dev."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Correct fix for double subscribe:",
+      "options": [
+        "Add cleanup function that unsubscribes",
+        "Remove StrictMode",
+        "Ignore",
+        "Use setTimeout"
+      ],
+      "answer": 0,
+      "explanation": "Effects should always clean up subscriptions."
+    },
+    {
+      "type": "mcq",
+      "prompt": "StrictMode:",
+      "options": [
+        "Enabled by React automatically",
+        "You opt in with <StrictMode> in your app root",
+        "Only in Next.js",
+        "Enabled via package.json"
+      ],
+      "answer": 1,
+      "explanation": "Wrap the tree in <StrictMode> during development."
+    }
+  ]
+}

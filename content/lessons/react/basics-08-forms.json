@@ -1,0 +1,75 @@
+{
+  "id": "react/forms",
+  "track": "react",
+  "section": "Basics",
+  "sectionOrder": 1,
+  "unit": "Forms",
+  "order": 8,
+  "title": "Forms",
+  "description": "Controlled inputs, submit handling.",
+  "xp": 12,
+  "questions": [
+    {
+      "type": "mcq",
+      "prompt": "A controlled input has:",
+      "options": [
+        "value + onChange bound to state",
+        "Only value",
+        "No onChange",
+        "defaultValue"
+      ],
+      "answer": 0,
+      "explanation": "React is the source of truth."
+    },
+    {
+      "type": "mcq",
+      "prompt": "An uncontrolled input uses:",
+      "options": [
+        "defaultValue + refs (or FormData on submit)",
+        "value + onChange",
+        "Nothing",
+        "Only useState"
+      ],
+      "answer": 0,
+      "explanation": "The DOM is the source of truth. Read on submit via ref or new FormData(form)."
+    },
+    {
+      "type": "predict",
+      "prompt": "Missing what causes 'You provided value without onChange'?",
+      "language": "jsx",
+      "code": "<input value={q} />",
+      "options": [
+        "onChange",
+        "defaultValue",
+        "type",
+        "name"
+      ],
+      "answer": 0,
+      "explanation": "Controlled inputs need onChange to update React state."
+    },
+    {
+      "type": "mcq",
+      "prompt": "Modern React server actions in forms:",
+      "options": [
+        "<form action={serverFn}> passes FormData server-side automatically",
+        "Not supported",
+        "You must use fetch",
+        "Deprecated"
+      ],
+      "answer": 0,
+      "explanation": "Server Actions integrate directly with the form action attribute."
+    },
+    {
+      "type": "mcq",
+      "prompt": "For select dropdowns, React uses:",
+      "options": [
+        "<select value={x} onChange={fn}> — not <option selected>",
+        "<option selected>",
+        "Only <input>",
+        "Both work"
+      ],
+      "answer": 0,
+      "explanation": "React manages selection at the <select>, not on the <option>."
+    }
+  ]
+}

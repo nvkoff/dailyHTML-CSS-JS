@@ -8,7 +8,7 @@ import { oneDark } from "@codemirror/theme-one-dark";
 import { EditorView } from "@codemirror/view";
 import { useMemo } from "react";
 
-type Lang = "css" | "html" | "js";
+type Lang = "css" | "html" | "js" | "ts" | "tsx" | "jsx";
 
 export function CodeEditor({
   value,
@@ -24,7 +24,13 @@ export function CodeEditor({
   height?: string;
 }) {
   const extensions = useMemo(() => {
-    const lang = language === "css" ? css() : language === "html" ? html() : javascript();
+    let lang;
+    if (language === "css") lang = css();
+    else if (language === "html") lang = html();
+    else if (language === "ts") lang = javascript({ typescript: true });
+    else if (language === "tsx") lang = javascript({ typescript: true, jsx: true });
+    else if (language === "jsx") lang = javascript({ jsx: true });
+    else lang = javascript();
     return [lang, EditorView.lineWrapping];
   }, [language]);
 
